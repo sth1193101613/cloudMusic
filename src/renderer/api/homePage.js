@@ -19,4 +19,22 @@ export class homePage{
             })
         })
     }
+    getBanner(){
+        return new Promise((resolve, reject) => {
+            instance.post('/banner').then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getPersonalized(){
+        return new Promise((resolve, reject) => {
+            instance.get('/personalized',{
+                params:{
+                    limit:10
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 }

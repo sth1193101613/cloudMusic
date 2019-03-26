@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow,ipcMain  } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -14,15 +14,13 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`
 
 function createWindow () {
-  /**
-   * Initial window options
-   */
   mainWindow = new BrowserWindow({
     minHeight: 670,
     useContentSize: true,
-    minWidth: 1022
+    minWidth: 1022,
+    frame: false
   })
-
+  mainWindow.show()
 
   mainWindow.loadURL(winURL)
 
@@ -30,6 +28,15 @@ function createWindow () {
     mainWindow = null
   })
 }
+ipcMain.on('min', e=> mainWindow.minimize());
+ipcMain.on('max', e=> {
+  if (mainWindow.isMaximized()) {
+    mainWindow.unmaximize()
+  } else {
+    mainWindow.maximize()
+  }
+});
+ipcMain.on('close', e=> mainWindow.close());
 
 app.on('ready', createWindow)
 

@@ -1,11 +1,11 @@
 <template>
     <div class="header">
-        <div class="logo"></div>
+        <div class="logo" style="-webkit-app-region: drag"></div>
         <div class="navs">
             <div class="left">
                 <div class="gos">
-                    <span><i class="fa fa-2x fa-angle-left" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></span>
+                    <span @click="historyGo"><i class="fa fa-2x fa-angle-left" aria-hidden="true"></i></span>
+                    <span @click="$router.go(+1)"><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="search">
                     <input type="text" placeholder="搜索音乐,歌手,歌词" @focus="show" @input="search" v-model="value" @blur.prevent="none"/>
@@ -67,19 +67,26 @@
                 </div>
             </div>
             <div class="right">
-                <div>未登录</div>
-                <div>
-                    <i class="fa fa-2x fa-thumb-tack" aria-hidden="true" @click="color"></i>
+                <div @click="loginUp">
+                    <!--{{userInfo}}-->
+                    未登录
                 </div>
+                <div><i class="fa fa-x fa-thumb-tack" aria-hidden="true" @click="color"></i></div>
                 <div><i class="fa fa-2x fa-envelope-o" aria-hidden="true"></i></div>
                 <div><i class="fa fa-2x fa-cog" aria-hidden="true"></i></div>
+                <div @click="min"><i class="fa fa-2x fa-window-minimize" aria-hidden="true" @click="color"></i></div>
+                <div @click="max"><i class="fa fa-2x fa-window-restore" aria-hidden="true"></i></div>
+                <div @click="close"><i class="fa fa-2x fa-times" aria-hidden="true"></i></div>
             </div>
         </div>
+        <v-login v-if="login" @close="close"></v-login>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     import { homePage } from '../../api/homePage'
+    import login from './login'
+    import {ipcRenderer } from 'electron'
     let headerModel  = new homePage
     export default {
         name: "index",
@@ -89,7 +96,13 @@
                 hot:[],
                 list:{},
                 his:[1,2,3,4,5],
-                value:''
+                value:'',
+                login:false
+            }
+        },
+        computed: {
+            userInfo() {
+                return this.$store.state.userInfo;
             }
         },
         watch:{
@@ -100,6 +113,28 @@
             }
         },
         methods:{
+            min(){
+                ipcRenderer.send('min');
+            },
+            max(){
+                ipcRenderer.send('max');
+            },
+            close(){
+                ipcRenderer.send('close');
+            },
+            historyGo(){
+                if (this.$route.query.goindex === 'true') {
+                    this.$router.push('/')
+                } else {
+                    this.$router.back(-1)
+                }
+            },
+            close(value){
+                this.login = value
+            },
+            loginUp(){
+                this.login = true
+            },
             color(){
 
             },
@@ -127,12 +162,18 @@
         created(){
             this._getHot()
         },
+        components:{
+            "v-login":login
+        }
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
     @import "../../assets/css/common";
     .header{
+        position: fixed;
+        z-index: 4;
+        width: 100%;
         display: flex;
         align-items: center;
         background:@back;
@@ -140,8 +181,8 @@
         .logo{
             margin: 0 15px;
             width: 176px;
-            height: 69px;
-            background: url("./images/topbar.png") no-repeat 0 0 ;
+            height: 55px;
+            background: url("./images/topbar.png") no-repeat 0 -7px ;
         }
         .navs{
             flex: 1;
@@ -253,8 +294,15 @@
                 font-size: 12px;
                 display: flex;
                 align-items: center;
-               div{
+                div{
+                    cursor: pointer;
                     flex: 1;
+                    &:not(:nth-child(1)){
+                        text-align: center;
+                    }
+                    .fa-2x{
+                        font-size: 1.5em;
+                    }
                 }
             }
         }

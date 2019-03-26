@@ -1,16 +1,25 @@
 import Vue from 'vue'
-import axios from 'axios'
 
 import App from './App'
 import router from './router'
 import store from './store'
+import ElementUI from 'element-ui';
 import './assets/css/style.css'
 import 'font-awesome/css/font-awesome.css'
+import 'element-ui/lib/theme-chalk/index.css';
 
-if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
-Vue.http = Vue.prototype.$http = axios
+
+Vue.use(ElementUI)
 Vue.config.productionTip = false
-
+Vue.prototype.$setgoindex = function () {
+  if (window.history.length <= 1) {
+    if (location.href.indexOf('?') === -1) {
+      window.location.href = location.href + '?goindex=true'
+    } else if (location.href.indexOf('?') !== -1 && location.href.indexOf('goindex') === -1) {
+      window.location.href = location.href + '&goindex=true'
+    }
+  }
+}
 
 /* eslint-disable no-new */
 new Vue({
