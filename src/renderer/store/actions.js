@@ -16,5 +16,17 @@ export default  {
         }).then((res) => {
             commit(types.SET_USERINFO,res)
         })
+    },
+    loginOut({commit}){
+        instance.post('/logout').then((res) => {
+            commit(types.LOGIN_OUT,res)
+        })
+    },
+    getSongUrl({commit},id){
+        instance.post('/song/url',{
+            id
+        }).then((res) => {
+            commit(types.SONG_SRC,res.data[0].url)
+        })
     }
 }

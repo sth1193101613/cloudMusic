@@ -30,6 +30,26 @@ export default new Router({
               path:"/navs/found/playlist",
               name:"playlist",
               component: require('@/page/navs/found/playlist').default,
+            },
+            {
+              path:"/navs/found/station",
+              name:"station",
+              component: require('@/page/navs/found/station').default,
+            },
+            {
+              path:"/navs/found/latestmusic",
+              name:"latestmusic",
+              component: require('@/page/navs/found/latestmusic').default,
+            },
+            {
+              path:"/navs/found/singer",
+              name:"singer",
+              component: require('@/page/navs/found/singer').default,
+            },
+            {
+              path:"/navs/found/list",
+              name:"singer",
+              component: require('@/page/navs/found/list').default,
             }
           ]
         },

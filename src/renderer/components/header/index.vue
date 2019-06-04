@@ -67,16 +67,30 @@
                 </div>
             </div>
             <div class="right">
-                <div @click="loginUp">
-                    <!--{{userInfo}}-->
+                <div @click="loginUp" v-if="!id">
                     未登录
                 </div>
-                <div><i class="fa fa-x fa-thumb-tack" aria-hidden="true" @click="color"></i></div>
-                <div><i class="fa fa-2x fa-envelope-o" aria-hidden="true"></i></div>
-                <div><i class="fa fa-2x fa-cog" aria-hidden="true"></i></div>
-                <div @click="min"><i class="fa fa-2x fa-window-minimize" aria-hidden="true" @click="color"></i></div>
-                <div @click="max"><i class="fa fa-2x fa-window-restore" aria-hidden="true"></i></div>
-                <div @click="close"><i class="fa fa-2x fa-times" aria-hidden="true"></i></div>
+                <div v-if="userInfo.profile && id" class="avt" @click="user">
+                    <span class="avatarUrl">
+                        <img :src="userInfo.profile.avatarUrl" alt="">
+                    </span>
+                    <span class="nickname">
+                        {{userInfo.profile.nickname}}
+                    </span>
+                    <i class="fa fa-sort-desc sort" aria-hidden="true"></i>
+                    <v-user v-if="colshow === 1 && clas"></v-user>
+                </div>
+                <div class="iconsa">
+                    <div class="icons">
+                        <img src="../../assets/images/picker.png"  @click="color" alt="">
+                        <v-color v-if="colshow === 2 && clas"></v-color>
+                    </div>
+                    <div class="icons"><img src="../../assets/images/dx.png" alt=""></div>
+                    <div class="icons"><img src="../../assets/images/setting.png" alt=""></div>
+                    <div class="icons" @click="min"><img src="../../assets/images/min.png" alt=""></div>
+                    <div class="icons" @click="max"><img src="../../assets/images/big.png" alt=""></div>
+                    <div class="icons" @click="closes"><img src="../../assets/images/close.png" alt=""></div>
+                </div>
             </div>
         </div>
         <v-login v-if="login" @close="close"></v-login>
@@ -86,6 +100,8 @@
 <script type="text/ecmascript-6">
     import { homePage } from '../../api/homePage'
     import login from './login'
+    import user from './users'
+    import color from './color'
     import {ipcRenderer } from 'electron'
     let headerModel  = new homePage
     export default {
@@ -97,12 +113,17 @@
                 list:{},
                 his:[1,2,3,4,5],
                 value:'',
-                login:false
+                login:false,
+                colshow:0,
+                clas:false
             }
         },
         computed: {
             userInfo() {
                 return this.$store.state.userInfo;
+            },
+            id() {
+                return this.$store.state.id;
             }
         },
         watch:{
@@ -119,7 +140,7 @@
             max(){
                 ipcRenderer.send('max');
             },
-            close(){
+            closes(){
                 ipcRenderer.send('close');
             },
             historyGo(){
@@ -136,7 +157,8 @@
                 this.login = true
             },
             color(){
-
+                this.clas = !this.clas
+                this.colshow = 2
             },
             search(){
                 if(this.value === ''){
@@ -157,13 +179,19 @@
                 headerModel.getHot().then((res) => {
                     this.hot = res.hots
                 })
+            },
+            user(){
+                this.clas = !this.clas
+                this.colshow = 1
             }
         },
         created(){
             this._getHot()
         },
         components:{
-            "v-login":login
+            "v-user":user,
+            "v-login":login,
+            "v-color":color
         }
     }
 </script>
@@ -188,6 +216,7 @@
             flex: 1;
             display: flex;
             align-items: center;
+            position: relative;
             .left{
                 display: flex;
                 flex: 3;
@@ -229,7 +258,7 @@
                     .dialog{
                         left: -15px;
                         position: absolute;
-                        top: 50px;
+                        top: 42px;
                         border-radius: 5px;
                         .flex{
                             background: rgb(45,45,51);
@@ -284,24 +313,62 @@
                                 }
                             }
                         }
-
                     }
                 }
             }
             .right{
+                padding-right: 20px;
+                position: absolute;
+                right: 0;
                 color: @font;
-                flex: 2;
+                flex: 2.35;
                 font-size: 12px;
-                display: flex;
                 align-items: center;
-                div{
+                display: flex;
+                &> div{
                     cursor: pointer;
-                    flex: 1;
-                    &:not(:nth-child(1)){
-                        text-align: center;
+                }
+                .iconsa{
+                    width: 200px;
+                    display: flex;
+                    align-items: center;
+                    .icons{
+                        margin-left: 20px;
+                        cursor: pointer;
+                        flex: 1;
+                        margin-left: 15px;
+                        &:not(:nth-child(1)){
+                            text-align: center;
+                        }
+                        img{
+                            max-width: 100%;
+                            display: block;
+                        }
                     }
-                    .fa-2x{
-                        font-size: 1.5em;
+                }
+                .avt{
+                    display: flex;
+                    align-items: center;
+                    width: 110px;
+                    .avatarUrl,.nickname{
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
+                    .avatarUrl{
+                        width: 25px;
+                        height: 25px;
+                        margin-right: 10px;
+                        img{
+                            max-width: 100%;
+                            border-radius: 50%;
+                        }
+                    }
+                    .nickname{
+                        color: #7F8084;
+                    }
+                    .sort{
+                        margin-left: 5px;
+                        margin-top: -3px;
                     }
                 }
             }

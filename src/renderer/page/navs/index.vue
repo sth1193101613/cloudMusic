@@ -12,18 +12,24 @@
                 </li>
             </ul>
         </div>
-        <router-view class="count">
+        <div @scroll="scroll" class="scroll">
+            <router-view class="count" ref="scroll">
 
-        </router-view>
+            </router-view>
+        </div>
+        <v-player></v-player>
     </div>
 </template>
 
 <script>
+    import Bus from '../../Bus'
+    import player from '../../components/player'
     export default {
         name: "index",
         data(){
             return{
                 Index:0,
+                height:null,
                 list:[
                     {
                         "title":"推荐",
@@ -37,15 +43,31 @@
                 ]
             }
         },
+        components:{
+            "v-player":player
+        },
         methods:{
             toggle(index){
-                console.log(index)
                 this.Index = index
+            },
+            clientHeight(){
+                this.height = document.documentElement.clientHeight
+
+            },
+            scroll(e){
+                if(e.srcElement.scrollTop+e.srcElement.offsetHeight>e.srcElement.scrollHeight-100){
+                    Bus.$emit('scrollBottom',true)
+                }
+
             }
         },
-        created(){
+        mounted(){
+            this.clientHeight()
+            window.onresize = () => {
+                this.clientHeight()
+            }
+        }
 
-        },
     }
 </script>
 
@@ -61,6 +83,7 @@
             background: @tab;
             height: 100%;
             position: fixed;
+            z-index: 2;
             .group{
                 h3{
                     padding: 10px 10px;
@@ -96,6 +119,25 @@
                 }
             }
 
+        }
+        .scroll{
+            position: fixed;
+            top:0px;
+            left: 0;
+            right:0;
+            overflow: auto;
+            bottom: 0;
+            background: #16181C;
+            &::-webkit-scrollbar{
+                width:10px;
+                background: #16181C;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: #2C2E32;
+                width: 8px;
+                height: 140px;
+                border-radius: 20px;
+            }
         }
         .count{
             margin-top: 57px;

@@ -26,7 +26,8 @@
         data(){
             return{
                 list:[],
-                Index:null
+                Index:null,
+                page:[]
             }
         },
         filters:{
@@ -38,7 +39,8 @@
                 }else{
                     return str
                 }
-            }
+            },
+
         },
         methods:{
             enter(index){
@@ -60,11 +62,13 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
+    @import "../../../../../assets/css/common";
     .personalized{
         .title{
             color: #fff;
             border-bottom: 1px solid #4a4a4a;
             padding-bottom: 10px;
+            font-size: 15px;
         }
         .personalized-cont{
             padding-top: 10px;
@@ -72,8 +76,14 @@
             flex-wrap: wrap;
             justify-content: center;
             .personalized-item{
-                width: calc((100% / 5) - 14px);
+                width: calc((100% / 5) - 11px);
                 padding: 6px;
+                &:nth-child(1),&:nth-child(6){
+                    padding-left: 0;
+                }
+                &:nth-child(5),&:nth-child(10){
+                    padding-right: 0;
+                }
                 .container{
                     position: relative;
                     .counts{
@@ -87,7 +97,7 @@
                         text-align: right;
                         padding-right: 7px;
                         .mus{
-                            margin-right: 2px;
+                            margin-right: 5px;
                         }
                     }
                     .copywriter{
@@ -120,22 +130,5 @@
 
             }
         }
-    }
-    .slide-fade-enter-active {
-        transition: all .3s ease;
-
-    }
-    .slide-fade-leave-active {
-        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-    }
-    .slide-fade-enter, .slide-fade-leave-to {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s;
-    }
-    .fade-enter, .fade-leave-to {
-        opacity: 0;
     }
 </style>

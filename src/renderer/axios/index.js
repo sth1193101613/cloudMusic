@@ -3,6 +3,7 @@ import qs from 'qs'
 let instance = axios.create({
   baseURL: "http://localhost:3000",
   timeout: 30000,
+  withCredentials: true
 })
 instance.interceptors.request.use((config) => {
   if (config.method === 'post') {

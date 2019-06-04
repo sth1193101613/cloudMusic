@@ -22,11 +22,11 @@
                 tab:[{"name":"个性推荐","path":"/navs/found/recommend"},
                     {"name":"歌单","path":"/navs/found/playlist"},
                     {"name":"主播电台","path":"/navs/found/station"},
-                    {"name":"排行榜","path":"/navs/found/list"},
+                    {"name":"排行榜","path":"/navs/found/latestmusic"},
                     {"name":"歌手","path":"/navs/found/singer"},
-                    {"name":"最新音乐","path":"/navs/found/latestmusic"}]
+                    {"name":"最新音乐","path":"/navs/found/list"}]
             }
-        }
+        },
     }
 </script>
 
@@ -49,5 +49,9 @@
                 border-bottom: 2px solid #9e9e9e;
             }
         }
+    }
+    .content{
+        max-width: 1024px;
+        margin: 0 auto;
     }
 </style>

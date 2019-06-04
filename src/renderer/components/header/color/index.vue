@@ -53,6 +53,7 @@
                 this.Index = index
             },
             colorChange(value,index){
+
                 this.handelColor = value.id
                 this.$emit('color',value.color,'#fff')
             }
@@ -66,9 +67,20 @@
         height: 250px;
         position: absolute;
         background: #2d2d33;
-        top: 71px;
-        right: 59px;
+        top: 56px;
+        right: 67px;
         border-radius: 5px;
+        &:before{
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #2d2d33;
+            content: "";
+            position: absolute;
+            width: 0;
+            top: -8px;
+            left: 50%;
+            margin-left: -10px;
+        }
         ul{
             line-height: 2;
             border-bottom: 1px solid #666;

@@ -1,2 +1,7 @@
 export const SET_ID = 'SET_ID'
 export const SET_USERINFO = 'SET_USERINFO'
+export const UPDATA_ARRAY = 'UPDATA_ARRAY'
+export const SET_COLOR = 'SET_COLOR'
+export const LOGIN_OUT = 'LOGIN_OUT'
+export const SONG_SRC = 'SONG_SRC'
+export const SONG_TIME = 'SONG_TIME'
