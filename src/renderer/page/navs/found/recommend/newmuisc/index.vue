@@ -5,7 +5,7 @@
             <ul class="cont">
                 <li v-for="(item,index) in list" class="item">
                     <div v-for="(group,index) in item" class="item-cont">
-                        <div class="index">
+                        <div class="index" @click="getId(group)">
                             <span>{{group.index}}</span>
                             <img src="../../../../../assets/images/player.png" alt="" class="pl">
                             <img :src="group.song.album.blurPicUrl" alt="" class="avts">
@@ -23,6 +23,7 @@
 
 <script type="text/ecmascript-6">
     import {homePage} from '../../../../../api/homePage'
+    import {mapActions,mapMutations} from 'vuex'
     let headerModel  = new homePage
     export default {
         name: "index",
@@ -32,6 +33,16 @@
             }
         },
         methods:{
+            ...mapActions([
+                'getSongUrl'
+            ]),
+            ...mapMutations({
+               getSongTime:'SONG_TIME'
+            }),
+            getId(item){
+                this.getSongUrl(item.id)
+                this.getSongTime(item.song.bMusic.playTime)
+            },
             split_array(arr, len){
                 let a_len = arr.length;
                 let result = [];

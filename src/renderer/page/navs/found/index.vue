@@ -7,9 +7,11 @@
                 </router-link>
             </ul>
         </div>
-        <router-view class="content">
+        <keep-alive>
+            <router-view class="content">
 
-        </router-view>
+            </router-view>
+        </keep-alive>
     </div>
 </template>
 

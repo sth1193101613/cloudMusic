@@ -44,13 +44,15 @@
         methods:{
             ...mapActions([
                 'getLoginId',
-                'getUserInfo'
+                'getUserInfo',
+                'getPlayList'
             ]),
             login(){
                 this.getLoginId(this.form)
-                if(this.id){
+                setTimeout(() => {
+                    this.getPlayList(this.id)
                     this.getUserInfo(this.id)
-                }
+                },50)
             },
             end(){
                 this.$emit('close',false)

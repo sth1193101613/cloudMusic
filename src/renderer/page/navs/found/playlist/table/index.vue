@@ -6,7 +6,7 @@
                 <span>{{list.name}}</span>
             </div>
             <div class="tag">
-                <div v-for="(item,index) in list" class="conts" @click="addBor(item);tirgeName(item)" :class="[{act:item.name === name}]">
+                <div v-for="(item,index) in list.list" class="conts" @click="addBor(item);tirgeName(item)" :class="[{act:item.name === name}]">
                     <span v-if="item.hot" class="hots">HOT</span>
                     {{item.name}}
                 </div>
@@ -48,6 +48,10 @@
             display: flex;
             justify-content: flex-start;
             margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0;
+                padding-bottom: 20px;
+            }
             .heds{
                 width: 80px;
                 color: #fff;

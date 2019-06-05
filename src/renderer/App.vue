@@ -2,9 +2,7 @@
   <div id="app">
     <v-header></v-header>
     <!--<v-navs></v-navs>-->
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -29,9 +27,9 @@
       }
     },
     created(){
-      if(this.id){
-        this.getUserInfo(this.id)
-      }
+      // if(this.id){
+      //   this.getUserInfo(this.id)
+      // }
       this.$setgoindex()
     }
   }

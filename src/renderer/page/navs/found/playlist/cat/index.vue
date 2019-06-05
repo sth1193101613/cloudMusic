@@ -100,21 +100,19 @@
             }
         }
         .tabs{
-            background: #2D2F33;
-            width: 540px;
-            height: 415px;
             position: relative;
             top: 60px;
-            overflow: scroll;
             z-index: 2;
-            &::-webkit-scrollbar{
-                width:0;
-                background: #16181C;
-            }
-            &::-webkit-scrollbar-thumb{
-                background: #2C2E32;
-                width: 8px;
-                border-radius: 20px;
+            height: 415px;
+            &:before{
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #2d2d33;
+                content: "";
+                position: absolute;
+                width: 0;
+                top: -10px;
+                margin-left: 20px;
             }
             h2{
                 background: #25272B;
@@ -129,8 +127,20 @@
                 z-index: 2;
             }
             .tbs{
+                width: 540px;
+                height: 365px;
                 padding-top: 60px;
                 background: #25272B;
+                overflow: auto;
+                &::-webkit-scrollbar{
+                    width:0;
+                    background: #16181C;
+                }
+                &::-webkit-scrollbar-thumb{
+                    background: #2C2E32;
+                    width: 8px;
+                    border-radius: 20px;
+                }
                 .btn{
                     border: 1px solid #4a4a4a;
                     text-align: center;

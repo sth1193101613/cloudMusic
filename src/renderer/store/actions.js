@@ -2,7 +2,7 @@ import instance from '../axios'
 import * as types from './mutations-types'
 
 export default  {
-    getLoginId({commit}, user){
+    getLoginId({commit}, user = {}){
         instance.post('/login/cellphone',{
             phone:user.phone,
             password:user.password
@@ -17,12 +17,19 @@ export default  {
             commit(types.SET_USERINFO,res)
         })
     },
+    getPlayList({commit}, uid = ''){
+        instance.post('/user/playlist',{
+            uid
+        }).then((res) => {
+            commit(types.PLAY_LIST,res.playlist)
+        })
+    },
     loginOut({commit}){
         instance.post('/logout').then((res) => {
             commit(types.LOGIN_OUT,res)
         })
     },
-    getSongUrl({commit},id){
+    getSongUrl({commit},id = ''){
         instance.post('/song/url',{
             id
         }).then((res) => {

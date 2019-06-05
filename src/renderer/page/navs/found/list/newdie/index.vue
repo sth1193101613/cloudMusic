@@ -6,8 +6,8 @@
                   <img :src="alm.picUrl" alt="">
                   <a href="#" class="back"></a>
               </div>
-                <p>{{alm.company}}</p>
-                <p>{{alm.name}}</p>
+                <p class="comp">{{alm.company}}</p>
+                <p class="name">{{alm.name}}</p>
             </li>
         </ul>
     </div>
@@ -63,6 +63,14 @@
                        right: 0;
                        background: url("../../../../../assets/coverall.png") no-repeat 0px -845px;
                    }
+               }
+               .comp{
+                   color: #fff;
+                   font-size: 12px;
+                   margin: 5px 0;
+               }
+               .name{
+                   font-size: 12px;
                }
                img{
                    position: absolute;

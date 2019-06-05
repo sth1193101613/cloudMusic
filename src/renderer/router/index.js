@@ -13,51 +13,56 @@ export default new Router({
       path:'/navs',
       name:"navs",
       redirect:'/navs/found',
-      component: require('@/page/navs').default,
+      // component: require('@/page/navs').default,
+      component: resolve => require(['@/page/navs'],resolve),
       children:[
         {
           path:"/navs/found",
           name:"found",
           redirect:'/navs/found/recommend',
-          component: require('@/page/navs/found').default,
+          component: resolve => require(['@/page/navs/found'],resolve),
           children:[
             {
               path:"/navs/found/recommend",
               name:"recommend",
-              component: require('@/page/navs/found/recommend').default,
+              component: resolve => require(['@/page/navs/found/recommend'],resolve),
             },
             {
               path:"/navs/found/playlist",
               name:"playlist",
-              component: require('@/page/navs/found/playlist').default,
+              component: resolve => require(['@/page/navs/found/playlist'],resolve),
             },
             {
               path:"/navs/found/station",
               name:"station",
-              component: require('@/page/navs/found/station').default,
+              component: resolve => require(['@/page/navs/found/station'],resolve),
             },
             {
               path:"/navs/found/latestmusic",
               name:"latestmusic",
-              component: require('@/page/navs/found/latestmusic').default,
+              component: resolve => require(['@/page/navs/found/latestmusic'],resolve),
             },
             {
               path:"/navs/found/singer",
               name:"singer",
-              component: require('@/page/navs/found/singer').default,
+              component: resolve => require(['@/page/navs/found/singer'],resolve),
             },
             {
               path:"/navs/found/list",
               name:"singer",
-              component: require('@/page/navs/found/list').default,
+              component: resolve => require(['@/page/navs/found/list'],resolve),
             }
           ]
         },
         {
           path:"/navs/fm",
           name:"found",
-          // redirect:'/navs/found/recommend',
-          component: require('@/page/navs/fm').default,
+          component: resolve => require(['@/page/navs/fm'],resolve),
+        },
+        {
+          path:"/navs/myMusic",
+          name:"myMusic",
+          component: resolve => require(['@/page/navs/myMusic'],resolve),
         }
       ]
     }

@@ -5,7 +5,9 @@
                 <span @click="fnIndex(index,item.components)">{{item.name}}</span>
             </li>
         </ul>
-        <component :is="name" class="tabs_content"></component>
+        <keep-alive>
+            <component :is="name" class="tabs_content"></component>
+        </keep-alive>
     </div>
 </template>
 

@@ -2,20 +2,23 @@
     <div class="navs-tab">
         <div class="tab">
             <ul>
-                <li v-for="(item,index) in list" class="group">
+                <li v-for="(item,index) in router" class="group">
                     <h3>{{item.title}}</h3>
-                    <router-link :to="group.path" tag="div" v-for="(group,index) in item.item" class="item" @click.native="toggle(index)">
-                        <div class="red" v-if="Index === index"></div>
+                    <router-link :to="{ path: group.path, query: { id: group.id }}" tag="div" v-for="(group,index) in item.item" class="item" @click.native="toggle(group.id)" :class="[{active:GroupId === group.id}]">
+                        <div class="red" v-if="GroupId === group.id"></div>
                         <i class="fa" aria-hidden="true" :class="group.icon"></i>
                         <span>{{group.name}}</span>
                     </router-link>
                 </li>
             </ul>
         </div>
-        <div @scroll="scroll" class="scroll">
-            <router-view class="count" ref="scroll">
+        <div class="music">
 
-            </router-view>
+        </div>
+        <div @scroll="scroll" class="scroll">
+            <keep-alive>
+                <router-view class="count" ref="scroll"></router-view>
+            </keep-alive>
         </div>
         <v-player></v-player>
     </div>
@@ -24,31 +27,26 @@
 <script>
     import Bus from '../../Bus'
     import player from '../../components/player'
+    import {mapState} from 'vuex'
     export default {
         name: "index",
         data(){
             return{
-                Index:0,
+                GroupId:1,
                 height:null,
-                list:[
-                    {
-                        "title":"推荐",
-                        item:[
-                            {"icon":"fa-music",path:"/navs/found","name":"发现音乐"},
-                            {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐"},
-                            {"icon":"fa-video-camera",path:"/navs/found1","name":"视频"},
-                            {"icon":"fa-male",path:"/navs/found2","name":"朋友"}
-                        ]
-                    }
-                ]
             }
+        },
+        computed:{
+            ...mapState([
+                'router'
+            ])
         },
         components:{
             "v-player":player
         },
         methods:{
-            toggle(index){
-                this.Index = index
+            toggle(id){
+                this.GroupId = id
             },
             clientHeight(){
                 this.height = document.documentElement.clientHeight
@@ -58,7 +56,6 @@
                 if(e.srcElement.scrollTop+e.srcElement.offsetHeight>e.srcElement.scrollHeight-100){
                     Bus.$emit('scrollBottom',true)
                 }
-
             }
         },
         mounted(){
@@ -81,9 +78,19 @@
             margin-top: 57px;
             width: 200px;
             background: @tab;
-            height: 100%;
+            height: calc(100% - 172px);
             position: fixed;
             z-index: 2;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                width: 10px;
+                background: #16181C;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: #2C2E32;
+                width: 8px;
+                border-radius: 20px;
+            }
             .group{
                 h3{
                     padding: 10px 10px;
@@ -93,10 +100,13 @@
                 .item{
                     cursor: pointer;
                     color: #DCDDE3;
-                    padding-left: 20px;
+                    padding-left: 15px;
                     line-height: 3;
                     font-size: 13px;
                     position: relative;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
                     .red{
                         position: absolute;
                         width: 3px;
@@ -104,7 +114,7 @@
                         background: red;
                         left: 0;
                     }
-                    &.router-link-active{
+                    &.active{
                         background: #26282C;
                         box-sizing: border-box;
                     }
@@ -118,7 +128,14 @@
                     }
                 }
             }
-
+        }
+        .music{
+            background: red;
+            height: 65px;
+            position: fixed;
+            width: 200px;
+            bottom: 50px;
+            z-index: 9;
         }
         .scroll{
             position: fixed;
@@ -145,6 +162,7 @@
             flex: 1;
             margin-left: 200px;
             padding: 0 25px;
+            padding-bottom: 50px;
         }
     }
 </style>

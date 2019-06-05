@@ -70,12 +70,12 @@
                 <div @click="loginUp" v-if="!id">
                     未登录
                 </div>
-                <div v-if="userInfo.profile && id" class="avt" @click="user">
+                <div v-else class="avt" @click="user">
                     <span class="avatarUrl">
-                        <img :src="userInfo.profile.avatarUrl" alt="">
+                        <img :src="userInfos.profile.avatarUrl" alt="">
                     </span>
                     <span class="nickname">
-                        {{userInfo.profile.nickname}}
+                        {{userInfos.profile.nickname}}
                     </span>
                     <i class="fa fa-sort-desc sort" aria-hidden="true"></i>
                     <v-user v-if="colshow === 1 && clas"></v-user>
@@ -119,7 +119,7 @@
             }
         },
         computed: {
-            userInfo() {
+            userInfos() {
                 return this.$store.state.userInfo;
             },
             id() {
