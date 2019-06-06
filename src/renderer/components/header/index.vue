@@ -67,10 +67,10 @@
                 </div>
             </div>
             <div class="right">
-                <div @click="loginUp" v-if="!id">
+                <div @click="loginUp" v-if="id === 'null'">
                     未登录
                 </div>
-                <div v-else class="avt" @click="user">
+                <div v-if="id!=='null'" class="avt" @click="user">
                     <span class="avatarUrl">
                         <img :src="userInfos.profile.avatarUrl" alt="">
                     </span>

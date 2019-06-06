@@ -25,7 +25,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import {mapActions} from 'vuex'
+    import {mapActions,mapState} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -37,9 +37,9 @@
             }
         },
         computed: {
-            id() {
-                return this.$store.state.id;
-            }
+            ...mapState([
+                'id'
+            ]),
         },
         methods:{
             ...mapActions([
@@ -50,9 +50,10 @@
             login(){
                 this.getLoginId(this.form)
                 setTimeout(() => {
+                    console.log(this.id)
                     this.getPlayList(this.id)
                     this.getUserInfo(this.id)
-                },50)
+                },500)
             },
             end(){
                 this.$emit('close',false)

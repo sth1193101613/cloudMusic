@@ -25,6 +25,7 @@ const mutations  ={
         let router = state.router
         for(let i in playlist){
             vue.set(playlist[i],'path','/navs/myMusic')
+            vue.set(playlist[i],'icon','fa-music')
         }
         let msg = {
             title: '我的歌单',
@@ -49,6 +50,12 @@ const mutations  ={
     },
     [types.SONG_TIME](state,playerTime){
         state.playerTime = playerTime
+    },
+    [types.SONG_DETAILID](state,detailId){
+        try {
+            localStorage.setItem('SongDetailId', detailId)
+        } catch (e) {}
+        state.SongDetailId = detailId
     }
 }
 export default mutations

@@ -4,7 +4,7 @@
             <ul>
                 <li v-for="(item,index) in router" class="group">
                     <h3>{{item.title}}</h3>
-                    <router-link :to="{ path: group.path, query: { id: group.id }}" tag="div" v-for="(group,index) in item.item" class="item" @click.native="toggle(group.id)" :class="[{active:GroupId === group.id}]">
+                    <router-link  v-for="(group,index) in item.item" :to="{ path: group.path}" tag="div" class="item" @click.native="toggle(group.id,group.path)" :class="[{active:GroupId === group.id}]">
                         <div class="red" v-if="GroupId === group.id"></div>
                         <i class="fa" aria-hidden="true" :class="group.icon"></i>
                         <span>{{group.name}}</span>
@@ -27,7 +27,7 @@
 <script>
     import Bus from '../../Bus'
     import player from '../../components/player'
-    import {mapState} from 'vuex'
+    import {mapState,mapMutations} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -45,8 +45,12 @@
             "v-player":player
         },
         methods:{
+            ...mapMutations({
+                getSongDetailId:'SONG_DETAILID'
+            }),
             toggle(id){
                 this.GroupId = id
+                this.getSongDetailId(id)
             },
             clientHeight(){
                 this.height = document.documentElement.clientHeight

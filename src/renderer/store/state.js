@@ -2,7 +2,7 @@ const state = {
     id:'',
     userInfo:{},
     color:{},
-    array:[{name:"推荐歌单",com:"v-personalized"},{com:"v-privatecontent",name:"独家放送"},{com:"v-newsong",name:"最新音乐"},{com:"v-mv",name:"推荐MV"},{com:"v-station",name:"主播电台"}],
+    array:[{name:"推荐歌单",com:"v-personalized"},{com:"v-privatecontent",name:"独家放送"},{com:"v-newsong",name:"最新音乐"},{com:"v-mv",name:"推荐MV"},{com:"v-station",name:"主播电台"}],//首页位置
     router:[
         {
             "title":"推荐",
@@ -13,8 +13,8 @@ const state = {
                 {"icon":"fa-male",path:"/navs/found2","name":"朋友",id:4}
             ]
         }
-    ],
-    playList:[],
+    ],//菜单渲染
+    SongDetailId:'',
     tag:'',
     playerState:false, //播放状态
     playerList:[], //播放列表
@@ -22,11 +22,14 @@ const state = {
     playerTime:0, //播放时间
     playerSrc:'' //播放地址
 }
+
+
+
 let router = JSON.parse(localStorage.getItem('router'))
 if (localStorage.getItem('router')){
     state.router = JSON.parse(localStorage.getItem('router'))
 } else {
-    localStorage.setItem('userInfo', JSON.stringify(router))
+    localStorage.setItem('router', JSON.stringify(router))
 }
 
 let userInfo = JSON.parse(localStorage.getItem('userInfo'))
@@ -35,6 +38,14 @@ if (localStorage.getItem('userInfo')){
 } else {
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
 }
+
+let SongDetailId = localStorage.getItem('SongDetailId')
+if (localStorage.getItem('SongDetailId')) {
+    state.id = localStorage.getItem('SongDetailId')
+} else {
+    localStorage.setItem('id', SongDetailId)
+}
+
 
 let id = localStorage.getItem('id')
 if (localStorage.getItem('id')) {

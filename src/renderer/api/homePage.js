@@ -196,4 +196,16 @@ export class homePage{
             })
         })
     }
+    getSongDetail(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/playlist/detail',{
+                params:{
+                    id,
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+
+    }
 }
