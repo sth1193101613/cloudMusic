@@ -18,3 +18,24 @@
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
+.el-pagination{
+  margin-bottom: 20px;
+  text-align: center;
+  &.is-background{
+    button{
+      background-color: #25272B!important;
+    }
+    .el-pager{
+      li{
+        background: transparent!important;
+        &.active{
+          color: red!important;
+          background: transparent!important;
+        }
+        &:hover{
+          color: #fff!important;
+        }
+      }
+    }
+  }
+}

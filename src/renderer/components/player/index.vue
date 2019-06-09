@@ -2,11 +2,11 @@
     <div class="player">
         <div class="playState">
             <div class="state"><img src="../../assets/images/shang.png" alt=""></div>
-            <div class="state" @click="audioClick" ><img src="../../assets/images/player.png" alt=""></div>
+            <div class="state" @click="audioClick" ><img :src="state === true?player:stop" alt=""></div>
             <div class="state"><img src="../../assets/images/xia.png" alt=""></div>
         </div>
         <v-playerProgress :currentTime="currentTime" :playerTime="playerTime" :percent="percent" class="playerProgress" @percentChange="percentChange"></v-playerProgress>
-        <audio :src="playerSrc" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
+        <audio :src="'https://music.163.com/song/media/outer/url?id='+playerSrc+'.mp3'" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
         <div class="sett">
 
         </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import {mapState} from  'vuex'
+    import {mapState,mapMutations} from  'vuex'
     import playerProgress from '../../components/playProgress'
     export default {
         name: "index",
@@ -22,35 +22,41 @@
             return{
                 songReady:false,
                 currentTime:null,
-
+                state:false,
+                stop:require('../../assets/images/player.png'),
+                player:require('../../assets/images/play.png')
             }
         },
         computed: {
             ...mapState([
                 'playerSrc',
-                'playerTime'//播放总时间
+                'playerTime',//播放总时间
+                'playerState'
             ]),
             percent(){
                 return parseFloat(this.currentTime / this.playerTime)
             },
         },
         watch:{
-            playing(newPlaying){
+            state(val){
                 let audio = this.$refs.audio;
                 this.$nextTick(() => {
-                    newPlaying ? audio.play():audio.pause();
+                    val ? audio.play():audio.pause();
                 })
             }
         },
         methods:{
+            ...mapMutations({
+               getSongState:'SONG_STATE'
+            }),
             percentChange(val){
                 let nowPlayerTime = val * this.playerTime / 1000
                 this.$refs.audio.currentTime = nowPlayerTime
             },
             audioClick(){
                 this.$nextTick(() => {
-                    let audio = this.$refs.audio
-                    audio.play();
+                    this.getSongState(this.playerState)
+                    this.state = this.playerState
                 },20)
             },
             updateTime(e){

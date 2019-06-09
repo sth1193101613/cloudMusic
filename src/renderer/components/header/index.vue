@@ -8,7 +8,7 @@
                     <span @click="$router.go(+1)"><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="search">
-                    <input type="text" placeholder="搜索音乐,歌手,歌词" @focus="show" @input="search" v-model="value" @blur.prevent="none"/>
+                    <input type="text" placeholder="搜索音乐,歌手,歌词" @focus.prevent="show" @input="search" v-model="value" @blur.prevent="none"/>
                     <i class="fa fa-1x fa-search searchIcon" aria-hidden="true"></i>
                     <div class="dialog" v-if="dialog">
                         <div class="flex" :class="[{active:value}]">
@@ -67,10 +67,10 @@
                 </div>
             </div>
             <div class="right">
-                <div @click="loginUp" v-if="id === 'null'">
+                <div @click="loginUp" v-if="id === ''">
                     未登录
                 </div>
-                <div v-if="id!=='null'" class="avt" @click="user">
+                <div v-if="id!==''" class="avt" @click="user">
                     <span class="avatarUrl">
                         <img :src="userInfos.profile.avatarUrl" alt="">
                     </span>
@@ -119,6 +119,7 @@
             }
         },
         computed: {
+
             userInfos() {
                 return this.$store.state.userInfo;
             },
@@ -165,6 +166,7 @@
                     this.dialog = false
                 }else{
                     headerModel.getSearch(this.value).then((res) => {
+                        this.dialog = true
                         this.list = res
                     })
                 }

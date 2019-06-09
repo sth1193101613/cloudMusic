@@ -208,4 +208,57 @@ export class homePage{
         })
 
     }
+    commitPlayer(id,limit,offset){
+        return new Promise((resolve, reject) => {
+            instance.get('/comment/playlist',{
+                params:{
+                    id,
+                    limit,
+                    offset
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    commitHtoPlayer(id,type){
+        return new Promise((resolve, reject) => {
+            instance.get('/comment/hot',{
+                params:{
+                    id,
+                    type
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    commentLike(type,t,cid,id){
+        return new Promise((resolve, reject) => {
+            instance.get('/comment/like',{
+                params:{
+                    type,
+                    t,
+                    cid,
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    subscribers(id,limit,offset){
+        return new Promise((resolve, reject) => {
+            instance.get('/playlist/subscribers',{
+                params:{
+                    id,
+                    limit,
+                    offset
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+
 }

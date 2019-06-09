@@ -36,9 +36,6 @@
                 this.flag = index;
                 this.name = `tab-${data}`;
             },
-            getSong(){
-
-            }
         }
     }
 </script>

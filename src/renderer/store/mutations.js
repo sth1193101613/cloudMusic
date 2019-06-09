@@ -23,15 +23,26 @@ const mutations  ={
     },
     [types.PLAY_LIST](state,playlist){
         let router = state.router
+        let arr = [
+            {
+                title: '创建的歌单',
+                item:[]
+            },
+            {
+                title: '收藏的歌单',
+                item:[]
+            }
+        ]
         for(let i in playlist){
-            vue.set(playlist[i],'path','/navs/myMusic')
+            if(playlist[i].subscribed){
+                arr[1].item.push(playlist[i])
+            }else{
+                arr[0].item.push(playlist[i])
+            }
             vue.set(playlist[i],'icon','fa-music')
+            vue.set(playlist[i],'path','/navs/myMusic')
         }
-        let msg = {
-            title: '我的歌单',
-            item:playlist
-        }
-        router.push(msg)
+        router = router.concat(arr)
         try {
             localStorage.setItem('router', JSON.stringify(router))
         }
@@ -56,6 +67,9 @@ const mutations  ={
             localStorage.setItem('SongDetailId', detailId)
         } catch (e) {}
         state.SongDetailId = detailId
+    },
+    [types.SONG_STATE](state,songstate){
+        state.playerState = !songstate
     }
 }
 export default mutations

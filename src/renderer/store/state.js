@@ -20,7 +20,9 @@ const state = {
     playerList:[], //播放列表
     playerIndex:0, //播放索引,
     playerTime:0, //播放时间
-    playerSrc:'' //播放地址
+    playerSrc:'', //播放地址
+    song:'',//默认缓存的歌曲
+    songList:[]//播放列表
 }
 
 
@@ -41,9 +43,9 @@ if (localStorage.getItem('userInfo')){
 
 let SongDetailId = localStorage.getItem('SongDetailId')
 if (localStorage.getItem('SongDetailId')) {
-    state.id = localStorage.getItem('SongDetailId')
+    state.SongDetailId = localStorage.getItem('SongDetailId')
 } else {
-    localStorage.setItem('id', SongDetailId)
+    localStorage.setItem('SongDetailId', SongDetailId)
 }
 
 

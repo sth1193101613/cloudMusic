@@ -5,7 +5,7 @@
                 <div class="container">
                     <span class="counts"><i class="fa fa-music mus" aria-hidden="true"></i>{{item.playCount | playCount}}</span>
                     <p class="copywriter">{{item.copywriter}}</p>
-                    <img :src="item.coverImgUrl">
+                    <el-image :src="item.coverImgUrl" :key="item.coverImgUrl" lazy></el-image>
                     <p class="name">{{item.name}}</p>
                 </div>
             </li>
@@ -91,26 +91,6 @@
                 }
             }
         }
-        .el-pagination{
-            margin-bottom: 20px;
-            text-align: center;
-            &.is-background{
-                button{
-                    background-color: #25272B;
-                }
-                .el-pager{
-                    li{
-                        background: transparent;
-                        &.active{
-                            color: red!important;
-                            background: transparent!important;
-                        }
-                        &:hover{
-                            color: #fff!important;
-                        }
-                    }
-                }
-            }
-        }
+
     }
 </style>

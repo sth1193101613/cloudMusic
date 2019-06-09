@@ -49,12 +49,12 @@
                 getSongDetailId:'SONG_DETAILID'
             }),
             toggle(id){
+                Bus.$emit('change','songlist')
                 this.GroupId = id
                 this.getSongDetailId(id)
             },
             clientHeight(){
                 this.height = document.documentElement.clientHeight
-
             },
             scroll(e){
                 if(e.srcElement.scrollTop+e.srcElement.offsetHeight>e.srcElement.scrollHeight-100){

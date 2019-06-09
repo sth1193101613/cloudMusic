@@ -8,9 +8,12 @@ import './assets/css/style.css'
 import 'font-awesome/css/font-awesome.css'
 import 'element-ui/lib/theme-chalk/index.css';
 
-
 Vue.use(ElementUI)
 Vue.config.productionTip = false
+
+router.afterEach((to,from,next) => {
+  window.scrollTo(0,0);
+});
 Vue.prototype.$setgoindex = function () {
   if (window.history.length <= 1) {
     if (location.href.indexOf('?') === -1) {

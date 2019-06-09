@@ -30,10 +30,6 @@ export default  {
         })
     },
     getSongUrl({commit},id = ''){
-        instance.post('/song/url',{
-            id
-        }).then((res) => {
-            commit(types.SONG_SRC,res.data[0].url)
-        })
+        commit(types.SONG_SRC,id)
     }
 }
