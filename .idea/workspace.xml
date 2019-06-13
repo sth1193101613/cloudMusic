@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/like-f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/like-t.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/s.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/comment/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/songlist/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/subscribers/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/components/lesing/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/api/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/api/homePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/assets/css/common.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/assets/css/common.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/components/header/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/header/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/components/player/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/player/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/found/list/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/found/list/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/found/playlist/listcat/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/found/playlist/listcat/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/store/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/mutations-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/store/mutations-types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/store/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/store/state.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/NeteaseCloudMusicApi/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,61 +21,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/comment/index.vue">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/player/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="83" column="7" selection-start-line="83" selection-start-column="7" selection-end-line="87" selection-end-column="10" />
-              <folding>
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#3251#3481#0" />
-                <element signature="e#3579#4003#0" />
-                <element signature="e#5366#5784#0" />
-              </folding>
+            <state relative-caret-position="1320">
+              <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/subscribers/index.vue">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/lesing/index.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/api/homePage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="249" column="31" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="31" />
-              <folding>
-                <element signature="n#!!block;n#getHot#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSearch#0;n#homePage#0" />
-                <element signature="n#!!block;n#getBanner#0;n#homePage#0" />
-                <element signature="n#!!block;n#getPersonalized#0;n#homePage#0" />
-                <element signature="n#!!block;n#getPrivatecontent#0;n#homePage#0" />
-                <element signature="n#!!block;n#getNewsong#0;n#homePage#0" />
-                <element signature="n#!!block;n#getMv#0;n#homePage#0" />
-                <element signature="n#!!block;n#getStation#0;n#homePage#0" />
-                <element signature="n#!!block;n#getCatList#0;n#homePage#0" />
-                <element signature="n#!!block;n#getCatListHot#0;n#homePage#0" />
-                <element signature="n#!!block;n#getplay#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSorganisation#0;n#homePage#0" />
-                <element signature="n#!!block;n#getcate#0;n#homePage#0" />
-                <element signature="n#!!block;n#getgift#0;n#homePage#0" />
-                <element signature="n#!!block;n#getTwo#0;n#homePage#0" />
-                <element signature="n#!!block;n#getGroup#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSinger#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSong#0;n#homePage#0" />
-                <element signature="n#!!block;n#getNewDie#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSongDetail#0;n#homePage#0" />
-                <element signature="n#!!block;n#commitPlayer#0;n#homePage#0" />
-                <element signature="n#!!block;n#commitHtoPlayer#0;n#homePage#0" />
-                <element signature="n#!!block;n#commentLike#0;n#homePage#0" />
-              </folding>
+              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -127,6 +65,9 @@
       <find>page</find>
       <find>scrollHandler</find>
       <find>like</find>
+      <find>bgc</find>
+      <find>ballBgc</find>
+      <find>left</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,6 +75,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/renderer/page/navs/found/playlist/listcat/index.vue" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/renderer/components/lesing/index.vue" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -141,7 +83,6 @@
         <option value="$PROJECT_DIR$/src/renderer/components/header/users/inde.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/header/color/index.vue" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/renderer/assets/css/style.css" />
         <option value="$PROJECT_DIR$/src/renderer/Bus/index.js" />
         <option value="$PROJECT_DIR$/src/renderer/axios/index.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/header/users/index.vue" />
@@ -157,7 +98,6 @@
         <option value="$PROJECT_DIR$/src/renderer/components/header/login/index.vue" />
         <option value="$PROJECT_DIR$/src/renderer/page/navs/found/recommend/newmuisc/index.vue" />
         <option value="$PROJECT_DIR$/src/renderer/store/mutations-types.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/player/index.vue" />
         <option value="$PROJECT_DIR$/src/renderer/store/actions.js" />
         <option value="$PROJECT_DIR$/src/renderer/store/mutations.js" />
         <option value="$PROJECT_DIR$/src/renderer/store/state.js" />
@@ -173,10 +113,13 @@
         <option value="$PROJECT_DIR$/src/renderer/api/homePage.js" />
         <option value="$PROJECT_DIR$/src/renderer/page/navs/myMusic/comment/index.vue" />
         <option value="$PROJECT_DIR$/src/renderer/page/navs/myMusic/subscribers/index.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/src/renderer/components/player/index.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/lesing/index.vue" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="398" />
     <option name="y" value="45" />
     <option name="width" value="1036" />
@@ -190,6 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,6 +157,44 @@
               <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="lesing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="playProgress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -222,31 +204,11 @@
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="navs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="navs" type="462c0819:PsiDirectoryNode" />
-              <item name="myMusic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="navs" type="462c0819:PsiDirectoryNode" />
-              <item name="myMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="subscribers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,17 +269,18 @@
       <workItem from="1559649712953" duration="7127000" />
       <workItem from="1559801151459" duration="5855000" />
       <workItem from="1559968083492" duration="29599000" />
+      <workItem from="1560256262719" duration="7096000" />
+      <workItem from="1560433111713" duration="74000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158680000" />
+    <option name="totallyTimeSpent" value="165850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16491044" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16491044" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -362,6 +325,10 @@
           <url>file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/index.vue</url>
           <line>115</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/renderer/components/lesing/index.vue</url>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -440,13 +407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="51" column="62" lean-forward="true" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" selection-start-line="20" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -597,20 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/playProgress/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="66" column="14" lean-forward="true" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/player/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/found/recommend/index.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -738,15 +684,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/comment/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="1320">
           <caret line="83" column="7" selection-start-line="83" selection-start-column="7" selection-end-line="87" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#3251#3481#0" />
-            <element signature="e#3579#4003#0" />
-            <element signature="e#5366#5784#0" />
           </folding>
         </state>
       </provider>
@@ -785,8 +728,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/subscribers/index.vue">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/playProgress/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="852">
+          <caret line="66" column="14" lean-forward="true" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="92" selection-start-line="2" selection-start-column="92" selection-end-line="2" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/player/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/lesing/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+          <folding>
+            <element signature="e#4472#4496#0" />
+          </folding>
         </state>
       </provider>
     </entry>

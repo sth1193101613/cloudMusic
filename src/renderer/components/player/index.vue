@@ -8,7 +8,7 @@
         <v-playerProgress :currentTime="currentTime" :playerTime="playerTime" :percent="percent" class="playerProgress" @percentChange="percentChange"></v-playerProgress>
         <audio :src="'https://music.163.com/song/media/outer/url?id='+playerSrc+'.mp3'" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
         <div class="sett">
-
+            <v-progress :max="100" :value="setVolume" @pbar-seek="seek" @pbar-drag="drag" :min="0"></v-progress>
         </div>
     </div>
 </template>
@@ -16,6 +16,7 @@
 <script type="text/ecmascript-6">
     import {mapState,mapMutations} from  'vuex'
     import playerProgress from '../../components/playProgress'
+    import progress from '../../components/lesing'
     export default {
         name: "index",
         data(){
@@ -24,7 +25,8 @@
                 currentTime:null,
                 state:false,
                 stop:require('../../assets/images/player.png'),
-                player:require('../../assets/images/play.png')
+                player:require('../../assets/images/play.png'),
+                volume:0
             }
         },
         computed: {
@@ -36,6 +38,9 @@
             percent(){
                 return parseFloat(this.currentTime / this.playerTime)
             },
+            setVolume(){
+                return this.volume * 100
+            }
         },
         watch:{
             state(val){
@@ -49,9 +54,18 @@
             ...mapMutations({
                getSongState:'SONG_STATE'
             }),
+            seek(val){
+                this.$refs.audio.volume = parseFloat(val) / 100
+
+            },
+            drag(val){
+                this.$refs.audio.volume = parseFloat(val) / 100
+            },
+            change(val){
+
+            },
             percentChange(val){
-                let nowPlayerTime = val * this.playerTime / 1000
-                this.$refs.audio.currentTime = nowPlayerTime
+                this.$refs.audio.currentTime = val * this.playerTime / 1000
             },
             audioClick(){
                 this.$nextTick(() => {
@@ -60,6 +74,7 @@
                 },20)
             },
             updateTime(e){
+                this.volume = e.target.volume
                 this.currentTime = e.target.currentTime; //当前播放时间
             },
             ready(){
@@ -70,7 +85,8 @@
             },
         },
         components:{
-            "v-playerProgress":playerProgress
+            "v-playerProgress":playerProgress,
+            "v-progress":progress
         }
     }
 </script>
@@ -103,7 +119,7 @@
             flex: 1;
         }
         .sett{
-            width: 180px;
+            width: 240px;
         }
     }
 </style>
