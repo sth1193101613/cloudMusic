@@ -50,8 +50,7 @@
                getSongState:'SONG_STATE'
             }),
             percentChange(val){
-                let nowPlayerTime = val * this.playerTime / 1000
-                this.$refs.audio.currentTime = nowPlayerTime
+                this.$refs.audio.currentTime = val * this.playerTime / 1000
             },
             audioClick(){
                 this.$nextTick(() => {

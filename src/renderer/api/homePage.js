@@ -260,5 +260,16 @@ export class homePage{
             })
         })
     }
+    getUserDetail(uid){
+        return new Promise((resolve, reject) => {
+            instance.get('/user/detail',{
+                params:{
+                    uid
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 
 }

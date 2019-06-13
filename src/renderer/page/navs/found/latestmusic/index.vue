@@ -86,12 +86,12 @@
         methods:{
             getTopList(num){
                 headModel.getGroup(num).then((res) => {
-                    this.SetTopList[num].list = Object.assign({},this.SetTopList[num].list,res.playlist);
+                    this.SetTopList[num].list = Object.assign([],this.SetTopList[num].list,res.playlist);
                 })
             },
             getGlobalLists(num){
                 headModel.getGroup(num).then((res) => {
-                    this.setGlobalList[num].list = Object.assign({},this.setGlobalList[num].list,res.playlist);
+                    this.setGlobalList[num].list = Object.assign([],this.setGlobalList[num].list,res.playlist);
                 })
             },
             setData(){
