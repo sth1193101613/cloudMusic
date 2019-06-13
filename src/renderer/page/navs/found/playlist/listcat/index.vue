@@ -5,7 +5,7 @@
                 <div class="container">
                     <span class="counts"><i class="fa fa-music mus" aria-hidden="true"></i>{{item.playCount | playCount}}</span>
                     <p class="copywriter">{{item.copywriter}}</p>
-                    <el-image :src="item.coverImgUrl" :key="item.coverImgUrl" lazy></el-image>
+                   <el-image :src="item.coverImgUrl" :key="item.coverImgUrl" lazy></el-image>
                     <p class="name">{{item.name}}</p>
                 </div>
             </li>

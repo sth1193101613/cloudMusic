@@ -17,7 +17,7 @@
         </div>
         <div @scroll="scroll" class="scroll">
             <keep-alive>
-                <router-view class="count" ref="scroll"></router-view>
+                <router-view class="count" ref="scroll" :key="$route.fullPath"></router-view>
             </keep-alive>
         </div>
         <v-player></v-player>

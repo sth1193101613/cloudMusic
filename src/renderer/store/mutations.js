@@ -51,7 +51,7 @@ const mutations  ={
     [types.UPDATA_ARRAY](state,array){
         state.array = array
     },
-    [types.LOGIN_OUT](state,out){
+    [types.LOGIN_OUT](state){
         state.userInfo = {}
         state.id = ''
         localStorage.clear();
@@ -70,6 +70,6 @@ const mutations  ={
     },
     [types.SONG_STATE](state,songstate){
         state.playerState = !songstate
-    }
+    },
 }
 export default mutations

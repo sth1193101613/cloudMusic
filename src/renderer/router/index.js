@@ -63,9 +63,13 @@ export default new Router({
           path:"/navs/myMusic",
           name:"myMusic",
           component: resolve => require(['@/page/navs/myMusic'],resolve),
+        },
+        {
+          path:'/navs/user',
+          name:'user',
+          component: resolve => require(['@/page/navs/user'],resolve),
         }
       ]
-    }
+    },
   ]
-  
 })

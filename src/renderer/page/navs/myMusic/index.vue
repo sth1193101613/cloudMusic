@@ -173,6 +173,11 @@
                 font-size: 12px;
                 margin-top: 12px;
                 line-height: 1.5;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
             }
         }
         .songtitle{
