@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/man.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/images/woman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/page/navs/user/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/api/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/api/homePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/components/player/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/player/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/found/latestmusic/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/found/latestmusic/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/found/playlist/listcat/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/found/playlist/listcat/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/subscribers/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/myMusic/subscribers/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/mutations-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/store/mutations-types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/store/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/header/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/header/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/NeteaseCloudMusicApi/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -154,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/renderer/store/actions.js" />
         <option value="$PROJECT_DIR$/src/renderer/store/state.js" />
         <option value="$PROJECT_DIR$/src/renderer/page/navs/found/list/index.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/header/index.vue" />
         <option value="$PROJECT_DIR$/src/renderer/assets/css/common.less" />
         <option value="$PROJECT_DIR$/src/renderer/page/navs/myMusic/songlist/index.vue" />
         <option value="$PROJECT_DIR$/src/renderer/main.js" />
@@ -171,10 +156,11 @@
         <option value="$PROJECT_DIR$/src/renderer/store/mutations-types.js" />
         <option value="$PROJECT_DIR$/src/renderer/store/mutations.js" />
         <option value="$PROJECT_DIR$/src/renderer/router/index.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/header/index.vue" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="398" />
     <option name="y" value="45" />
     <option name="width" value="1036" />
@@ -227,6 +213,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="renderer" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -310,16 +304,15 @@
       <workItem from="1559968083492" duration="29599000" />
       <workItem from="1560131614490" duration="11652000" />
       <workItem from="1560216967196" duration="8167000" />
-      <workItem from="1560397389746" duration="636000" />
+      <workItem from="1560397389746" duration="1253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179135000" />
+    <option name="totallyTimeSpent" value="179752000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13636364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -498,28 +491,6 @@
           <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#el-form-item#2;n#el-form#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/header/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="178" column="14" lean-forward="true" selection-start-line="178" selection-start-column="14" selection-end-line="178" selection-end-column="14" />
-          <folding>
-            <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#5581#5626#0" expanded="true" />
-            <element signature="e#6517#6573#0" />
-            <element signature="e#6592#6648#0" />
-            <element signature="e#6670#6728#0" />
-            <element signature="e#6753#6956#0" />
-            <element signature="e#6982#7032#0" />
-            <element signature="e#7055#7104#0" />
-            <element signature="e#7125#7212#0" />
-            <element signature="e#7813#7900#0" />
-            <element signature="e#7929#7967#0" />
-            <element signature="e#7988#8083#0" />
           </folding>
         </state>
       </provider>
@@ -787,6 +758,17 @@
             <element signature="e#1562#1605#0" />
             <element signature="e#1646#1691#0" />
             <element signature="e#1734#1875#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/header/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="339" column="32" selection-start-line="339" selection-start-column="32" selection-end-line="339" selection-end-column="32" />
+          <folding>
+            <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" />
           </folding>
         </state>
       </provider>
