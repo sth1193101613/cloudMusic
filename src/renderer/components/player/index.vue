@@ -61,7 +61,8 @@
             drag(val){
                 this.$refs.audio.volume = parseFloat(val) / 100
             },
-            change(val){
+            change(v
+            al){
 
             },
             percentChange(val){
