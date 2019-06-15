@@ -1,5 +1,5 @@
 <template>
-    <div class="user-detail" style="padding: 0 0   b 50px;">
+    <div class="user-detail" style="padding: 0 0  50px;">
         <div class="det" v-if="user.profile">
             <div class="img">
                 <img :src="user.profile.avatarUrl" alt="">
@@ -11,9 +11,25 @@
                     <span class="level">Lv.{{user.level}}</span>
                 </div>
                 <div class="c-cont">
-
+                    <p class="item">
+                        <span class="value">{{user.profile.followeds}}</span><br/><span class="key">动态</span>
+                    </p>
+                    <p class="item">
+                        <span class="value">{{user.profile.follows}}</span><br/><span class="key">关注</span>
+                    </p>
+                    <p class="item">
+                        <span class="value">{{user.profile.gender}}</span><br/><span class="key">粉丝</span>
+                    </p>
                 </div>
             </div>
+
+        </div>
+        <div class="btns">
+            <ul>
+                <li>
+                    <h2></h2>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -28,13 +44,41 @@
                 uid:this.$route.query.id,
                 user:{},
                 man:require('../../../assets/images/man.png'),
-                woman:require('../../../assets/images/woman.png')
+                woman:require('../../../assets/images/woman.png'),
+                item:{
+                    "0":{
+                        name:"歌单",
+                        list:[],
+                        total:''
+                    },
+                    "1":{
+                        name:"收藏",
+                        list:[],
+                        total:''
+                    }
+                }
             }
         },
         activated(){
             this._getUserDetail()
+            this._getUserPlayList()
         },
         methods:{
+            _getUserPlayList(){
+                headModel.getUserPlayList(this.uid).then((res) => {
+                    let k = res.playlist
+                    for(let i in k){
+                        if(k[i].subscribed){
+                            this.item[0].list.push(k[i])
+                            this.item[0].total = this.user.profile.playlistCount
+                        }else{
+                            this.item[1].list.push(k[i])
+                            this.item[1].total = this.user.profile.playlistCount
+                        }
+                    }
+                    console.log(this.item)
+                })
+            },
             _getUserDetail(){
                 headModel.getUserDetail(this.uid).then((res) => {
                     this.user = res
@@ -86,8 +130,37 @@
                         height: 25px;
                     }
                 }
+                .c-cont{
+                   .item{
+                       display: inline-block;
+                       vertical-align: middle;
+                       width: 80px;
+                       position: relative;
+                       &:last-child{
+                           &:after{
+                              display: none;
+                           }
+                       }
+                       &:after{
+                           content: "";
+                           position: absolute;
+                           height: 34px;
+                           width: 1px;
+                           background: #23262C;
+                           margin-top: 6px;
+                           top: 0;
+                           left: 65%;
+                       }
+                       .value{
+                           color: #fff;
+                           font-size: 22px;
+                       }
+                       .key{
+                           font-size: 14px;
+                       }
+                   }
+                }
             }
         }
-
     }
 </style>

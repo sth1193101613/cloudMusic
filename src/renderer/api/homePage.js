@@ -271,5 +271,13 @@ export class homePage{
             })
         })
     }
-
+    getUserPlayList(uid){
+        return new Promise((resolve, reject) => {
+            instance.post('/user/playlist',{
+                uid:uid
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 }

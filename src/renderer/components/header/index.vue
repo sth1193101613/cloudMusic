@@ -338,7 +338,6 @@
                         margin-left: 20px;
                         cursor: pointer;
                         flex: 1;
-                        margin-left: 15px;
                         &:not(:nth-child(1)){
                             text-align: center;
                         }
