@@ -76,7 +76,6 @@
                             this.item[1].total = this.user.profile.playlistCount
                         }
                     }
-                    console.log(this.item)
                 })
             },
             _getUserDetail(){
