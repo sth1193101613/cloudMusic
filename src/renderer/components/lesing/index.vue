@@ -51,8 +51,8 @@
                         if(e.clientX < this.progressElement.clientWidth + this.$el.offsetLeft){
                             let decimal = (e.clientX - this.$el.offsetLeft) / this.progressElement.clientWidth;
                             let percent = decimal * 100;
-                            this.leftStyle.width = percent + '%';
-                            this.$emit('pbar-drag', percent)
+                            this.leftStyle.width = Math.ceil(percent) + '%';
+                            this.$emit('pbar-drag', Math.ceil(percent))
                         }else{
                             this.leftStyle.width = '100%';
                             this.$emit('pbar-drag', 100);
@@ -61,8 +61,8 @@
                         if(e.clientX > this.$el.offsetLeft){
                             let decimal = (e.clientX - this.$el.offsetLeft) / this.progressElement.clientWidth;
                             let percent = decimal * 100;
-                            this.leftStyle.width = percent + '%';
-                            this.$emit('pbar-drag', percent)
+                            this.leftStyle.width = Math.ceil(percent) + '%';
+                            this.$emit('pbar-drag', Math.ceil(percent))
                         }else{
                             this.leftStyle.width = '0%';
                             this.$emit('pbar-drag', 0);
@@ -75,7 +75,7 @@
                     let decimal = (e.clientX - this.$el.offsetLeft) / this.progressElement.clientWidth;
                     let percent = decimal * 100;
                     this.leftStyle.width = percent + '%';
-                    this.$emit('pbar-seek', percent);
+                    this.$emit('pbar-seek', Math.ceil(percent));
                     this.isMouseDownOnBall = false;
                     this.isCurrentProgress = false;
                 }
@@ -101,7 +101,11 @@
         },
         mounted(){
             // 初始百分比
-            this.leftStyle.width = (this.pValue - this.pMin) / (this.pMax - this.pMin) * 100 + '%';
+            if(this.leftStyle.width>=100){
+                this.leftStyle.width = 100 + '%'
+            }else{
+                this.leftStyle.width = (this.pValue - this.pMin) / (this.pMax - this.pMin) * 100 + '%';
+            }
         },
         props: {
             max: {
@@ -124,6 +128,7 @@
     .warapp{
         display: flex;
         align-items: center;
+        flex: 1;
         .progress-wrapper{
             flex: 1;
             .progress{

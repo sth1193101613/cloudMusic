@@ -24,12 +24,15 @@
 <script type="text/ecmascript-6">
     import {homePage} from '../../../../../api/homePage'
     import {mapActions,mapMutations} from 'vuex'
+    import {addMusic} from '../../../../../util'
     let headerModel  = new homePage
     export default {
         name: "index",
         data(){
             return{
-                list:[]
+                list:[],
+                db:{},
+                songItem:{}
             }
         },
         methods:{
@@ -37,9 +40,17 @@
                 'getSongUrl'
             ]),
             ...mapMutations({
-               getSongTime:'SONG_TIME'
+                getSongTime:'SONG_TIME',
+                getSong:'SONG_THIS'
             }),
             getId(item){
+                this.songItem ={
+                    name:item.name,
+                    url:item.song.album.blurPicUrl,
+                    art:item.song.artists[0].name
+                }
+                addMusic(item)
+                this.getSong(this.songItem)
                 this.getSongUrl(item.id)
                 this.getSongTime(item.song.bMusic.playTime)
             },

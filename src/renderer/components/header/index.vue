@@ -119,7 +119,6 @@
             }
         },
         computed: {
-
             userInfos() {
                 return this.$store.state.userInfo;
             },

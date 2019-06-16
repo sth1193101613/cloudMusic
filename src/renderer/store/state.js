@@ -21,17 +21,36 @@ const state = {
     playerIndex:0, //播放索引,
     playerTime:0, //播放时间
     playerSrc:'', //播放地址
-    song:'',//默认缓存的歌曲
-    songList:[]//播放列表
+    song:{},//默认缓存的歌曲
 }
 
+let playerTime = localStorage.getItem('playerTime')
+if(localStorage.getItem('playerTime')){
+    state.playerTime = localStorage.getItem('playerTime')
+}else{
+    localStorage.setItem('playerTime',playerTime)
+}
 
+let playerSrc = localStorage.getItem('playerSrc')
+if(localStorage.getItem('playerSrc')){
+    state.playerSrc = localStorage.getItem('playerSrc')
+}else{
+    localStorage.setItem('playerSrc',playerSrc)
+}
+
+let song = JSON.parse(localStorage.getItem('song'))
+if (localStorage.getItem('song')){
+    state.song = JSON.parse(localStorage.getItem('song'))
+} else {
+    localStorage.setItem('song', JSON.stringify(song))
+}
 
 let router = JSON.parse(localStorage.getItem('router'))
-if (localStorage.getItem('router')){
+console.log(router)
+if (localStorage.getItem('router') !== null){
     state.router = JSON.parse(localStorage.getItem('router'))
 } else {
-    localStorage.setItem('router', JSON.stringify(router))
+    localStorage.setItem('router', JSON.stringify(state.router))
 }
 
 let userInfo = JSON.parse(localStorage.getItem('userInfo'))

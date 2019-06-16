@@ -48,6 +48,7 @@
             },
         },
         mounted() {
+
             this.btnWidth = document.getElementsByClassName('progress-btn')[0].clientWidth
         },
         methods: {

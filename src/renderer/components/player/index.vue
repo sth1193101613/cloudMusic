@@ -9,6 +9,7 @@
         <audio :src="'https://music.163.com/song/media/outer/url?id='+playerSrc+'.mp3'" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
         <div class="sett">
             <v-progress :max="100" :value="setVolume" @pbar-seek="seek" @pbar-drag="drag" :min="0"></v-progress>
+            <v-playList></v-playList>
         </div>
     </div>
 </template>
@@ -17,6 +18,7 @@
     import {mapState,mapMutations} from  'vuex'
     import playerProgress from '../../components/playProgress'
     import progress from '../../components/lesing'
+    import playList from '../../components/playlist'
     export default {
         name: "index",
         data(){
@@ -26,7 +28,7 @@
                 state:false,
                 stop:require('../../assets/images/player.png'),
                 player:require('../../assets/images/play.png'),
-                volume:0
+                volume:0.36
             }
         },
         computed: {
@@ -39,10 +41,22 @@
                 return parseFloat(this.currentTime / this.playerTime)
             },
             setVolume(){
-                return this.volume * 100
+                let num = Number(parseFloat(this.volume * 100).toFixed(2))
+                if(num>=100){
+                    return 100
+                }else{
+                    return Number(parseFloat(this.volume * 100).toFixed(2))
+                }
+
             }
         },
         watch:{
+            playerSrc(val){
+                this.state = false
+                this.setState(false)
+                this.audioClick()
+
+            },
             state(val){
                 let audio = this.$refs.audio;
                 this.$nextTick(() => {
@@ -52,17 +66,24 @@
         },
         methods:{
             ...mapMutations({
-               getSongState:'SONG_STATE'
+                getSongState:'SONG_STATE',
+                setState:'SONG_FALSE'
             }),
             seek(val){
-                this.$refs.audio.volume = parseFloat(val) / 100
-
+                if(val>=100){
+                    this.volume =1
+                }else{
+                    this.volume = Number(parseFloat(val / 100).toFixed(2))
+                }
+                this.$refs.audio.volume = this.volume
             },
             drag(val){
-                this.$refs.audio.volume = parseFloat(val) / 100
-            },
-            change(v
-            al){
+                if(val<0){
+                    this.volume = 0
+                }else{
+                    this.volume = Number(parseFloat(val / 100).toFixed(2))
+                }
+                this.$refs.audio.volume = this.volume
 
             },
             percentChange(val){
@@ -72,10 +93,10 @@
                 this.$nextTick(() => {
                     this.getSongState(this.playerState)
                     this.state = this.playerState
+                    this.$refs.audio.volume = this.volume
                 },20)
             },
             updateTime(e){
-                this.volume = e.target.volume
                 this.currentTime = e.target.currentTime; //当前播放时间
             },
             ready(){
@@ -87,7 +108,8 @@
         },
         components:{
             "v-playerProgress":playerProgress,
-            "v-progress":progress
+            "v-progress":progress,
+            "v-playList":playList
         }
     }
 </script>
@@ -121,6 +143,8 @@
         }
         .sett{
             width: 240px;
+            display: flex;
+            align-items: center;
         }
     }
 </style>

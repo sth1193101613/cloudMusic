@@ -26,8 +26,15 @@
         </div>
         <div class="btns">
             <ul>
-                <li>
-                    <h2></h2>
+                <li v-for="(list,index) in item">
+                    <h2 class="title">{{list.name}}（<span>{{list.total}}</span>）</h2>
+                    <ul class="list-ul">
+                        <li v-for="(group,index) in list.list" class="list" @click="push(group)">
+                            <img class="list-img" :src="group.coverImgUrl" alt="">
+                            <p class="name">{{group.name}}</p>
+                            <p>{{group.trackCount}}首</p>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -37,6 +44,7 @@
 <script type="text/ecmascript-6">
     import {homePage} from "../../../api/homePage";
     let headModel = new homePage
+    import {mapMutations} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -64,16 +72,25 @@
             this._getUserPlayList()
         },
         methods:{
+            ...mapMutations({
+                getSongDetailId:'SONG_DETAILID'
+            }),
+            push(item){
+                this.getSongDetailId(item.id)
+                this.$router.push({
+                    path:'/navs/myMusic'
+                })
+            },
             _getUserPlayList(){
                 headModel.getUserPlayList(this.uid).then((res) => {
                     let k = res.playlist
                     for(let i in k){
-                        if(k[i].subscribed){
+                        if(k[i].ordered){
+                            this.item[1].list.push(k[i])
+                            this.item[1].total = this.item[1].list.length
+                        }else{
                             this.item[0].list.push(k[i])
                             this.item[0].total = this.user.profile.playlistCount
-                        }else{
-                            this.item[1].list.push(k[i])
-                            this.item[1].total = this.user.profile.playlistCount
                         }
                     }
                 })
@@ -130,36 +147,75 @@
                     }
                 }
                 .c-cont{
-                   .item{
-                       display: inline-block;
-                       vertical-align: middle;
-                       width: 80px;
-                       position: relative;
-                       &:last-child{
-                           &:after{
-                              display: none;
-                           }
-                       }
-                       &:after{
-                           content: "";
-                           position: absolute;
-                           height: 34px;
-                           width: 1px;
-                           background: #23262C;
-                           margin-top: 6px;
-                           top: 0;
-                           left: 65%;
-                       }
-                       .value{
-                           color: #fff;
-                           font-size: 22px;
-                       }
-                       .key{
-                           font-size: 14px;
-                       }
-                   }
+                    .item{
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 80px;
+                        position: relative;
+                        &:last-child{
+                            &:after{
+                                display: none;
+                            }
+                        }
+                        &:after{
+                            content: "";
+                            position: absolute;
+                            height: 34px;
+                            width: 1px;
+                            background: #23262C;
+                            margin-top: 6px;
+                            top: 0;
+                            left: 65%;
+                        }
+                        .value{
+                            color: #fff;
+                            font-size: 22px;
+                        }
+                        .key{
+                            font-size: 14px;
+                        }
+                    }
                 }
             }
+        }
+        .btns{
+            margin-top: 30px;
+            .title{
+                background: #1C1E23;
+                color: #fff;
+                font-size: 13px;
+                padding: 10px 25px;
+            }
+            .list-ul{
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 10px 25px;
+                .list{
+                    width: calc((100% / 5) - 20px);
+                    margin: 10px;
+                    .list-img{
+                        width: 125px;
+                        height: 125px;
+                        img{
+                            max-width: 100%;
+                            display: block;
+                        }
+                    }
+                    .name{
+                        color: #fff;
+                        height: 40px;
+                        line-height: 20px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                        margin-top: 2px;
+                        font-size: 12px;
+                    }
+                }
+            }
+
         }
     }
 </style>

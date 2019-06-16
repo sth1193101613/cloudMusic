@@ -4,62 +4,64 @@
             <textarea style="resize:none;" class="conts" cols="30" rows="4"></textarea>
             <div>评论</div>
         </div>
-        <div v-if="hide">
-            <h5 class="top">精彩评论</h5>
-            <ul>
-                <li v-for="(list,index) in hotList" v-if="index<=9" class="avtimg">
-                    <div class="avt">
-                        <img :src="list.user.avatarUrl" alt="">
-                    </div>
-                    <div class="cont">
-                        <div class="nei">
-                            <span class="name">{{list.user.nickname}}:</span>
-                            <span class="content">{{list.content}}</span>
-                            <div v-if="list.beReplied.length!==0" v-for="(item,index) in list.beReplied" class="cont-cher">
-                                <span class="name">@{{item.user.nickname}}:</span>
-                                <span class="content">{{item.content}}</span>
+        <div v-if="total !== 0">
+            <div v-if="hide">
+                <h5 class="top">精彩评论</h5>
+                <ul>
+                    <li v-for="(list,index) in hotList" v-if="index<=9" class="avtimg">
+                        <div class="avt">
+                            <img :src="list.user.avatarUrl" alt="">
+                        </div>
+                        <div class="cont">
+                            <div class="nei">
+                                <span class="name">{{list.user.nickname}}:</span>
+                                <span class="content">{{list.content}}</span>
+                                <div v-if="list.beReplied.length!==0" v-for="(item,index) in list.beReplied" class="cont-cher">
+                                    <span class="name">@{{item.user.nickname}}:</span>
+                                    <span class="content">{{item.content}}</span>
+                                </div>
+                            </div>
+                            <div class="sett">
+                                <div class="time">
+                                    {{format(list.time)}}
+                                </div>
+                                <div class="menu" @click="like(list.commentId,list.liked,index)">
+                                    <img :src="list.liked?liket:likef" alt=""><span>({{list.likedCount}})</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="sett">
-                            <div class="time">
-                                {{format(list.time)}}
+                    </li>
+                </ul>
+            </div>
+            <div class="end" ref="scroll">
+                <h5 class="top">最新评论</h5>
+                <ul>
+                    <li v-for="(list,index) in nweList" class="avtimg">
+                        <div class="avt">
+                            <img :src="list.user.avatarUrl" alt="">
+                        </div>
+                        <div class="cont">
+                            <div class="nei">
+                                <span class="name">{{list.user.nickname}}:</span>
+                                <span class="content">{{list.content}}</span>
                             </div>
-                            <div class="menu" @click="like(list.commentId,list.liked,index)">
-                                <img :src="list.liked?liket:likef" alt=""><span>({{list.likedCount}})</span>
+                            <div>
+                                <div class="time">
+                                    {{format(list.time)}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+            <el-pagination
+                    background
+                    layout="prev, pager, next"
+                    :total="total"
+                    :page-size="30"
+                    @current-change="curr">
+            </el-pagination>
         </div>
-        <div class="end" ref="scroll">
-            <h5 class="top">最新评论</h5>
-            <ul>
-                <li v-for="(list,index) in nweList" class="avtimg">
-                    <div class="avt">
-                        <img :src="list.user.avatarUrl" alt="">
-                    </div>
-                    <div class="cont">
-                        <div class="nei">
-                            <span class="name">{{list.user.nickname}}:</span>
-                            <span class="content">{{list.content}}</span>
-                        </div>
-                        <div>
-                            <div class="time">
-                                {{format(list.time)}}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <el-pagination
-                background
-                layout="prev, pager, next"
-                :total="total"
-                :page-size="30"
-                @current-change="curr">
-        </el-pagination>
     </div>
 </template>
 

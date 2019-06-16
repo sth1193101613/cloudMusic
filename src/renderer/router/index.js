@@ -13,7 +13,6 @@ export default new Router({
       path:'/navs',
       name:"navs",
       redirect:'/navs/found',
-      // component: require('@/page/navs').default,
       component: resolve => require(['@/page/navs'],resolve),
       children:[
         {
@@ -71,5 +70,5 @@ export default new Router({
         }
       ]
     },
-  ]
+  ],
 })

@@ -6,7 +6,7 @@
             </li>
         </ul>
         <ul class="table-cont">
-            <li v-for="(item,index) in list">
+            <li v-for="(item,index) in list" @click="getMusic(item)">
                 <span>{{index<9?`0${index+1}`:index+1}}</span>
                 <span>12121</span>
                 <span>{{item.name}}</span>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import {mapActions,mapMutations} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -28,7 +29,8 @@
                 Index:null,
                 msg:{},
                 top:require('../../../../assets/images/s.png'),
-                bottom:require('../../../../assets/images/x.png')
+                bottom:require('../../../../assets/images/x.png'),
+                songItem:{}
             }
         },
         props:{
@@ -37,6 +39,35 @@
             }
         },
         methods:{
+            ...mapActions([
+                'getSongUrl'
+            ]),
+            ...mapMutations({
+                getSongTime:'SONG_TIME',
+                getSong:'SONG_THIS'
+            }),
+            ar(item){
+                let arr = []
+                if(item.length !==0){
+                    for(let i in item){
+                        arr.push(item[i].name)
+                    }
+                }else{
+                    return arr
+                }
+                return arr.join(',')
+            },
+            getMusic(item){
+                console.log(item)
+                this.songItem = {
+                    name:item.name,
+                    url:item.al.picUrl,
+                    art:(this.ar(item.ar))
+                }
+                this.getSong(this.songItem)
+                this.getSongUrl(item.id)
+                this.getSongTime(item.dt)
+            },
             sort(index,name){
                 this.Index = index
                 if(index === 5){

@@ -54,12 +54,18 @@ const mutations  ={
     [types.LOGIN_OUT](state){
         state.userInfo = {}
         state.id = ''
-        localStorage.clear();
+
     },
     [types.SONG_SRC](state,playerSrc){
         state.playerSrc = playerSrc
+        try {
+            localStorage.setItem('playerSrc', playerSrc)
+        } catch (e) {}
     },
     [types.SONG_TIME](state,playerTime){
+        try {
+            localStorage.setItem('playerTime', playerTime)
+        } catch (e) {}
         state.playerTime = playerTime
     },
     [types.SONG_DETAILID](state,detailId){
@@ -71,5 +77,14 @@ const mutations  ={
     [types.SONG_STATE](state,songstate){
         state.playerState = !songstate
     },
+    [types.SONG_FALSE](state){
+        state.playerState = false
+    },//每次切歌的状态
+    [types.SONG_THIS](state,song){
+        try {
+            localStorage.setItem('song', JSON.stringify(song))
+        }catch (e) {}
+        state.song = song
+    }
 }
 export default mutations

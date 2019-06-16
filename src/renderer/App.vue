@@ -10,11 +10,15 @@
   import header from './components/header'
   import navs from './page/navs'
   import {mapActions} from 'vuex'
+  import {createdData} from './util'
   export default {
     name: 'cloudmusic',
     components:{
       "v-header":header,
       "v-navs":navs
+    },
+    mounted(){
+      createdData()
     },
     methods:{
       ...mapActions([

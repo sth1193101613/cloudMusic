@@ -12,8 +12,17 @@
                 </li>
             </ul>
         </div>
-        <div class="music">
-
+        <div class="music" @click="switchMode">
+            <div class="img">
+                <div class="back">
+                    <img :src="big" alt="">
+                </div>
+                <img :src="song.url" alt="">？
+            </div>
+            <div class="cont">
+                <p class="name">{{song.name}}</p>
+                <p class="artname">{{song.art}}</p>
+            </div>
         </div>
         <div @scroll="scroll" class="scroll">
             <keep-alive>
@@ -21,33 +30,46 @@
             </keep-alive>
         </div>
         <v-player></v-player>
+        <v-cont :fullScreen="fullScreen" @change="close"/>
     </div>
 </template>
 
 <script>
     import Bus from '../../Bus'
     import player from '../../components/player'
+    import cont from '../../components/contPlay'
     import {mapState,mapMutations} from 'vuex'
+
     export default {
         name: "index",
         data(){
             return{
                 GroupId:1,
                 height:null,
+                big:require("../../assets/images/big.png"),
+                fullScreen:false,
             }
         },
         computed:{
             ...mapState([
-                'router'
+                'router',
+                'song'
             ])
         },
         components:{
-            "v-player":player
+            "v-player":player,
+            "v-cont":cont
         },
         methods:{
             ...mapMutations({
                 getSongDetailId:'SONG_DETAILID'
             }),
+            close(val){
+                this.fullScreen = val
+            },
+            switchMode() {
+                this.fullScreen = true
+            },
             toggle(id){
                 Bus.$emit('change','songlist')
                 this.GroupId = id
@@ -134,12 +156,58 @@
             }
         }
         .music{
-            background: red;
             height: 65px;
             position: fixed;
             width: 200px;
             bottom: 50px;
             z-index: 9;
+            display: flex;
+            align-items: center;
+            &:hover{
+                .img{
+                    .back{
+                        display: block;
+                    }
+                }
+            }
+            .img{
+                width: 52px;
+                height: 52px;
+                margin: 5px;
+                position: relative;
+                .back{
+                    display: none;
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.5);
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    img{
+                        width: 50%;
+                        display: block;
+                        margin: 25% auto;
+                    }
+                }
+                img{
+                    display: inline-block;
+                    max-width: 100%;
+                }
+            }
+            .cont{
+                flex: 1;
+                width: 60%;
+                p{
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
+                    font-size: 12px;
+                    line-height: 2;
+                }
+                .name{
+                    color: #fff;
+                }
+            }
         }
         .scroll{
             position: fixed;
