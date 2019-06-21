@@ -20,6 +20,12 @@
     mounted(){
       createdData()
     },
+    watch:{
+      '$route'(val,k){
+        let dom  =  document.querySelector('.scroll')
+        
+      }
+    },
     methods:{
       ...mapActions([
         'getUserInfo'

@@ -2,7 +2,7 @@
     <div class="personalized">
         <h2 class="title">推荐歌单</h2>
         <ul class="personalized-cont">
-            <li v-for="(item,index) in list" class="personalized-item" @mouseenter="enter(index)" @mouseleave="leave">
+            <li v-for="(item,index) in list" class="personalized-item" @mouseenter="enter(index)" @mouseleave="leave" @click="push(item)">
                 <div class="container">
                     <transition name="fade">
                         <span class="counts" v-if="Index !== index"><i class="fa fa-music mus" aria-hidden="true"></i>{{item.playCount | playCount}}</span>
@@ -21,6 +21,7 @@
 <script>
     import { homePage } from '../../../../../api/homePage'
     let headerModel  = new homePage
+    import {mapMutations} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -43,6 +44,15 @@
 
         },
         methods:{
+            ...mapMutations({
+                getSongDetailId:'SONG_DETAILID'
+            }),
+            push(list){
+                this.getSongDetailId(list.id)
+                this.$router.push({
+                    path:'/navs/myMusic'
+                })
+            },
             enter(index){
                 this.Index = index
             },

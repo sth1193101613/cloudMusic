@@ -62,7 +62,8 @@ export function addMusic(data) {
         name:data.name,
         songId:data.id,
         auth:data.song.artists[0].name,
-        time:data.song.bMusic.playTime
+        time:data.song.bMusic.playTime,
+        pic:data.song.album.blurPicUrl,
     })
     transaction.oncomplete =  (event) => {
         console.log('transaction add complete')

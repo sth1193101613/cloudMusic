@@ -11,7 +11,6 @@ import './util'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-
 Vue.prototype.$setgoindex = function () {
   if (window.history.length <= 1) {
     if (location.href.indexOf('?') === -1) {

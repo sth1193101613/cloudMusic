@@ -1,7 +1,7 @@
 <template>
     <div class="musiclist">
         <ul class="musiclist-cont">
-            <li v-for="(item,index) in table" class="music-item">
+            <li v-for="(item,index) in table" class="music-item" @click="push(item)">
                 <div class="container">
                     <span class="counts"><i class="fa fa-music mus" aria-hidden="true"></i>{{item.playCount | playCount}}</span>
                     <p class="copywriter">{{item.copywriter}}</p>
@@ -21,6 +21,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import {mapMutations} from 'vuex'
     export default {
         name: "list",
         props:{
@@ -37,6 +38,15 @@
             }
         },
         methods:{
+            ...mapMutations({
+                getSongDetailId:'SONG_DETAILID'
+            }),
+            push(item){
+                this.getSongDetailId(item.id)
+                this.$router.push({
+                    path:'/navs/myMusic'
+                })
+            },
             curr(value){
                 this.$emit('change',value)
             },

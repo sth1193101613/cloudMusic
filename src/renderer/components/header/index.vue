@@ -1,6 +1,7 @@
 <template>
+    <!--//style="-webkit-app-region: drag"-->
     <div class="header">
-        <div class="logo" style="-webkit-app-region: drag"></div>
+        <div class="logo"></div>
         <div class="navs">
             <div class="left">
                 <div class="gos">
@@ -8,14 +9,14 @@
                     <span @click="$router.go(+1)"><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="search">
-                    <input type="text" placeholder="搜索音乐,歌手,歌词" @focus.prevent="show" @input="search" v-model="value" @blur.prevent="none"/>
+                    <input type="text" placeholder="搜索音乐,歌手,歌词" @focus.prevent="show" @input="search" v-model="value"/>
                     <i class="fa fa-1x fa-search searchIcon" aria-hidden="true"></i>
                     <div class="dialog" v-if="dialog">
                         <div class="flex" :class="[{active:value}]">
                             <div class="hot" v-if="value === ''">
                                 <h3>热门搜索</h3>
                                 <ul>
-                                    <li v-for="(list,index) in hot" class="item">
+                                    <li v-for="(list,index) in hot" class="item" @click="push(list)">
                                         {{list.first}}
                                     </li>
                                 </ul>
@@ -134,6 +135,14 @@
             }
         },
         methods:{
+            push(item){
+                this.$router.push({
+                    path:'/navs/searchCont',
+                    query:{
+
+                    }
+                })
+            },
             min(){
                 ipcRenderer.send('min');
             },
@@ -173,9 +182,9 @@
             show(){
                 this.dialog = true
             },
-            none(){
-                this.dialog = false
-            },
+            // none(){
+            //     this.dialog = false
+            // },
             _getHot(){
                 headerModel.getHot().then((res) => {
                     this.hot = res.hots
