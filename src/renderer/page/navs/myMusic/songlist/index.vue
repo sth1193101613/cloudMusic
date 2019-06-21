@@ -58,7 +58,6 @@
                 return arr.join(',')
             },
             getMusic(item){
-                console.log(item)
                 this.songItem = {
                     name:item.name,
                     url:item.al.picUrl,
