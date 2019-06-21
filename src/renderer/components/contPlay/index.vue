@@ -20,9 +20,6 @@
                 type:Boolean
             }
         },
-        mounted(){
-            console.log(this._getPosAndScale())
-        },
         watch:{
             fullScreen(val){
                 console.log(val)
@@ -35,13 +32,10 @@
             _getPosAndScale() {
                 // 左下角图片的宽度
                 const targetWidth = 40
-                const paddingLeft = 20
-                const paddingBottom = 20
-                const paddingTop = 0
                 const width = document.documentElement.clientWidth
                 const scale = targetWidth / width
-                const x = -(window.innerWidth / 2 - paddingLeft)
-                const y = window.innerHeight - paddingTop - paddingBottom - width / 2
+                const x = -(window.innerWidth / 2)
+                const y = window.innerHeight  / 2
                 return {x ,y , scale}
             },
             enter(el, done) {
@@ -98,6 +92,15 @@
         background: #000;
         height: 100%;
         overflow: scroll;
+        &::-webkit-scrollbar{
+            width: 10px;
+            background: #16181C;
+        }
+        &::-webkit-scrollbar-thumb{
+            background: #2C2E32;
+            width: 8px;
+            border-radius: 20px;
+        }
         div{
             height: 1000px;
 

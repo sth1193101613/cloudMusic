@@ -10,7 +10,6 @@ const state = {
                 {"icon":"fa-music",path:"/navs/found","name":"发现音乐",id:1},
                 {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐",id:2},
                 {"icon":"fa-video-camera",path:"/navs/found1","name":"视频",id:3},
-                {"icon":"fa-male",path:"/navs/found2","name":"朋友",id:4}
             ]
         }
     ],//菜单渲染

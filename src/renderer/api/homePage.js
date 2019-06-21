@@ -280,4 +280,13 @@ export class homePage{
             })
         })
     }
+    getSearchList(keywords){
+        return new Promise((resolve, reject) => {
+            instance.post('/search',{
+                keywords
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 }

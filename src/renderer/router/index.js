@@ -67,8 +67,16 @@ export default new Router({
           path:'/navs/user',
           name:'user',
           component: resolve => require(['@/page/navs/user'],resolve),
+        },
+        {
+          path:'/navs/searchCont',
+          name:'search',
+          component: resolve => require(['@/page/navs/searchCont'],resolve),
         }
       ]
     },
   ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
