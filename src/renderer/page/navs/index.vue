@@ -26,7 +26,7 @@
         </div>
         <div @scroll="scroll" class="scroll">
             <keep-alive>
-                <router-view class="count" ref="scroll" :key="$route.fullPath"></router-view>
+                <router-view class="count" ref="scroll" :style="{height:height+'px'}" :key="$route.fullPath"></router-view>
             </keep-alive>
         </div>
         <v-player></v-player>
@@ -160,7 +160,7 @@
             position: fixed;
             width: 200px;
             bottom: 50px;
-            z-index: 9;
+            z-index: 2;
             display: flex;
             align-items: center;
             &:hover{
@@ -210,12 +210,8 @@
             }
         }
         .scroll{
-            position: fixed;
-            top:0px;
-            left: 0;
-            right:0;
+            flex: 1;
             overflow: auto;
-            bottom: 0;
             background: #16181C;
             &::-webkit-scrollbar{
                 width:10px;
@@ -231,10 +227,8 @@
         .count{
             margin-top: 57px;
             background: @cont;
-            flex: 1;
             margin-left: 200px;
             padding: 0 25px;
-            padding-bottom: 50px;
         }
     }
 </style>

@@ -2,7 +2,7 @@
     <div class="mv">
         <h2 class="title">推荐MV</h2>
         <ul class="mv-cont">
-            <li v-for="(item,index) in list" class="mv-item" @mouseenter="enter(index)" @mouseleave="leave" v-if="index <3">
+            <li v-for="(item,index) in list" class="mv-item" @mouseenter="enter(index)" @mouseleave="leave" v-if="index <3" @click="push(item)">
                 <div class="container">
                     <transition name="fade">
                         <span class="counts" v-if="Index !== index"><i class="fa fa-music mus" aria-hidden="true"></i>{{item.playCount}}</span>
@@ -33,6 +33,14 @@
             }
         },
         methods:{
+            push(item){
+                this.$router.push({
+                    path:'/navs/videoCont',
+                    query:{
+                        id:item.id
+                    }
+                })
+            },
             enter(index){
                 this.Index = index
             },

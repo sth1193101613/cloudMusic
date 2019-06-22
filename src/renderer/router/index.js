@@ -72,6 +72,11 @@ export default new Router({
           path:'/navs/searchCont',
           name:'search',
           component: resolve => require(['@/page/navs/searchCont'],resolve),
+        },
+        {
+          path:'/navs/videoCont',
+          name:'search',
+          component: resolve => require(['@/page/navs/videoCont'],resolve),
         }
       ]
     },
