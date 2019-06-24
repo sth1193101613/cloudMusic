@@ -90,7 +90,7 @@
                             this.item[1].total = this.item[1].list.length
                         }else{
                             this.item[0].list.push(k[i])
-                            this.item[0].total = this.user.profile.playlistCount
+                            this.item[0].total = this.item[0].list.length
                         }
                     }
                 })
@@ -105,6 +105,7 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
+
     .user-detail{
         .det{
             overflow: hidden;

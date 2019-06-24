@@ -17,7 +17,7 @@
                 <div class="back">
                     <img :src="big" alt="">
                 </div>
-                <img :src="song.url" alt="">？
+                <img :src="song.url" alt="">
             </div>
             <div class="cont">
                 <p class="name">{{song.name}}</p>

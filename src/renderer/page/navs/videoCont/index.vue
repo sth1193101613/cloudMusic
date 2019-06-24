@@ -12,7 +12,7 @@
             ></video-player>
         </div>
         <div class="mvs-right">
-
+            <v-all :all="all" :detail="detail"></v-all>
         </div>
     </div>
 </template>
@@ -20,12 +20,13 @@
 <script type="text/ecmascript-6">
     import {homePage} from "../../../api/homePage";
     const headerModel  = new homePage
+    import all from './all'
     export default {
         name: "index",
         data(){
             return{
                 playerOptions : {
-                    autoplay: false, //如果true,浏览器准备好时开始回放。
+                    autoplay: true, //如果true,浏览器准备好时开始回放。
                     muted: false, // 默认情况下将会消除任何音频。
                     loop: false, // 导致视频一结束就重新开始。
                     preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
@@ -49,6 +50,7 @@
                 detail:{},
                 videoId:this.$route.query.id,
                 url:'',
+                all:[],
             }
         },
         methods:{
@@ -78,8 +80,7 @@
             },
             async getResult(){
                 let id = await this._getVideoDetail();
-                let all = await this._getAllvideo()
-                console.log(all)
+                this.all = await this._getAllvideo()
                 this.detail = id
                 this.playerOptions.poster= id.cover
                 let url = await this._getMvUrl(id.id);
@@ -87,8 +88,10 @@
                 this.playerOptions.sources[0].src = this.url
             }
         },
+        components:{
+          "v-all":all
+        },
         created(){
-            // this._getVideoDetail()
             this.getResult()
         }
     }
@@ -117,10 +120,10 @@
         display: flex;
         .mvs-left{
             flex: 1;
-
             .title{
                 display: flex;
                 align-items: baseline;
+                padding-bottom: 10px;
                 i{
                     color: #fff;
                     font-size: 18px;
@@ -131,6 +134,8 @@
                 }
                 .artname{
                     font-size: 14px;
+                    color: #c4c4c4;
+                    margin-left: 20px;
                 }
                 .name{
                     font-size: 20px;
