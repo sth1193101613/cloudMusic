@@ -289,4 +289,38 @@ export class homePage{
             })
         })
     }
+    getVideoDetail(mvid){
+        return new Promise((resolve, reject) => {
+            instance.get('/mv/detail',{
+                params:{
+                    mvid
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getUrlMvs(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/mv/url',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getAllvideo(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/related/allvideo',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+
 }
