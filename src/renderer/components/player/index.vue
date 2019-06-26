@@ -1,9 +1,9 @@
 <template>
     <div class="player">
         <div class="playState">
-            <div class="state"><img src="../../assets/images/shang.png" alt=""></div>
+            <div class="state"><img src="../../assets/images/shang.png" alt="" @click="reduce"></div>
             <div class="state" @click="audioClick" ><img :src="state === true?player:stop" alt=""></div>
-            <div class="state"><img src="../../assets/images/xia.png" alt=""></div>
+            <div class="state"><img src="../../assets/images/xia.png" alt="" @click="add"></div>
         </div>
         <v-playerProgress :currentTime="currentTime" :playerTime="playerTime" :percent="percent" class="playerProgress" @percentChange="percentChange"></v-playerProgress>
         <audio :src="'https://music.163.com/song/media/outer/url?id='+playerSrc+'.mp3'" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
@@ -15,10 +15,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import {mapState,mapMutations} from  'vuex'
+    import {mapState,mapMutations,mapGetters,mapActions} from  'vuex'
     import playerProgress from '../../components/playProgress'
     import progress from '../../components/lesing'
     import playList from '../../components/playlist'
+    import {getAllData} from '../../util'
     export default {
         name: "index",
         data(){
@@ -28,14 +29,19 @@
                 state:false,
                 stop:require('../../assets/images/player.png'),
                 player:require('../../assets/images/play.png'),
-                volume:0.36
+                volume:0.36,
+                list:[],
+                index:0
             }
         },
         computed: {
             ...mapState([
                 'playerSrc',
                 'playerTime',//播放总时间
-                'playerState'
+                'playerState',
+            ]),
+            ...mapGetters([
+               'playerIndexSet'
             ]),
             percent(){
                 return parseFloat(this.currentTime / this.playerTime)
@@ -55,7 +61,6 @@
                 this.state = false
                 this.setState(false)
                 this.audioClick()
-
             },
             state(val){
                 let audio = this.$refs.audio;
@@ -64,11 +69,56 @@
                 })
             }
         },
+        created(){
+          this._getAll()
+        },
         methods:{
+            ...mapActions([
+                'getSongUrl'
+            ]),
             ...mapMutations({
                 getSongState:'SONG_STATE',
-                setState:'SONG_FALSE'
+                setState:'SONG_FALSE',
+                addSong:'SONG_INDEX_ADD',
+                preSong:'SONG_INDEX_PER',
+                playSrc:'SONG_SRC',
+                playIndex:'SONG_INDEX',
+                getSongTime:'SONG_TIME',
+                getSong:'SONG_THIS'
             }),
+            getName(item){
+                this.songItem ={
+                    name:item.name,
+                    url:item.pic,
+                    art:item.auth
+                }
+                this.getSong(this.songItem)
+                this.getSongUrl(item.songId)
+                this.getSongTime(item.time)
+            },
+            reduce(){
+                this.preSong()
+                if(this.playerIndexSet === -1){
+                    this.playIndex(this.list.length-1)
+                }
+                this.playSrc(this.list[this.playerIndexSet].songId)
+                this.getName(this.list[this.playerIndexSet])
+                this.$refs.audio.play()
+            },
+            add(){
+                this.addSong()
+                if(this.playerIndexSet > this.list.length-1){
+                    this.playIndex(0)
+                }
+                this.playSrc(this.list[this.playerIndexSet].songId)
+                this.getName(this.list[this.playerIndexSet])
+                this.$refs.audio.play()
+            },
+            _getAll(){
+                getAllData().then((res) => {
+                    this.list = res
+                })
+            },
             seek(val){
                 if(val>=100){
                     this.volume =1

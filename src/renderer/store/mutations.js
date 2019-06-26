@@ -1,6 +1,6 @@
 import * as types  from './mutations-types'
 import vue from 'vue'
-const mutations  ={
+const mutations  = {
     [types.SET_ID](state,id){
         state.id = id
         try {
@@ -85,6 +85,15 @@ const mutations  ={
             localStorage.setItem('song', JSON.stringify(song))
         }catch (e) {}
         state.song = song
+    },
+    [types.SONG_INDEX_ADD](state){
+        state.playerIndex ++
+    },//上
+    [types.SONG_INDEX_PER](state){
+        state.playerIndex --
+    },//下
+    [types.SONG_INDEX](state,num){
+        state.playerIndex = num
     }
 }
 export default mutations
