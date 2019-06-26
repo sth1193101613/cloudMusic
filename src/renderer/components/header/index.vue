@@ -1,7 +1,7 @@
 <template>
-    <!--//style="-webkit-app-region: drag"-->
+
     <div class="header">
-        <div class="logo"></div>
+        <div class="logo" style="-webkit-app-region: drag"></div>
         <div class="navs">
             <div class="left">
                 <div class="gos">
