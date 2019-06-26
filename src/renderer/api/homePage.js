@@ -83,10 +83,10 @@ export class homePage{
     }
     getCatList(){
         return new Promise((resolve, reject) => {
-                instance.get('/playlist/catlist').then((res) => {
-                    resolve(res)
-                })
+            instance.get('/playlist/catlist').then((res) => {
+                resolve(res)
             })
+        })
     }
     getCatListHot(){
         return new Promise((resolve, reject) => {
@@ -322,5 +322,24 @@ export class homePage{
             })
         })
     }
+    getMvAll(area,limit){
+        return new Promise((resolve, reject) => {
+            instance.get('/mv/first',{
+                params:{
+                    area,
+                    limit
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 
+    getVideoGroup(){
+        return new Promise((resolve, reject) => {
+            instance.get('/video/group/list').then((res) => {
+                resolve(res)
+            })
+        })
+    }
 }

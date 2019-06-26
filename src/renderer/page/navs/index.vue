@@ -26,7 +26,7 @@
         </div>
         <div @scroll="scroll" class="scroll">
             <keep-alive>
-                <router-view class="count" ref="scroll" :style="{height:height+'px'}" :key="$route.fullPath"></router-view>
+                <router-view class="count" ref="scroll" :key="$route.fullPath"></router-view>
             </keep-alive>
         </div>
         <v-player></v-player>
@@ -80,6 +80,7 @@
             },
             scroll(e){
                 if(e.srcElement.scrollTop+e.srcElement.offsetHeight>e.srcElement.scrollHeight-100){
+                    console.log(121)
                     Bus.$emit('scrollBottom',true)
                 }
             }
