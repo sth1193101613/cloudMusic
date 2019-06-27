@@ -6,9 +6,9 @@
             </li>
         </ul>
         <ul class="table-cont">
-            <li v-for="(item,index) in list" @click="getMusic(item)">
+            <li v-for="(item,index) in list" @dblclick="getMusic(item)">
                 <span>{{index<9?`0${index+1}`:index+1}}</span>
-                <span>12121</span>
+                <span><img :src="item.liked?liket:likef" alt=""></span>
                 <span>{{item.name}}</span>
                 <span>{{item.ar[0].name}}</span>
                 <span>{{item.al.name}}</span>
@@ -30,6 +30,8 @@
                 msg:{},
                 top:require('../../../../assets/images/s.png'),
                 bottom:require('../../../../assets/images/x.png'),
+                liket:require('../../../../assets/images/lovet.png'),
+                likef:require('../../../../assets/images/lovef.png'),
                 songItem:{}
             }
         },
@@ -116,7 +118,7 @@
                     width: 50px;
                 }
                 &:nth-child(2){
-                    width: 70px;
+                    width: 40px;
                 }
                 &:nth-child(3){
                     flex: 2;
@@ -151,7 +153,11 @@
                         text-align: right;
                     }
                     &:nth-child(2){
-                        width: 70px;
+                        width: 40px;
+                        img{
+                            width: 50%;
+                            display: block;
+                        }
                     }
                     &:nth-child(3){
                         flex: 2;

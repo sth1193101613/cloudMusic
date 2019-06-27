@@ -5,7 +5,7 @@
             <span v-for="(list,index) in arr" class="tag" :class="[{active:list === name}]" @click="refs(list)">{{list}}</span>
         </p>
         <ul class="mv-item">
-            <li v-for="(item,index) in list" class="lists">
+            <li v-for="(item,index) in list" class="lists" @click="push(item)">
                 <img :src="item.cover" alt="">
                 <p class="name">{{item.name}}</p>
                 <p>{{item.artistName}}</p>
@@ -28,6 +28,14 @@
             }
         },
         methods:{
+            push(item){
+                this.$router.push({
+                    path:'/navs/videoCont',
+                    query:{
+                        id:item.id
+                    }
+                })
+            },
             _getMvAll(){
                 headModel.getMvAll(this.name,this.num).then((res) => {
                     this.list = res.data
@@ -48,7 +56,6 @@
     .mvlist{
         max-width: 1024px;
         margin: 0 auto;
-
         .titles{
             margin-top: 25px;
             border-bottom: 1px solid #23262C;
@@ -65,7 +72,6 @@
                 }
             }
         }
-
         .mv-item{
             padding-top: 10px;
             display: flex;

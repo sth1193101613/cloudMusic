@@ -99,6 +99,7 @@
                     user-select: none;
                     color: #ADAFB2;
                     font-weight: 400;
+
                 }
             }
         }
@@ -121,7 +122,9 @@
         padding: 20px;
         background: #36383C;
         box-sizing: border-box;
-        color: #ccc;
+        color: #ADAFB2;
         font-weight: 400;
+        position: absolute;
+        z-index: 999999;
     }
 </style>

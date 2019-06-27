@@ -334,10 +334,9 @@ export class homePage{
             })
         })
     }
-
     getVideoGroup(){
         return new Promise((resolve, reject) => {
-            instance.get('/video/group/list').then((res) => {
+            instance.get('/top/mv').then((res) => {
                 resolve(res)
             })
         })
