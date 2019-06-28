@@ -38,7 +38,7 @@
                 </li>
             </ul>
             <keep-alive>
-                <component :is="name" class="tabs_content" :list="list.tracks"></component>
+                <component :is="name" class="tabs_content" :list="list.tracks" @change="isLike" :subscribed="this.$route.query"></component>
             </keep-alive>
         </div>
     </div>
@@ -80,7 +80,7 @@
                 if(this.$route.name === 'myMusic'){
                     this._getSongDetail()
                 }
-            }
+            },
         },
         computed:{
             ...mapState([
@@ -101,7 +101,10 @@
                 headModel.getSongDetail(this.SongDetailId).then((res) => {
                     this.list = res.playlist
                 })
-            }
+            },
+            isLike(){
+                this._getSongDetail()
+            },
         },
         mounted() {
             Bus.$on('change',(cont) => {

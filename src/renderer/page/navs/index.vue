@@ -4,7 +4,7 @@
             <ul>
                 <li v-for="(item,index) in router" class="group">
                     <h3>{{item.title}}</h3>
-                    <router-link  v-for="(group,index) in item.item" :to="{ path: group.path}" tag="div" class="item" @click.native="toggle(group.id,group.path)" :class="[{active:GroupId === group.id}]">
+                    <router-link  v-for="(group,index) in item.item" :to="{ path: group.path,query:{subscribed:group.subscribed}}" tag="div" class="item" @click.native="toggle(group.id,group.path)" :class="[{active:GroupId === group.id}]">
                         <div class="red" v-if="GroupId === group.id"></div>
                         <i class="fa" aria-hidden="true" :class="group.icon"></i>
                         <span>{{group.name}}</span>

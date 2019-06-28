@@ -341,4 +341,38 @@ export class homePage{
             })
         })
     }
+    isLike(id,like){
+        return new Promise((resolve, reject) => {
+            instance.get('/like',{
+                params:{
+                    id,
+                    like
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    dailySignin(){
+        return new Promise((resolve, reject) => {
+            instance.get('/daily_signin',{
+                params:{
+                    type:1
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    likelist(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/likelist',{
+                params:{
+                    uid:id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 }

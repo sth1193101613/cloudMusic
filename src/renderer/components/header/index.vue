@@ -71,14 +71,16 @@
                 <div @click="loginUp" v-if="id === ''">
                     未登录
                 </div>
-                <div v-if="id!==''" class="avt" @click="user">
-                    <span class="avatarUrl">
+                <div v-if="id!==''" class="avt">
+                    <p @click="user">
+                           <span class="avatarUrl">
                         <img :src="userInfos.profile.avatarUrl" alt="">
                     </span>
-                    <span class="nickname">
+                        <span class="nickname">
                         {{userInfos.profile.nickname}}
                     </span>
-                    <i class="fa fa-sort-desc sort" aria-hidden="true"></i>
+                        <i class="fa fa-sort-desc sort" aria-hidden="true"></i>
+                    </p>
                     <v-user v-if="colshow === 1 && clas"></v-user>
                 </div>
                 <div class="iconsa">
@@ -100,11 +102,12 @@
 
 <script type="text/ecmascript-6">
     import { homePage } from '../../api/homePage'
+    let headerModel  = new homePage
     import login from './login'
     import user from './users'
     import color from './color'
     import {ipcRenderer } from 'electron'
-    let headerModel  = new homePage
+
     export default {
         name: "index",
         data(){
@@ -182,9 +185,6 @@
             show(){
                 this.dialog = true
             },
-            // none(){
-            //     this.dialog = false
-            // },
             _getHot(){
                 headerModel.getHot().then((res) => {
                     this.hot = res.hots
@@ -366,7 +366,7 @@
                     .avatarUrl{
                         width: 25px;
                         height: 25px;
-                        margin-right: 10px;
+                        margin-right: 3px;
                         img{
                             max-width: 100%;
                             border-radius: 50%;
@@ -376,7 +376,7 @@
                         color: #7F8084;
                     }
                     .sort{
-                        margin-left: 5px;
+                        margin-left: 3px;
                         margin-top: -3px;
                     }
                 }

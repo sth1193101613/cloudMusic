@@ -1,38 +1,38 @@
 <template>
     <div class="bpk">
-       <div style="padding: 15px">
-           <div class="hed">
-               <div class="acus">
-                   <img :src="userInfo.profile.avatarUrl" alt="">
-                   <span>{{userInfo.profile.nickname}}</span>
-               </div>
-               <div class="qi">
-                   <span><i class="fa fa-database" aria-hidden="true"></i>签到</span>
-               </div>
-           </div>
-           <div class="tap">
-               <p>
-                   <span class="num">{{userInfo.profile.eventCount}}</span>
-                   <span class="name">动态</span>
-               </p>
-               <p>
-                   <span class="num">{{userInfo.profile.follows}}</span>
-                   <span class="name">关注</span>
-               </p>
-               <p>
-                   <span class="num">{{userInfo.profile.followeds}}</span>
-                   <span class="name">粉丝</span>
-               </p>
-           </div>
-       </div>
+        <div style="padding: 15px">
+            <div class="hed">
+                <div class="acus">
+                    <img :src="userInfo.profile.avatarUrl" alt="">
+                    <span>{{userInfo.profile.nickname}}</span>
+                </div>
+                <div class="qi">
+                    <span><i class="fa fa-database" aria-hidden="true" @click="qian"></i>签到</span>
+                </div>
+            </div>
+            <div class="tap">
+                <p>
+                    <span class="num">{{userInfo.profile.eventCount}}</span>
+                    <span class="name">动态</span>
+                </p>
+                <p>
+                    <span class="num">{{userInfo.profile.follows}}</span>
+                    <span class="name">关注</span>
+                </p>
+                <p>
+                    <span class="num">{{userInfo.profile.followeds}}</span>
+                    <span class="name">粉丝</span>
+                </p>
+            </div>
+        </div>
         <div class="tab">
             <div style="padding:0  15px;">
                 <ul>
                     <li>
-                       <div class="lefts">
-                           <i class="fa fa-diamond" aria-hidden="true"></i>
-                           <span>会员中心</span>
-                       </div>
+                        <div class="lefts">
+                            <i class="fa fa-diamond" aria-hidden="true"></i>
+                            <span>会员中心</span>
+                        </div>
                         <div class="rights">
                             <span>{{userInfo.pcSign === false?"未订购":"已订购"}}</span>
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -78,15 +78,24 @@
 
 <script>
     import {mapActions} from 'vuex'
+    import { homePage } from '../../../api/homePage'
+    let headerModel  = new homePage
+
     export default {
         name: "inde",
         methods:{
             ...mapActions([
                 'loginOut'
             ]),
-          loginout(){
+            loginout(){
                 this.loginOut()
-          }
+            },
+            qian(){
+                headerModel.dailySignin().then((res) => {
+
+
+                })
+            }
         },
         computed:{
             userInfo() {
@@ -158,7 +167,7 @@
                 }
             }
         }
-        .tab,loginout{
+        .tab{
             border-top: 1px solid #3f3f3f;
             li{
                 display: flex;
