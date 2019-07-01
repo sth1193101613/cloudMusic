@@ -68,7 +68,6 @@
 <script>
     import {homePage} from "../../../../api/homePage";
     let headModel = new homePage
-    import {mapState} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -83,15 +82,10 @@
                 likef:require('../../../../assets/images/like-f.png')
             }
         },
-        computed:{
-            ...mapState([
-                'SongDetailId'
-            ]),
-        },
         activated  (){
             this.limit = 30
             this.total = 0
-            this.getHot(this.SongDetailId,this.limit,0)
+            this.getHot(this.$route.query.id,this.limit,0)
         },
         watch:{
             page(val){
@@ -114,13 +108,13 @@
                     this.hotList[index].likedCount =  this.hotList[index].likedCount+1
                     this.hotList[index].liked =  true
                 }
-                headModel.commentLike(2,k,id,this.SongDetailId).then((res) => { })
+                headModel.commentLike(2,k,id,this.$route.query.id).then((res) => { })
             },
             curr(val){
                 if(val === 1){
-                    this.getHot(this.SongDetailId,this.limit,0)
+                    this.getHot(this.$route.query.id,this.limit,0)
                 }else{
-                    this.getHot(this.SongDetailId,this.limit,this.page*30)
+                    this.getHot(this.$route.query.id,this.limit,this.page*30)
                 }
                 this.page = val
                 let scrollDiv = this.$refs.scroll

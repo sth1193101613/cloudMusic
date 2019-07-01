@@ -4,7 +4,8 @@
             <ul>
                 <li v-for="(item,index) in router" class="group">
                     <h3>{{item.title}}</h3>
-                    <router-link  v-for="(group,index) in item.item" :to="{ path: group.path,query:{subscribed:group.subscribed}}" tag="div" class="item" @click.native="toggle(group.id,group.path)" :class="[{active:GroupId === group.id}]">
+                    <router-link  v-for="(group,index) in item.item" :to="{ path: group.path,query:{subscribed:group.subscribed,id:group.id}}"
+                                  tag="div" class="item" @click.native="toggle(group.id,group.path)" :class="[{active:GroupId === group.id}]">
                         <div class="red" v-if="GroupId === group.id"></div>
                         <i class="fa" aria-hidden="true" :class="group.icon"></i>
                         <span>{{group.name}}</span>
@@ -38,8 +39,7 @@
     import Bus from '../../Bus'
     import player from '../../components/player'
     import cont from '../../components/contPlay'
-    import {mapState,mapMutations} from 'vuex'
-
+    import {mapState} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -61,9 +61,6 @@
             "v-cont":cont
         },
         methods:{
-            ...mapMutations({
-                getSongDetailId:'SONG_DETAILID'
-            }),
             close(val){
                 this.fullScreen = val
             },
@@ -71,16 +68,13 @@
                 this.fullScreen = true
             },
             toggle(id){
-                Bus.$emit('change','songlist')
                 this.GroupId = id
-                this.getSongDetailId(id)
             },
             clientHeight(){
                 this.height = document.documentElement.clientHeight
             },
             scroll(e){
                 if(e.srcElement.scrollTop+e.srcElement.offsetHeight>e.srcElement.scrollHeight-100){
-                    console.log(121)
                     Bus.$emit('scrollBottom',true)
                 }
             }
@@ -230,6 +224,7 @@
             background: @cont;
             margin-left: 200px;
             padding: 0 25px;
+            margin-bottom: 50px;
         }
     }
 </style>

@@ -61,9 +61,6 @@
                     })
                 })
             },
-            onPlayerEnded(val){
-
-            },
             _getMvUrl(id){
                 return new Promise((resolve, reject) => {
                     headerModel.getUrlMvs(id).then((res) => {
@@ -89,7 +86,7 @@
             }
         },
         components:{
-          "v-all":all
+            "v-all":all,
         },
         created(){
             this.getResult()
@@ -109,6 +106,7 @@
         }
     }
     .mvs{
+        overflow: auto;
         position: fixed;
         left: 0;
         right: 0;

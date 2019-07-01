@@ -82,7 +82,7 @@ export default new Router({
           path:'/navs/moreMv',
           name:'more',
           component: resolve => require(['@/page/navs/moreMv'],resolve),
-        }
+        },
       ]
     },
   ],

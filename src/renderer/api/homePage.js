@@ -375,4 +375,16 @@ export class homePage{
             })
         })
     }
+    event(){
+        return new Promise((resolve, reject) => {
+            instance.get('/event',{
+                params:{
+                    uid:id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+
 }

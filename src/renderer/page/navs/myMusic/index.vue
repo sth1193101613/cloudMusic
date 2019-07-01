@@ -48,7 +48,6 @@
     import {homePage} from "../../../api/homePage";
     let headModel = new homePage
     import Bus from '../../../Bus'
-    import {mapState} from 'vuex'
     import songlist from './songlist'
     import comment from './comment'
     import subscribers from './subscribers'
@@ -56,6 +55,7 @@
         name: "index",
         data(){
             return{
+                id:this.$route.query.id,
                 list:[],
                 flag:0,
                 name:'v-songlist',
@@ -75,18 +75,6 @@
                 return `${y}-${m}-${d}`
             }
         },
-        watch:{
-            SongDetailId(val){
-                if(this.$route.name === 'myMusic'){
-                    this._getSongDetail()
-                }
-            },
-        },
-        computed:{
-            ...mapState([
-                'SongDetailId'
-            ])
-        },
         components:{
             "v-songlist" :songlist,
             "v-comment" :comment,
@@ -98,7 +86,7 @@
                 this.name = `v-${data}`;
             },
             _getSongDetail(){
-                headModel.getSongDetail(this.SongDetailId).then((res) => {
+                headModel.getSongDetail(this.id).then((res) => {
                     this.list = res.playlist
                 })
             },
@@ -106,7 +94,7 @@
                 this._getSongDetail()
             },
         },
-        mounted() {
+        activated() {
             Bus.$on('change',(cont) => {
                 this.name = `v-${cont}`
                 this.flag = 0
@@ -114,7 +102,7 @@
             if(this.$route.name === 'myMusic') {
                 this._getSongDetail()
             }
-        }
+        },
     }
 </script>
 

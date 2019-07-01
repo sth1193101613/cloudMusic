@@ -27,7 +27,7 @@
         activated  (){
             this.limit = 40
             this.total = 0
-            this.getSubscribers(this.SongDetailId,this.limit,0)
+            this.getSubscribers(this.$route.query.id,this.limit,0)
         },
         methods:{
             getSubscribers(id,limit,offset){
