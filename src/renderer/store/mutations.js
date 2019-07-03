@@ -52,9 +52,23 @@ const mutations  = {
         state.array = array
     },
     [types.LOGIN_OUT](state){
+        state.router = [
+            {
+                "title":"推荐",
+                item:[
+                    {"icon":"fa-music",path:"/navs/found","name":"发现音乐",id:1,subscribed:false},
+                    {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐",id:2,subscribed:false},
+                    {"icon":"fa-video-camera",path:"/navs/moreMv","name":"视频",id:3,subscribed:false},
+                ]
+            }
+        ]
         state.userInfo = {}
         state.id = ''
-
+        localStorage.clear()
+        try {
+            localStorage.setItem('router', JSON.stringify(state.router))
+        }
+        catch (e) {}
     },
     [types.SONG_SRC](state,playerSrc){
         state.playerSrc = playerSrc
@@ -67,12 +81,6 @@ const mutations  = {
             localStorage.setItem('playerTime', playerTime)
         } catch (e) {}
         state.playerTime = playerTime
-    },
-    [types.SONG_DETAILID](state,detailId){
-        try {
-            localStorage.setItem('SongDetailId', detailId)
-        } catch (e) {}
-        state.SongDetailId = detailId
     },
     [types.SONG_STATE](state,songstate){
         state.playerState = !songstate

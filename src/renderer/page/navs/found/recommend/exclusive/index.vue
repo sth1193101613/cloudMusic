@@ -2,7 +2,7 @@
     <div class="privatecontent">
         <h2 class="title">{{list.name}}</h2>
         <ul class="private-cont">
-            <li v-for="(item,index) in list.result" class="item">
+            <li v-for="(item,index) in list.result" class="item" @click="push(item)">
                 <div class="container">
                     <i class="fa fa-video-camera" aria-hidden="true"></i>
                     <img :src="item.sPicUrl" alt="">
@@ -24,6 +24,14 @@
             }
         },
         methods:{
+            push(item){
+                this.$router.push({
+                    path:'/navs/videoCont',
+                    query:{
+                        id:item.id
+                    },
+                })
+            },
             getPrivatecontent(){
                 headerModel.getPrivatecontent().then((res) => {
                     this.list = res

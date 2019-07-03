@@ -2,18 +2,18 @@ const state = {
     id:'',
     userInfo:{},
     color:{},
-    array:[{name:"推荐歌单",com:"v-personalized"},{com:"v-privatecontent",name:"独家放送"},{com:"v-newsong",name:"最新音乐"},{com:"v-mv",name:"推荐MV"},{com:"v-station",name:"主播电台"}],//首页位置
+    array:[{name:"推荐歌单",com:"v-personalized"}, {com:"v-privatecontent",name:"独家放送"},{com:"v-newsong",name:"最新音乐"},{com:"v-mv",name:"推荐MV"},{com:"v-station",name:"主播电台"}],//首页位置
     router:[
         {
             "title":"推荐",
             item:[
-                {"icon":"fa-music",path:"/navs/found","name":"发现音乐",id:1},
-                {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐",id:2},
-                {"icon":"fa-video-camera",path:"/navs/found1","name":"视频",id:3},
+                {"icon":"fa-music",path:"/navs/found","name":"发现音乐",id:1,subscribed:false},
+                {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐",id:2,subscribed:false},
+                {"icon":"fa-video-camera",path:"/navs/moreMv","name":"视频",id:3,subscribed:false},
             ]
         }
     ],//菜单渲染
-    SongDetailId:'',
+
     tag:'',
     playerState:false, //播放状态
     playerList:[], //播放列表
@@ -57,13 +57,6 @@ if (localStorage.getItem('userInfo')){
     state.userInfo = JSON.parse(localStorage.getItem('userInfo'))
 } else {
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
-}
-
-let SongDetailId = localStorage.getItem('SongDetailId')
-if (localStorage.getItem('SongDetailId')) {
-    state.SongDetailId = localStorage.getItem('SongDetailId')
-} else {
-    localStorage.setItem('SongDetailId', SongDetailId)
 }
 
 

@@ -11,6 +11,7 @@ import './util'
 import VideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 import'vue-video-player/src/custom-theme.css'
+import Router from "vue-router";
 
 Vue.use(VideoPlayer)
 Vue.use(ElementUI)
@@ -24,6 +25,9 @@ Vue.prototype.$setgoindex = function () {
     }
   }
 }
+router.afterEach((to,from,next) => {
+  window.scrollTo(0,0);
+});
 
 /* eslint-disable no-new */
 new Vue({

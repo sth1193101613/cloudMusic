@@ -83,10 +83,10 @@ export class homePage{
     }
     getCatList(){
         return new Promise((resolve, reject) => {
-                instance.get('/playlist/catlist').then((res) => {
-                    resolve(res)
-                })
+            instance.get('/playlist/catlist').then((res) => {
+                resolve(res)
             })
+        })
     }
     getCatListHot(){
         return new Promise((resolve, reject) => {
@@ -316,6 +316,70 @@ export class homePage{
             instance.get('/related/allvideo',{
                 params:{
                     id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getMvAll(area,limit){
+        return new Promise((resolve, reject) => {
+            instance.get('/mv/first',{
+                params:{
+                    area,
+                    limit
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getVideoGroup(){
+        return new Promise((resolve, reject) => {
+            instance.get('/top/mv').then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    isLike(id,like){
+        return new Promise((resolve, reject) => {
+            instance.get('/like',{
+                params:{
+                    id,
+                    like
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    dailySignin(){
+        return new Promise((resolve, reject) => {
+            instance.get('/daily_signin',{
+                params:{
+                    type:1
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    likelist(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/likelist',{
+                params:{
+                    uid:id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    event(){
+        return new Promise((resolve, reject) => {
+            instance.get('/event',{
+                params:{
+                    uid:id
                 }
             }).then((res) => {
                 resolve(res)

@@ -117,7 +117,6 @@
                             overflow: hidden;
                             text-overflow:ellipsis;
                             white-space: nowrap;
-
                         }
                         .sq{
                             font-size: 8px;

@@ -81,7 +81,6 @@
                 }
             },
             mouseoverHandler(e){
-                // 没有按左键进入进度条
                 if(e.which === 0){
                     this.isMouseDownOnBall = false;
                 }
@@ -90,7 +89,6 @@
                 if(e.which === 1 && this.isCurrentProgress){
                     this.outProgressClientX = e.clientX;
                     this.isMouseDownOnBody = true;
-                    // this.bodyEventHandler();
                 }
             },
         },
@@ -100,7 +98,6 @@
             }
         },
         mounted(){
-            // 初始百分比
             if(this.leftStyle.width>=100){
                 this.leftStyle.width = 100 + '%'
             }else{

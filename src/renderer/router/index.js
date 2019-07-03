@@ -77,11 +77,13 @@ export default new Router({
           path:'/navs/videoCont',
           name:'search',
           component: resolve => require(['@/page/navs/videoCont'],resolve),
-        }
+        },
+        {
+          path:'/navs/moreMv',
+          name:'more',
+          component: resolve => require(['@/page/navs/moreMv'],resolve),
+        },
       ]
     },
   ],
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }
 })

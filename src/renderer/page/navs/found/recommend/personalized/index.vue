@@ -21,7 +21,6 @@
 <script>
     import { homePage } from '../../../../../api/homePage'
     let headerModel  = new homePage
-    import {mapMutations} from 'vuex'
     export default {
         name: "index",
         data(){
@@ -44,13 +43,12 @@
 
         },
         methods:{
-            ...mapMutations({
-                getSongDetailId:'SONG_DETAILID'
-            }),
             push(list){
-                this.getSongDetailId(list.id)
                 this.$router.push({
-                    path:'/navs/myMusic'
+                    path:'/navs/myMusic',
+                    query:{
+                        id:list.id
+                    }
                 })
             },
             enter(index){

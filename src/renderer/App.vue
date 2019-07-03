@@ -22,8 +22,7 @@
     },
     watch:{
       '$route'(val,k){
-        let dom  =  document.querySelector('.scroll')
-        
+        window.scrollTo(0,0);
       }
     },
     methods:{

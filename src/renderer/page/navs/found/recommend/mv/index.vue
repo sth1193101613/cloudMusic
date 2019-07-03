@@ -1,6 +1,6 @@
 <template>
     <div class="mv">
-        <h2 class="title">推荐MV</h2>
+        <h2 class="title"><span>推荐MV</span> <span @click="more">更多></span></h2>
         <ul class="mv-cont">
             <li v-for="(item,index) in list" class="mv-item" @mouseenter="enter(index)" @mouseleave="leave" v-if="index <3" @click="push(item)">
                 <div class="container">
@@ -33,6 +33,11 @@
             }
         },
         methods:{
+            more(){
+                this.$router.push({
+                    path:'/navs/moreMv',
+                })
+            },
             push(item){
                 this.$router.push({
                     path:'/navs/videoCont',
@@ -67,6 +72,14 @@
             color: #fff;
             border-bottom: 1px solid #2b2b2b;
             padding-bottom: 10px;
+            span{
+                &:nth-child(2){
+                    float: right;
+                    font-size: 12px;
+                    color: #828385;
+                    cursor: pointer;
+                }
+            }
         }
         .mv-cont{
             padding-top: 10px;

@@ -21,7 +21,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import {mapMutations} from 'vuex'
     export default {
         name: "list",
         props:{
@@ -38,13 +37,12 @@
             }
         },
         methods:{
-            ...mapMutations({
-                getSongDetailId:'SONG_DETAILID'
-            }),
             push(item){
-                this.getSongDetailId(item.id)
                 this.$router.push({
-                    path:'/navs/myMusic'
+                    path:'/navs/myMusic',
+                    query:{
+                        id:item.id
+                    }
                 })
             },
             curr(value){
