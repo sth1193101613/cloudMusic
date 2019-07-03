@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/renderer/page/navs/videoCont/all/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/user/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/user/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/page/navs/videoCont/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/page/navs/videoCont/index.vue" afterDir="false" />
-    </list>
+    <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/NeteaseCloudMusicApi/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +17,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/videoCont/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="308">
               <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
             </state>
           </provider>
@@ -81,8 +75,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/renderer/page/navs/index.vue" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/renderer/components/playlist/index.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/renderer/page/navs/found/playlist/listcat/index.vue" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/renderer/components/playlist/index.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/renderer/components/player/index.vue" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
@@ -221,7 +215,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FundAnalysis/code/web" />
+    <property name="last_opened_file_path" value="$USER_HOME$/FundAnalysis/code/web" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -291,17 +285,18 @@
       <workItem from="1561084163320" duration="11399000" />
       <workItem from="1561175711688" duration="15289000" />
       <workItem from="1561368600821" duration="6577000" />
+      <workItem from="1561990355279" duration="579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298683000" />
+    <option name="totallyTimeSpent" value="299262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17283298" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17281349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -799,7 +794,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/videoCont/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="308">
           <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
         </state>
       </provider>
