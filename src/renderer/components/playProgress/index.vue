@@ -38,8 +38,9 @@
                 default: 0
             }
         },
+
         watch: {
-            percent(newPercent,) {
+            percent(newPercent) {
                 if (newPercent > 0 && !this.touchInfo.initiated) {
                     let barWidth = this.$refs.progressBar.clientWidth - this.btnWidth
                     let offsetWidth = barWidth * (newPercent * 1000)
@@ -48,7 +49,6 @@
             },
         },
         mounted() {
-
             this.btnWidth = document.getElementsByClassName('progress-btn')[0].clientWidth
         },
         methods: {
@@ -88,9 +88,9 @@
             },
         },
         computed: {
-            percent() {
-                return this.currentTime / this.playerTime
-            },
+            // percent() {
+            //     return this.currentTime / this.playerTime
+            // },
         }
     }
 </script>
