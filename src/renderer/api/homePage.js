@@ -1,5 +1,4 @@
 import instance from '../axios'
-
 export class homePage{
     getHot(){
         return new Promise((resolve, reject) => {
@@ -386,5 +385,4 @@ export class homePage{
             })
         })
     }
-
 }

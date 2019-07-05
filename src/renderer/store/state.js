@@ -13,7 +13,6 @@ const state = {
             ]
         }
     ],//菜单渲染
-
     tag:'',
     playerState:false, //播放状态
     playerList:[], //播放列表
