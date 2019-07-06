@@ -15,67 +15,36 @@ export function createdData() {
         };
         musicLists.onupgradeneeded = (e) => {
             db = e.target.result;
-            let objectStore = db.createObjectStore(music, {keyPath: 'id', autoIncrement: true});
-            objectStore.createIndex('name', 'name', {unique: true});
-            objectStore.createIndex('songId', 'songId', {unique: true});
-            objectStore.createIndex('auth', 'auth', {unique: true});
-            objectStore.createIndex('time', 'time', {unique: true});
-            objectStore.transaction.oncomplete = () => {
-                const transaction = db.transaction(music, 'readwrite')
-                const objStore = transaction.objectStore(music)
-                objStore.put({
-                    id: 1,
-                    name: '李白' ,
-                    songId:'1',
-                    auth:'',
-                    time:''
-                })
+            if(!db.objectStoreNames.contains(music)){
+                let objectStore = db.createObjectStore(music, {keyPath: 'id', autoIncrement: true});
+                objectStore.createIndex('name', 'name', {unique: false});
+                objectStore.createIndex('songId', 'songId', {unique: false});
+                objectStore.createIndex('auth', 'auth', {unique: false});
+                objectStore.createIndex('time', 'time', {unique: false});
+                objectStore.createIndex('pic', 'pic', {unique: false});
+                objectStore.transaction.oncomplete = () => {
+                    const transaction = db.transaction(music, 'readwrite')
+                    const objStore = transaction.objectStore(music)
+                    objStore.put({
+                        id: 1,
+                        name: '' ,
+                        songId:'',
+                        auth:'',
+                        time:'1'
+                    })
+                }
             }
         };
     })
 }
-export function updateData(data) {
-    clearData()
-    let transaction = db.transaction(music, 'readwrite')
-    let objectStore = transaction.objectStore(music)
-    let request
-    for(let i in data){
-        request = objectStore.put(data[i])
-    }
-    transaction.oncomplete =  (event) => {
-        console.log('transaction add complete')
-    }
-
-    transaction.onerror =  (error) => {
-        console.error('add error', error)
-    }
-    request.onsuccess = (event) => {
-        console.log('add complete')
-    }
-
-}//整个列表
 export function addMusic(data) {
     let transaction = db.transaction(music, 'readwrite')
     let objectStore = transaction.objectStore(music)
-    let request = objectStore.put({
-        id:Math.random() * 10,
-        name:data.name,
-        songId:data.id,
-        auth:data.song.artists[0].name,
-        time:data.song.bMusic.playTime,
-        pic:data.song.album.blurPicUrl,
-    })
-    transaction.oncomplete =  (event) => {
-        console.log('transaction add complete')
+    let arr = data.length > 50 ?  data.slice(0,40) :data
+    for (let i = 0; i < arr.length; i++) {
+        objectStore.put(arr[i])
     }
-
-    transaction.onerror =  (error) => {
-
-    }
-    request.onsuccess = (event) => {
-        console.log('add complete')
-    }
-}//添加单个音乐
+}//添加单个音乐//或者全部音乐
 export function getAllData() {
     return new Promise((resolve, reject) => {
         let store = db.transaction(music, 'readwrite')
@@ -106,3 +75,10 @@ export function deleteData(item) {
     let objectStore = store.objectStore(music)
     objectStore.delete(item)
 }//删除单个音乐
+export function getAuth(data) {
+    let arr = []
+    for(let i in data){
+        arr.push(data[i].name)
+    }
+    return arr.join('/')
+}

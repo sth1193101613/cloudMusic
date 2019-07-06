@@ -20,6 +20,7 @@
     import progress from '../../components/lesing'
     import playList from '../../components/playlist'
     import {getAllData} from '../../util'
+    import Bus from '../../Bus'
     export default {
         name: "index",
         data(){
@@ -69,7 +70,7 @@
             }
         },
         created(){
-            this._getAll()
+            this.gets()
         },
         methods:{
             ...mapActions([
@@ -121,9 +122,14 @@
                     this.$refs.audio.play();
                 }, 200);
             },
+            async gets(){
+                this.list = await this._getAll();
+            },
             _getAll(){
-                getAllData().then((res) => {
-                    this.list = res
+                return new Promise((resolve, reject) => {
+                    getAllData().then((res) => {
+                        resolve(res)
+                    })
                 })
             },
             seek(val){
@@ -141,7 +147,6 @@
                     this.volume = Number(parseFloat(val / 100).toFixed(2))
                 }
                 this.$refs.audio.volume = this.volume
-
             },
             percentChange(val){
                 this.$refs.audio.currentTime = val * this.playerTime / 1000
@@ -167,6 +172,25 @@
             "v-playerProgress":playerProgress,
             "v-progress":progress,
             "v-playList":playList
+        },
+        mounted(){
+            Bus.$on('getMusicFirst',cont => {
+                if(cont){
+                    this.$nextTick(res => {
+                        getAllData().then((res) => {
+                            let item = res[0]
+                            this.songItem ={
+                                name:item.name,
+                                url:item.pic,
+                                art:item.auth
+                            }
+                            this.getSong(this.songItem)
+                            this.getSongUrl(item.songId)
+                            this.getSongTime(item.time)
+                        })
+                    },20)
+                }
+            })
         }
     }
 </script>
