@@ -90,7 +90,7 @@
                 for(let i in data){
                     let k = data[i]
                     let msg = {
-                        id:Math.random() * 10,
+                        id:i,
                         name:k.name,
                         songId:k.id,
                         auth:getAuth(data[i].ar),

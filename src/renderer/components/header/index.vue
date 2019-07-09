@@ -145,6 +145,7 @@
 
                     }
                 })
+                this.dialog = false
             },
             min(){
                 ipcRenderer.send('min');

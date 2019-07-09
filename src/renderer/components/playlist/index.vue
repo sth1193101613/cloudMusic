@@ -10,7 +10,7 @@
             <div class="play-cont">
                <ul>
                    <li v-for="(item,index) in list" class="play-list">
-                       <span class="name" @click="getId(item)">{{item.name}}</span>
+                       <span class="name" @click="getId(item,index)">{{item.name}}</span>
                        <div>
                            <span>{{item.auth}}</span>
                            <span>{{format(item.time)}}</span>
@@ -45,17 +45,20 @@
             ]),
             ...mapMutations({
                 getSongTime:'SONG_TIME',
-                getSong:'SONG_THIS'
+                getSong:'SONG_THIS',
+                playIndex:'SONG_INDEX',
             }),
             state(){
                 this.stutas = !this.stutas
             },
             _getAll(){
                 getAllData().then((res) => {
+                    console.log(res)
                     this.list = res
                 })
             },
-            getId(item){
+            getId(item,index){
+                this.playIndex(index)
                 this.songItem ={
                     name:item.name,
                     url:item.pic,

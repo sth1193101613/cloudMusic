@@ -280,10 +280,13 @@ export class homePage{
             })
         })
     }
-    getSearchList(keywords){
+    getSearchList(keywords,type){
         return new Promise((resolve, reject) => {
-            instance.post('/search',{
-                keywords
+            instance.get('/search',{
+                params:{
+                    keywords,
+                    type,
+                }
             }).then((res) => {
                 resolve(res)
             })

@@ -175,6 +175,7 @@
         },
         mounted(){
             Bus.$on('getMusicFirst',cont => {
+                this.playIndex(0)
                 if(cont){
                     this.$nextTick(res => {
                         getAllData().then((res) => {

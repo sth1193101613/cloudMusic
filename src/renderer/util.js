@@ -1,4 +1,3 @@
-
 let db = {}
 let music = 'music'
 export function createdData() {
@@ -42,6 +41,7 @@ export function addMusic(data) {
     let objectStore = transaction.objectStore(music)
     let arr = data.length > 50 ?  data.slice(0,40) :data
     for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])
         objectStore.put(arr[i])
     }
 }//添加单个音乐//或者全部音乐
@@ -50,6 +50,7 @@ export function getAllData() {
         let store = db.transaction(music, 'readwrite')
         let objectStore = store.objectStore(music);
         let request = objectStore.openCursor();
+        console.log(request)
         let data = []
         request.onerror = () => {
             console.error('getDataByKey error');
