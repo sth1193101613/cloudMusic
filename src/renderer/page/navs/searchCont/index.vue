@@ -1,12 +1,12 @@
 <template>
-    <div class="search-tab">
+    <div class="search-tab" style="padding: 0">
         <ul class="tab-menu">
             <li v-for="(item,index) in tab" @click="fnIndex(index,item.components)" class="music-li" :class="[{active:index === flag}]">
                 {{item.name}}
             </li>
         </ul>
         <keep-alive>
-            <component :is="nameC" class="tabs_content" :name="search"></component>
+            <component :is="nameC" class="tabs_content" :name="keywords"></component>
         </keep-alive>
     </div>
 </template>
@@ -21,6 +21,7 @@
         name: "index",
         data(){
             return{
+                keywords:this.$route.query.name,
                 tab:[
                     {"name":"单曲","components":'song'},
                     {"name":"歌手","components":'singer'},
@@ -28,13 +29,7 @@
                     {"name":"用户","components":'user'}
                 ],
                 nameC:'v-song',
-                flag:null,
-                search:''
-            }
-        },
-        props:{
-            name:{
-                type:String
+                flag:0,
             }
         },
         methods:{
@@ -42,11 +37,6 @@
                 this.flag = index;
                 this.nameC = `v-${data}`;
             },
-            // _getSearch(){
-            //     headerModel.getSearchList(this.name).then((res) => {
-            //
-            //     })
-            // }
         },
         components:{
             "v-song":song,
