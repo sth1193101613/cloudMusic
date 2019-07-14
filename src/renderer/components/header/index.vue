@@ -31,7 +31,7 @@
                             </div>
                             <div class="change" v-if="value !== ''">
                                 <ul v-for="(item,index) in list" class="searchList" v-if="index === 'result'">
-                                    <li v-if="item.songs">
+                                    <li v-if="item.songs" @click="push()">
                                         <h2><i class="fa fa-headphones" aria-hidden="true"></i>单曲</h2>
                                         <div v-for="(list,index) in item.songs" class="items">
                                             {{list.name}}
@@ -142,9 +142,10 @@
                 this.$router.push({
                     path:'/navs/searchCont',
                     query:{
-
+                        name:item.first
                     }
                 })
+                this.dialog = false
             },
             min(){
                 ipcRenderer.send('min');

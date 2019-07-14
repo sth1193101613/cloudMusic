@@ -24,7 +24,7 @@
 <script type="text/ecmascript-6">
     import {homePage} from '../../../../../api/homePage'
     import {mapActions,mapMutations} from 'vuex'
-    import {addMusic} from '../../../../../util'
+    import {addMusic,getAuth} from '../../../../../util'
     let headerModel  = new homePage
     export default {
         name: "index",
@@ -43,13 +43,26 @@
                 getSongTime:'SONG_TIME',
                 getSong:'SONG_THIS'
             }),
+            getSongDetail(data){
+                let ret = []
+                let msg = {
+                    id: Math.random() * 10,
+                    name: data.name,
+                    songId: data.id,
+                    auth: getAuth(data.song.artists),
+                    time: data.song.bMusic.playTime,
+                    pic: data.song.album.blurPicUrl,
+                }
+                ret.push(msg)
+                return ret
+            },
             getId(item){
                 this.songItem ={
                     name:item.name,
                     url:item.song.album.blurPicUrl,
                     art:item.song.artists[0].name
                 }
-                addMusic(item)
+                addMusic(this.getSongDetail(item))
                 this.getSong(this.songItem)
                 this.getSongUrl(item.id)
                 this.getSongTime(item.song.bMusic.playTime)

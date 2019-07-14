@@ -15,6 +15,9 @@
                         <span class="nickname">{{list.creator.nickname}}</span>
                         <span class="createdtiem">{{list.createTime | setTime}}创建</span>
                     </li>
+                    <li class="btns">
+                        <button @click="addMusicList">播放全部</button>
+                    </li>
                     <li v-if="list.description">
                         <p class="desc">简介:{{list.description}}</p>
                     </li>
@@ -46,6 +49,7 @@
 
 <script type="text/ecmascript-6">
     import {homePage} from "../../../api/homePage";
+    import { addMusic,getAuth,clearData } from '../../../util'
     let headModel = new homePage
     import Bus from '../../../Bus'
     import songlist from './songlist'
@@ -81,6 +85,27 @@
             "v-subscribers" :subscribers
         },
         methods:{
+            getList(data){
+                let ret = []
+                for(let i in data){
+                    let k = data[i]
+                    let msg = {
+                        id:i,
+                        name:k.name,
+                        songId:k.id,
+                        auth:getAuth(data[i].ar),
+                        time:k.dt,
+                        pic:k.al.picUrl,
+                    }
+                    ret.push(msg)
+                }
+                return ret
+            },
+            addMusicList(){
+                clearData()
+                addMusic(this.getList(this.list.tracks))
+                Bus.$emit('getMusicFirst',true)
+            },
             fnIndex(index,data){
                 this.flag = index;
                 this.name = `v-${data}`;
@@ -162,13 +187,22 @@
             .desc{
                 color: #fff;
                 font-size: 12px;
-                margin-top: 12px;
                 line-height: 1.5;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
-                -webkit-line-clamp: 4;
+                -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
+            }
+            .btns{
+                button{
+                    border: 0;
+                    background: #CD2929;
+                    color: #fff;
+                    padding: 4px 20px;
+                    border-radius: 5px;
+                    margin: 10px 0;
+                }
             }
         }
         .songtitle{
