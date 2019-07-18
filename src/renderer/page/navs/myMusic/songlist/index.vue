@@ -31,6 +31,8 @@
     import {mapActions,mapMutations,mapState} from 'vuex'
     import {homePage} from "../../../../api/homePage";
     let headModel = new homePage
+    import { addMusic } from "../../../../util";
+
     export default {
         name: "index",
         data(){
@@ -126,12 +128,18 @@
                 }
                 return arr.join(',')
             },
+            getMusicAdd(arr){
+                for(let i in arr){
+
+                }
+            },
             getMusic(item){
                 this.songItem = {
                     name:item.name,
                     url:item.al.picUrl,
                     art:(this.ar(item.ar))
                 }
+                addMusic(this.songItem)
                 this.getSong(this.songItem)
                 this.getSongUrl(item.id)
                 this.getSongTime(item.dt)

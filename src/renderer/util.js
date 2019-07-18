@@ -10,7 +10,7 @@ export function createdData() {
             //成功
         };
         musicLists.onerror = (e) =>{
-            console.log(e.currentTarget.error.message);
+            console.log('1',e.currentTarget.error.message);
         };
         musicLists.onupgradeneeded = (e) => {
             db = e.target.result;
@@ -21,17 +21,18 @@ export function createdData() {
                 objectStore.createIndex('auth', 'auth', {unique: false});
                 objectStore.createIndex('time', 'time', {unique: false});
                 objectStore.createIndex('pic', 'pic', {unique: false});
-                objectStore.transaction.oncomplete = () => {
-                    const transaction = db.transaction(music, 'readwrite')
-                    const objStore = transaction.objectStore(music)
-                    objStore.put({
-                        id: 1,
-                        name: '' ,
-                        songId:'',
-                        auth:'',
-                        time:'1'
-                    })
-                }
+                // objectStore.transaction.oncomplete = () => {
+                //     const transaction = db.transaction(music, 'readwrite')
+                //     const objStore = transaction.objectStore(music)
+                //     objStore.put({
+                //         id: 1,
+                //         name: '1' ,
+                //         songId:'1',
+                //         auth:'1',
+                //         time:'1',
+                //         pic:'1'
+                //     })
+                // }
             }
         };
     })
@@ -39,9 +40,8 @@ export function createdData() {
 export function addMusic(data) {
     let transaction = db.transaction(music, 'readwrite')
     let objectStore = transaction.objectStore(music)
-    let arr = data.length > 50 ?  data.slice(0,40) :data
+    let arr = data.length > 50 ?  data.slice(0,30) :data
     for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i])
         objectStore.put(arr[i])
     }
 }//添加单个音乐//或者全部音乐
@@ -50,7 +50,6 @@ export function getAllData() {
         let store = db.transaction(music, 'readwrite')
         let objectStore = store.objectStore(music);
         let request = objectStore.openCursor();
-        console.log(request)
         let data = []
         request.onerror = () => {
             console.error('getDataByKey error');

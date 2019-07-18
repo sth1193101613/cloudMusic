@@ -25,6 +25,7 @@
                 <p class="artname">{{song.art}}</p>
             </div>
         </div>
+
         <div @scroll="scroll" class="scroll">
             <keep-alive>
                 <router-view class="count" ref="scroll" :key="$route.fullPath"></router-view>

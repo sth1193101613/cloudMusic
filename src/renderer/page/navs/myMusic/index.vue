@@ -55,6 +55,7 @@
     import songlist from './songlist'
     import comment from './comment'
     import subscribers from './subscribers'
+
     export default {
         name: "index",
         data(){

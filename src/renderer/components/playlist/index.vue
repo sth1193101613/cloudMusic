@@ -37,7 +37,7 @@
             }
         },
         created(){
-            this._getAll()
+            // this._getAll()
         },
         methods:{
             ...mapActions([
@@ -53,7 +53,6 @@
             },
             _getAll(){
                 getAllData().then((res) => {
-                    console.log(res)
                     this.list = res
                 })
             },

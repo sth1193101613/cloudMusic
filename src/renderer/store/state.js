@@ -44,7 +44,6 @@ if (localStorage.getItem('song')){
 }
 
 let router = JSON.parse(localStorage.getItem('router'))
-console.log(router)
 if (localStorage.getItem('router') !== null){
     state.router = JSON.parse(localStorage.getItem('router'))
 } else {
