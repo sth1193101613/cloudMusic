@@ -145,6 +145,7 @@
                         name:item.first
                     }
                 })
+                this.value = item.first
                 this.dialog = false
             },
             min(){
@@ -260,6 +261,7 @@
                     input{
                         width: 160px;
                         color: #fff;
+                        font-size: 12px;
                     }
                     .searchIcon{
                         position: absolute;
