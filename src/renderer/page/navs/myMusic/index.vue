@@ -48,8 +48,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import {homePage} from "../../../api/homePage";
     import { addMusic,getAuth,clearData } from '../../../util'
+    import {homePage} from "../../../api/homePage";
     let headModel = new homePage
     import Bus from '../../../Bus'
     import songlist from './songlist'

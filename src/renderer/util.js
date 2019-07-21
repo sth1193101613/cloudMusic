@@ -42,7 +42,7 @@ export function addMusic(data) {
     let objectStore = transaction.objectStore(music)
     let arr = data.length > 50 ?  data.slice(0,30) :data
     for (let i = 0; i < arr.length; i++) {
-        objectStore.put(arr[i])
+        objectStore.add(arr[i])
     }
 }//添加单个音乐//或者全部音乐
 export function getAllData() {

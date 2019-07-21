@@ -5,11 +5,19 @@
             <div class="state" @click="audioClick" ><img :src="state === true?player:stop" alt=""></div>
             <div class="state"><img src="../../assets/images/xia.png" alt="" @click="add"></div>
         </div>
-        <v-playerProgress :currentTime="currentTime" :playerTime="playerTime" :percent="percent" class="playerProgress" @percentChange="percentChange"></v-playerProgress>
-        <audio :src="'https://music.163.com/song/media/outer/url?id='+playerSrc+'.mp3'" @ended="ended" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
+        <v-playerProgress :currentTime="currentTime" :playerTime="playerTime"
+                          :percent="percent"
+                          class="playerProgress"
+                          @percentChange="percentChange"/>
+        <audio :src="'https://music.163.com/song/media/outer/url?id='+playerSrc+'.mp3'"
+               @ended="ended"
+               ref="audio"
+               @canplay="ready"
+               @error="error"
+               @timeupdate="updateTime"/>
         <div class="sett">
-            <v-progress :max="100" :value="setVolume" @pbar-seek="seek" @pbar-drag="drag" :min="0"></v-progress>
-            <v-playList></v-playList>
+            <v-progress :max="100" :value="setVolume" @pbar-seek="seek" @pbar-drag="drag" :min="0"/>
+            <v-playList/>
         </div>
     </div>
 </template>
@@ -88,6 +96,8 @@
             }),
             ended(e){
                 if(e.isTrusted){
+                    //如果 为1 单曲 继续调用paly index 不变
+                    //如果是2 索引+1 // 继续播放
                     this.add()
                 }
             },
@@ -120,7 +130,7 @@
                 this.$refs.audio.load();
                 setTimeout(res=> {
                     this.$refs.audio.play();
-                }, 200);
+                }, 50);
             },
             async gets(){
                 this.list = await this._getAll();

@@ -11,7 +11,7 @@ import './util'
 import VideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 import'vue-video-player/src/custom-theme.css'
-import Router from "vue-router";
+
 
 Vue.use(VideoPlayer)
 Vue.use(ElementUI)
