@@ -1,178 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album_detail_dynamic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album_sub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/batch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/captcha_sent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/captcha_verify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/digitalAlbum_purchased.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_banner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_category_excludehot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_category_recommend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_today_perfered.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/event_del.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/event_forward.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/hot_topic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/msg_comments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/msg_forwards.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/msg_notices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/msg_private.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/msg_private_history.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_exclusive_rcmd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playmode_intelligence_list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/rebind.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/register_cellphone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_hot_detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/setting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/share_resource.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_cloud_del.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_cloud_detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_group_list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/.npmignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/CHANGELOG.MD" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/CHANGELOG.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/app.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/app.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/_coverpage.md" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/_coverpage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/sw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/v2.md" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/docs/v2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/issue_template.md" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/issue_template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album_newest.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album_newest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album_sublist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/album_sublist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_album.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_desc.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_desc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_mv.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_mv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_sub.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_sub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_sublist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artist_sublist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artists.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/artists.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/banner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/check_music.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/check_music.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_album.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_dj.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_dj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_event.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_hot.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_hot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_like.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_music.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_music.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_mv.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_mv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_video.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/comment_video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/daily_signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/daily_signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_catelist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_catelist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_hot.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_hot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_paygift.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_paygift.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_program.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_program.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_program_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_program_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_recommend.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_recommend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_recommend_type.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_recommend_type.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_sub.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_sub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_sublist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/dj_sublist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/fm_trash.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/fm_trash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/follow.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/follow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/likelist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/likelist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login_cellphone.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login_cellphone.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login_refresh.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login_refresh.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login_status.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/login_status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/lyric.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/lyric.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_first.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_first.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_sub.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_sub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_sublist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_sublist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_url.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/mv_url.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personal_fm.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personal_fm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_djprogram.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_djprogram.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_mv.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_mv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_newsong.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_newsong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_privatecontent.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/personalized_privatecontent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_catlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_catlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_create.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_hot.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_hot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_subscribe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_subscribers.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_subscribers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_tracks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/playlist_update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/program_recommend.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/program_recommend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/recommend_resource.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/recommend_resource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/recommend_songs.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/recommend_songs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/related_allvideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/related_allvideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/related_playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/related_playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/resource_like.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/resource_like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/scrobble.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/scrobble.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_hot.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_hot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_multimatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_multimatch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_suggest.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/search_suggest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/send_playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/send_playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/send_text.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/send_text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_artist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_artist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_mv.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_mv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_song.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/simi_user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/song_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/song_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/song_url.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/song_url.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_album.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_artists.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_artists.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_mv.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_mv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_playlist_highquality.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_playlist_highquality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_song.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/top_song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/toplist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/toplist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/toplist_artist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/toplist_artist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/toplist_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/toplist_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_audio.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_audio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_cloud.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_cloud.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_cloud_search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_dj.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_dj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_event.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_followeds.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_followeds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_follows.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_follows.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_record.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_record.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_subcount.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_subcount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/user_update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_group.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_group.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_sub.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_sub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_url.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/video_url.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/weblog.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/module/weblog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/public/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/public/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/album.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/album.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/comment.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/comment.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/login.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/login.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/lyric.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/lyric.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/music_url.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/music_url.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/search.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/test/search.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/util/crypto.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/util/crypto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/util/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/util/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/util/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeteaseCloudMusicApi/util/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeteaseCloudMusicApi/yarn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/api/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/api/homePage.js" afterDir="false" />
-    </list>
+    <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/NeteaseCloudMusicApi/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -186,19 +15,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/contPlay/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="66" column="21" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="21" />
+            <state relative-caret-position="2990">
+              <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NeteaseCloudMusicApi/package.json">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="103">
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -249,7 +78,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/NeteaseCloudMusicApi" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/renderer/page/navs/index.vue" root0="SKIP_INSPECTION" />
@@ -341,11 +170,6 @@
               <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
               <item name="NeteaseCloudMusicApi" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -361,6 +185,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Administrator\cloudMusic\node_modules\prettier" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
@@ -391,7 +216,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.start">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -414,8 +239,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -472,12 +297,12 @@
       <workItem from="1563442086059" duration="5180000" />
       <workItem from="1563499030485" duration="10894000" />
       <workItem from="1563758651601" duration="97000" />
-      <workItem from="1563761210820" duration="1205000" />
+      <workItem from="1563761210820" duration="1519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="461987000" />
+    <option name="totallyTimeSpent" value="462301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -488,7 +313,7 @@
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3295325" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.68187" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -532,11 +357,6 @@
           <url>file://$PROJECT_DIR$/src/renderer/components/header/index.vue</url>
           <line>69</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/renderer/components/contPlay/index.vue</url>
-          <line>3</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -943,24 +763,24 @@
     <entry file="file://$PROJECT_DIR$/src/renderer/assets/images/gp.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/NeteaseCloudMusicApi/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="33" lean-forward="true" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/contPlay/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="129" column="78" selection-start-line="129" selection-start-column="78" selection-end-line="129" selection-end-column="78" />
+        <state relative-caret-position="2990">
+          <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NeteaseCloudMusicApi/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="103">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
         </state>
       </provider>
     </entry>
