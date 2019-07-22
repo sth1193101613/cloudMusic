@@ -20,9 +20,6 @@
         data() {
             return {
                 btnWidth: '',
-                touchInfo: {
-                    initiated: false
-                }
             }
         },
         props: {
@@ -39,21 +36,21 @@
                 default: 0
             }
         },
-
         watch: {
             percent(newPercent) {
-                if (newPercent > 0 && !this.touchInfo.initiated) {
+                if (newPercent >= 0) {
                     let barWidth = this.$refs.progressBar.clientWidth - this.btnWidth
                     let offsetWidth = barWidth * (newPercent * 1000)
-                    this._setOffset(offsetWidth)
-                }else{
-                    this._setOffset(0)
+                    this._setOffset(parseInt(offsetWidth))
                 }
-
             },
         },
         mounted() {
             this.btnWidth = document.getElementsByClassName('progress-btn')[0].clientWidth
+            Bus.$on('remove',cont => {
+                this.$refs.progress.style.width = `0px`
+                this.$refs.progressBtn.style.transform = `translate3d(0px, 0, 0)`
+            })
         },
         methods: {
             formats(interval) {
@@ -81,13 +78,13 @@
             },
             _triggerPercent() {
                 let barWidth = this.$refs.progressBar.clientWidth - this.btnWidth
-                let percent = this.$refs.progress.clientWidth / barWidth
+                let percent = Math.min(1, this.$refs.progress.clientWidth / barWidth)
                 this.$emit('percentChange', percent)
             },
             progressClick(e) {
                 const rect = this.$refs.progressBar.getBoundingClientRect();
                 const offsetWidth = e.pageX - rect.left;
-                this._setOffset(offsetWidth)
+                this._setOffset(Number(offsetWidth))
                 this._triggerPercent()
             },
         },

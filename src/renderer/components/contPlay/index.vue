@@ -21,8 +21,14 @@
                         <p>
                             <span>{{msg.name}}</span>
                         </p>
-                        <div class="lyac">
-
+                        <div class="lyac" ref="lyricLine">
+                            <ul style="top: 0">
+                                <li>
+                                    <p v-for="(list,index) in currentLyric.lines" :class="{'current':currentLineNum === index}"  >
+                                        {{list.txt}}
+                                    </p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -35,6 +41,8 @@
     import animations from 'create-keyframe-animation'
     import {mapState} from  'vuex'
     import {homePage} from "../../api/homePage";
+    import lyric from 'lyric-parser'
+    import Bus from '../../Bus'
     let headModel = new homePage
     export default {
         name: "index",
@@ -46,11 +54,21 @@
                 cover:"",
                 height:'',
                 background:``,
-                lyric:[]
+                lyric:[],
+                currentLyric:{},
+                currentLineNum:0
             }
         },
         mounted(){
             this.height = document.documentElement.clientHeight + 'px'
+            Bus.$on('week',cont => {
+                this.currentLyric.week(cont)
+            })
+            Bus.$on('stop',cont => {
+                if(!cont){
+                    this.currentLyric.togglePlay()
+                }
+            })
         },
         props:{
             fullScreen:{
@@ -75,9 +93,19 @@
         methods:{
             _getLyric(){
                 headModel.getLyric(this.playerSrc).then((res) => {
-                    console.log(res)
-                    this.lyric = res.songs[0]
+                    this.currentLyric = new lyric (res.lrc.lyric,this.handelLyric)
+                    if(this.playerState){
+                        this.currentLyric.play()
+                    }
                 })
+            },
+            handelLyric({lineNum, txt}){
+                this.currentLineNum = lineNum
+                if (lineNum > 5) {
+                    let ul = this.$refs.lyricLine.getElementsByTagName('ul')[0]
+                    let active = 250-(lineNum*32)
+                    ul.style.top = `${active}px`
+                }
             },
             _getSongDetail(){
                 headModel.getSongDetailCont(this.playerSrc).then((res) => {
@@ -212,9 +240,30 @@
             .ri{
                 flex: 1;
                 .lyac{
+                    position: relative;
                     height:420px ;
                     width: 400px;
                     overflow: scroll;
+                    ul{
+                        position: absolute;
+                        transition-duration: 600ms;
+                        p{
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            height: 16px;
+                            line-height: 16px;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            display: -webkit-box;
+                            text-align: center;
+                            margin-top: 0;
+                            margin-bottom: 16px;
+                            &.current{
+                                color: red;
+                            }
+                        }
+                    }
+
                 }
             }
         }

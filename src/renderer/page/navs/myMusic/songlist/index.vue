@@ -6,7 +6,7 @@
             </li>
         </ul>
         <ul class="table-cont">
-            <li v-for="(item,index) in songList" @dblclick="getMusic(item)">
+            <li v-for="(item,index) in arr" @dblclick="getMusic(item)">
                 <span>{{index<9?`0${index+1}`:index+1}}</span>
                 <span class="cup" @click="isLike(item,index)"><img :src="item.liked?liket:likef" alt=""></span>
                 <span>{{item.name}}</span>
@@ -49,11 +49,10 @@
                 likef:require('../../../../assets/images/lovef.png'),
                 songItem:{},
                 hide:false,
-                songList:[]
             }
         },
         props:{
-            list:{
+            arr:{
                 type:Array,
             },
             subscribed:{
@@ -65,8 +64,8 @@
                 'id',
             ]),
         },
-        created(){
-            this.setValueLike()
+        mounted(){
+            // this.setValueLike()
         },
         methods:{
             ...mapActions([
@@ -76,31 +75,10 @@
                 getSongTime:'SONG_TIME',
                 getSong:'SONG_THIS'
             }),
-            async setValueLike(){
-                let list = this.list || []
-                let arr  = await this.likeListFun()
-                this.$nextTick(res =>{
-                    list.forEach(e => {
-                        if(arr.includes(e.id)){
-                            this.$set(e,'liked',true)
-                        }else{
-                            this.$set(e,'liked',false)
-                        }
-                    })
-                },50)
-                this.songList = list
-            },
             gen(){
-                this.setValueLike.splice(this.index,1)
+                // this.setValueLike.splice(this.index,1)
                 this.refLike(this.itemMsg.id,false)
                 this.hide = false
-            },
-            likeListFun(){
-                return new Promise((resolve, reject) => {
-                    headModel.likelist(this.id).then((res) => {
-                        resolve(res.ids)
-                    })
-                })
             },
             refLike(id,flag){
                 headModel.isLike(id,flag).then((res) => {})
@@ -137,7 +115,7 @@
                     url:item.al.picUrl,
                     art:(this.ar(item.ar))
                 }
-                addMusic(this.songItem)
+                // addMusic(this.songItem)
                 this.getSong(this.songItem)
                 this.getSongUrl(item.id)
                 this.getSongTime(item.dt)

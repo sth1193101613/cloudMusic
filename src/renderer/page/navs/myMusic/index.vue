@@ -41,7 +41,7 @@
                 </li>
             </ul>
             <keep-alive>
-                <component :is="name" class="tabs_content" :list="list.tracks" @change="isLike" :subscribed="this.$route.query"></component>
+                <component :is="name" class="tabs_content" :arr="arr" :subscribed="this.$route.query"></component>
             </keep-alive>
         </div>
     </div>
@@ -62,6 +62,7 @@
             return{
                 id:this.$route.query.id,
                 list:[],
+                arr:[],
                 flag:0,
                 name:'v-songlist',
                 tab:[
@@ -86,12 +87,19 @@
             "v-subscribers" :subscribers
         },
         methods:{
+            likeListFun(){
+                return new Promise((resolve, reject) => {
+                    headModel.likelist(this.id).then((res) => {
+                        resolve(res.ids)
+                    })
+                })
+            },
             getList(data){
                 let ret = []
                 for(let i in data){
                     let k = data[i]
                     let msg = {
-                        id:i,
+                        id:`i`,
                         name:k.name,
                         songId:k.id,
                         auth:getAuth(data[i].ar),
@@ -112,13 +120,26 @@
                 this.name = `v-${data}`;
             },
             _getSongDetail(){
-                headModel.getSongDetail(this.id).then((res) => {
-                    this.list = res.playlist
+                return new Promise((resolve, reject) => {
+                    headModel.getSongDetail(this.id).then((res) => {
+                        resolve(res)
+                    })
                 })
             },
-            isLike(){
-                this._getSongDetail()
-            },
+            async getSong (){
+                let k = await this._getSongDetail()
+                let like = await this.likeListFun()
+                let arr = k.playlist.tracks
+                arr.forEach(e => {
+                    if(like.includes(e.id)){
+                        this.$set(e,'liked',true)
+                    }else{
+                        this.$set(e,'liked',false)
+                    }
+                })
+                this.list = k.playlist
+                this.arr = arr
+            }
         },
         activated() {
             Bus.$on('change',(cont) => {
@@ -126,7 +147,7 @@
                 this.flag = 0
             })
             if(this.$route.name === 'myMusic') {
-                this._getSongDetail()
+                this.getSong()
             }
         },
     }

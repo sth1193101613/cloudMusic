@@ -96,9 +96,9 @@
             }),
             ended(e){
                 if(e.isTrusted){
-                    //如果 为1 单曲 继续调用paly index 不变
-                    //如果是2 索引+1 // 继续播放
-                    this.add()
+                    //如果为1 单曲 继续调用paly index 不变
+                    //如果为2 索引+1 // 继续播放
+                    this.add(1)
                 }
             },
             getName(item){
@@ -118,19 +118,22 @@
                 }
                 this.playSrc(this.list[this.playerIndexSet].songId)
                 this.getName(this.list[this.playerIndexSet])
-                this.$refs.audio.play()
+                setTimeout(res=> {
+                    this.$refs.audio.play();
+                }, 50);
             },
-            add(){
+            add(type){
+                Bus.$emit('remove')
+                Bus.$emit('week',0)
                 this.addSong()
                 if(this.playerIndexSet > this.list.length-1){
                     this.playIndex(0)
                 }
                 this.playSrc(this.list[this.playerIndexSet].songId)
                 this.getName(this.list[this.playerIndexSet])
-                this.$refs.audio.load();
                 setTimeout(res=> {
                     this.$refs.audio.play();
-                }, 50);
+                }, 20);
             },
             async gets(){
                 this.list = await this._getAll();
@@ -162,6 +165,7 @@
                 this.$refs.audio.currentTime = val * this.playerTime / 1000
             },
             audioClick(){
+                Bus.$emit('stop',this.playerState)
                 this.$nextTick(() => {
                     this.getSongState(this.playerState)
                     this.state = this.playerState

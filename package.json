@@ -1,7 +1,7 @@
 {
-  "name": "cloudmusic",
+  "name": "cloundmusic",
   "version": "0.0.1",
-  "author": "",
+  "author": "sth1193101613 <1193101613@qq.com>",
   "description": "An electron-vue project",
   "license": null,
   "main": "./dist/electron/main.js",
@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "cloudmusic",
+    "productName": "cloundmusic",
     "appId": "com.example.yourapp",
     "directories": {
       "output": "build"
@@ -66,7 +66,8 @@
     "vue-slicksort": "^1.1.3",
     "vue-video-player": "^5.0.2",
     "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.0"
+    "vuex-electron": "^1.0.0",
+    "lyric-parser": "^1.0.1"
   },
   "devDependencies": {
     "ajv": "^6.5.0",
