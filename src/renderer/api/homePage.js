@@ -205,7 +205,6 @@ export class homePage{
                 resolve(res)
             })
         })
-
     }
     commitPlayer(id,limit,offset){
         return new Promise((resolve, reject) => {
@@ -388,4 +387,27 @@ export class homePage{
             })
         })
     }
+    getSongDetailCont(ids){
+        return new Promise((resolve, reject) => {
+            instance.get('/song/detail',{
+                params:{
+                    ids,
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getLyric(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/lyric',{
+                params:{
+                    id,
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+
 }

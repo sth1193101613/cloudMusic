@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3 animation动画停留在最后一帧</title>
+    <meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        body{margin: 0;}
+        .m-test{width: 100px;height: 100px;animation:test-animation 3s;animation-fill-mode: forwards;}
+        @-webkit-keyframes test-animation {
+            0% { background-color: rgba(0,0,0,0)}
+            100% { background-color: rgba(100,100,100,0.5)}
+        }
+        @keyframes test-animation {
+            0% { background-color: rgba(0,0,0,0)}
+            100% { background-color: rgba(100,100,100,0.5)}
+        }
+    </style>
+</head>
+<body>
+<div class="m-test"></div>
+
+<script type="text/javascript">
+</script>
+</body>

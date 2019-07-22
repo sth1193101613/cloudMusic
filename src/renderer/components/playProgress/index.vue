@@ -14,6 +14,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import Bus from '../../Bus'
     export default {
         name: "index",
         data() {
@@ -45,7 +46,10 @@
                     let barWidth = this.$refs.progressBar.clientWidth - this.btnWidth
                     let offsetWidth = barWidth * (newPercent * 1000)
                     this._setOffset(offsetWidth)
+                }else{
+                    this._setOffset(0)
                 }
+
             },
         },
         mounted() {
@@ -87,11 +91,6 @@
                 this._triggerPercent()
             },
         },
-        computed: {
-            // percent() {
-            //     return this.currentTime / this.playerTime
-            // },
-        }
     }
 </script>
 
