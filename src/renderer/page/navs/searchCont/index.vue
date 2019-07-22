@@ -15,7 +15,7 @@
 
     import song from './songs'
     import singer from './singer'
-    import inde from './index'
+    import vidoer from './vidoer'
     import user from './users'
     export default {
         name: "index",
@@ -25,7 +25,7 @@
                 tab:[
                     {"name":"单曲","components":'song'},
                     {"name":"歌手","components":'singer'},
-                    {"name":"视频","components":'inde'},
+                    {"name":"视频","components":'vidoer'},
                     {"name":"用户","components":'user'}
                 ],
                 nameC:'v-song',
@@ -40,7 +40,7 @@
         },
         components:{
             "v-song":song,
-            "v-index":inde,
+            "v-vidoer":vidoer,
             "v-singer":singer,
             "v-user":user
         }

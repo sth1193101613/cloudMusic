@@ -58,7 +58,7 @@ const mutations  = {
                 item:[
                     {"icon":"fa-music",path:"/navs/found","name":"发现音乐",id:1,subscribed:false},
                     {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐",id:2,subscribed:false},
-                    {"icon":"fa-video-camera",path:"/navs/moreMv","name":"视频",id:3,subscribed:false},
+                    {"icon":"fa-videoer-camera",path:"/navs/moreMv","name":"视频",id:3,subscribed:false},
                 ]
             }
         ]

@@ -21,7 +21,6 @@
         props:{
             name:{
                 type:String,
-                limit:30
             }
         },
         watch:{
@@ -36,7 +35,7 @@
         },
         methods:{
             _getSearch() {
-                headerModel.getSearchList(this.name,100,this.limit).then((res) => {
+                headerModel.getSearchList(this.name,100,30).then((res) => {
                     this.songer = res.result.artists
                 })
             }

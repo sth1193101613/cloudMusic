@@ -102,6 +102,7 @@
         .currentTime,.playerTime{
             width: 35px;
             margin: 0 10px;
+            color: #fff;
         }
         .progress-bar{
             flex: 1;

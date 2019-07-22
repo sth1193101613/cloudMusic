@@ -2,7 +2,7 @@ const hotClient = require('webpack-hot-middleware/client?noInfo=true&reload=true
 
 hotClient.subscribe(event => {
   /**
-   * Reload browser when HTMLWebpackPlugin emits a new index.html
+   * Reload browser when HTMLWebpackPlugin emits a new videoer.html
    *
    * Currently disabled until jantimon/html-webpack-plugin#680 is resolved.
    * https://github.com/SimulatedGREG/electron-vue/issues/437

@@ -6,7 +6,7 @@
             </li>
         </ul>
         <ul class="table-cont">
-            <li v-for="(item,index) in setValueLike" @dblclick="getMusic(item)">
+            <li v-for="(item,index) in songList" @dblclick="getMusic(item)">
                 <span>{{index<9?`0${index+1}`:index+1}}</span>
                 <span class="cup" @click="isLike(item,index)"><img :src="item.liked?liket:likef" alt=""></span>
                 <span>{{item.name}}</span>
@@ -48,8 +48,8 @@
                 liket:require('../../../../assets/images/lovet.png'),
                 likef:require('../../../../assets/images/lovef.png'),
                 songItem:{},
-                likeList:[],
                 hide:false,
+                songList:[]
             }
         },
         props:{
@@ -64,22 +64,9 @@
             ...mapState([
                 'id',
             ]),
-            setValueLike(){
-                let list = this.list || []
-                this.$nextTick(res =>{
-                    list.forEach(e => {
-                        if(this.likeList.includes(e.id)){
-                            this.$set(e,'liked',true)
-                        }else{
-                            this.$set(e,'liked',false)
-                        }
-                    })
-                },50)
-                return list
-            }
         },
-        mounted(){
-            this.likelist()
+        created(){
+            this.setValueLike()
         },
         methods:{
             ...mapActions([
@@ -89,14 +76,30 @@
                 getSongTime:'SONG_TIME',
                 getSong:'SONG_THIS'
             }),
+            async setValueLike(){
+                let list = this.list || []
+                let arr  = await this.likeListFun()
+                this.$nextTick(res =>{
+                    list.forEach(e => {
+                        if(arr.includes(e.id)){
+                            this.$set(e,'liked',true)
+                        }else{
+                            this.$set(e,'liked',false)
+                        }
+                    })
+                },50)
+                this.songList = list
+            },
             gen(){
                 this.setValueLike.splice(this.index,1)
                 this.refLike(this.itemMsg.id,false)
                 this.hide = false
             },
-            likelist(){
-                headModel.likelist(this.id).then((res) => {
-                    this.likeList = res.ids
+            likeListFun(){
+                return new Promise((resolve, reject) => {
+                    headModel.likelist(this.id).then((res) => {
+                        resolve(res.ids)
+                    })
                 })
             },
             refLike(id,flag){
@@ -127,11 +130,6 @@
                     return arr
                 }
                 return arr.join(',')
-            },
-            getMusicAdd(arr){
-                for(let i in arr){
-
-                }
             },
             getMusic(item){
                 this.songItem = {
