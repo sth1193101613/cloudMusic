@@ -25,7 +25,6 @@
                 <p class="artname">{{song.art}}</p>
             </div>
         </div>
-
         <div @scroll="scroll" class="scroll">
             <keep-alive>
                 <router-view class="count" ref="scroll" :key="$route.fullPath"></router-view>
@@ -50,6 +49,11 @@
                 big:require("../../assets/images/big.png"),
                 fullScreen:false,
             }
+        },
+        watch:{
+            router(val){
+                console.log(val)
+            },
         },
         computed:{
             ...mapState([

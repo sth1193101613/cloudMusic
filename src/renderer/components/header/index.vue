@@ -1,5 +1,4 @@
 <template>
-
     <div class="header">
         <div class="logo" style="-webkit-app-region: drag"></div>
         <div class="navs">
@@ -16,7 +15,7 @@
                             <div class="hot" v-if="value === ''">
                                 <h3>热门搜索</h3>
                                 <ul>
-                                    <li v-for="(list,index) in hot" class="item" @click="push(list)">
+                                    <li v-for="(list,index) in hot" class="item" @click="push(list,'hot')">
                                         {{list.first}}
                                     </li>
                                 </ul>
@@ -31,34 +30,34 @@
                             </div>
                             <div class="change" v-if="value !== ''">
                                 <ul v-for="(item,index) in list" class="searchList" v-if="index === 'result'">
-                                    <li v-if="item.songs" @click="push()">
+                                    <li v-if="item.songs">
                                         <h2><i class="fa fa-headphones" aria-hidden="true"></i>单曲</h2>
-                                        <div v-for="(list,index) in item.songs" class="items">
-                                            {{list.name}}
+                                        <div v-for="(list,index) in item.songs" class="items" @click="push(list,'type')">
+                                            <span v-html="brightenKeyword(list.name,value)"></span> - <span v-html="brightenKeyword(item.name,value)" v-for="(item,index) in list.artists"></span>
                                         </div>
                                     </li>
                                     <li v-if="item.artists">
                                         <h2><i class="fa fa-user" aria-hidden="true"></i>歌手</h2>
                                         <div v-for="(list,index) in item.artists" class="items">
-                                            {{list.name}}
+                                            <span v-html="brightenKeyword(list.name,value)"> {{list.name}}</span>
                                         </div>
                                     </li>
                                     <li v-if="item.albums">
                                         <h2><i class="fa fa-eercast" aria-hidden="true"></i>专辑</h2>
                                         <div v-for="(list,index) in item.albums" class="items">
-                                            {{list.name}}
+                                            <span v-html="brightenKeyword(list.name,value)"></span>
                                         </div>
                                     </li>
                                     <li v-if="item.mvs">
                                         <h2><i class="fa fa-video-camera" aria-hidden="true"></i>视频</h2>
                                         <div v-for="(list,index) in item.mvs" class="items">
-                                            {{list.briefDesc}}
+                                            <p v-html="brightenKeyword(list.briefDesc,value)" @click="push(list,'mv')"></p>
                                         </div>
                                     </li>
                                     <li v-if="item.playlists">
                                         <h2><i class="fa fa-th-list" aria-hidden="true"></i>歌单</h2>
                                         <div v-for="(list,index) in item.playlists" class="items">
-                                            {{list.name}}
+                                            <p v-html="brightenKeyword(list.name,value)"></p>
                                         </div>
                                     </li>
                                 </ul>
@@ -68,14 +67,12 @@
                 </div>
             </div>
             <div class="right">
-                <div @click="loginUp" v-if="id === ''">
+                <div @click="loginUp" v-if="id === 'null'">
                     未登录
                 </div>
-                <div v-if="id!==''" class="avt">
+                <div v-if="id!=='null'" class="avt">
                     <p @click="user">
-                           <span class="avatarUrl">
-                        <img :src="userInfos.profile.avatarUrl" alt="">
-                    </span>
+                           <span class="avatarUrl"><img :src="userInfos.profile.avatarUrl" alt=""></span>
                         <span class="nickname">
                         {{userInfos.profile.nickname}}
                     </span>
@@ -107,7 +104,8 @@
     import user from './users'
     import color from './color'
     import {ipcRenderer } from 'electron'
-
+    import {mapMutations,mapActions} from 'vuex'
+    import { addMusic,getAuth } from "../../util";
     export default {
         name: "index",
         data(){
@@ -119,7 +117,8 @@
                 value:'',
                 login:false,
                 colshow:0,
-                clas:false
+                clas:false,
+                songItem:{}
             }
         },
         computed: {
@@ -138,14 +137,50 @@
             }
         },
         methods:{
-            push(item){
-                this.$router.push({
-                    path:'/navs/searchCont',
-                    query:{
-                        name:item.first
+            ...mapActions([
+                'getSongUrl'
+            ]),
+            ...mapMutations({
+                getSongTime:'SONG_TIME',
+                getSong:'SONG_THIS'
+            }),
+            brightenKeyword(val, keyword) {
+                const Reg = new RegExp(keyword, 'i');
+                if (val) {
+                    return val.replace(Reg, `<span style="color: #409EFF;">${keyword}</span>`);
+                }
+            },
+            push(item,type){
+                if(type === 'hot'){
+                    this.$router.push({
+                        path:'/navs/searchCont',
+                        query:{
+                            name:item.first
+                        }
+                    })
+                    this.value = item.first
+                }
+                if(type === 'mv'){
+                    this.$router.push({
+                        path:'/navs/videoCont',
+                        query:{
+                            id:item.id
+                        }
+                    })
+                    this.value = item.briefDesc
+                }
+                if(type === 'type'){
+                    console.log(item)
+                    this.songItem = {
+                        name:item.name,
+                        url:item.album.artist.img1v1Url,
+                        art:(getAuth(item.artists))
                     }
-                })
-                this.value = item.first
+                    this.getSong(this.songItem)
+                    this.getSongUrl(item.id)
+                    this.getSongTime(item.duration)
+                }
+
                 this.dialog = false
             },
             min(){
@@ -181,6 +216,7 @@
                     headerModel.getSearch(this.value).then((res) => {
                         this.dialog = true
                         this.list = res
+
                     })
                 }
             },
@@ -217,7 +253,7 @@
         display: flex;
         align-items: center;
         background:@back;
-        border-bottom: 2px solid red;
+        border-bottom: 2px solid #B82525;
         .logo{
             margin: 0 15px;
             width: 176px;
@@ -311,17 +347,20 @@
                                 background: rgb(45,45,51);
                                 .searchList{
                                     h2{
-                                        color: @font;
+                                        color: #fff;
                                         background: #303236;
-                                        font-size: 12px;
+                                        font-size: 13px;
                                         padding: 7px 10px;
                                         i{
                                             margin-right: 5px;
                                         }
                                     }
                                     .items{
-                                        font-size: 13px;
+                                        font-size: 12px;
                                         padding: 5px 10px;
+                                        color: #A5A7A8;
+                                        font-family: cursive;
+                                        cursor: pointer;
                                     }
                                 }
                             }

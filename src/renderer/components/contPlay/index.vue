@@ -9,26 +9,27 @@
              v-show="fullScreen"
              @click="close">
             <div class="adimg" :style="{height:height}">
-                <div class="cover" :style="{backgroundImage:  'url(' + msg.al.picUrl + ')',backgroundSize:'100% 100%',height:height}"></div>
+                <div class="cover" :style="{backgroundImage:  'url(' + song.url + ')',backgroundSize:'100% 100%',height:height,filter: 'blur(10px)'}"></div>
                 <div class="conts">
                     <div class="le">
                         <img :src="cz" alt="" class="cz" :class="[playerState? 'a':'b']">
                         <div class="gp" :class="[playerState? 'a':'b']" :style="{backgroundImage:  'url(' + gp + ')',backgroundSize:'100%'}">
-                            <img :src="msg.al.picUrl" alt="">
+                            <img :src="song.url" alt="">
                         </div>
                     </div>
                     <div class="ri">
-                        <p>
-                            <span>{{msg.name}}</span>
+                        <p class="info">
+                            <span>{{song.name}}</span>
+                            <span>{{song.art}}</span>
                         </p>
-                        <div class="lyac" ref="lyricLine">
-                            <ul style="top: 0">
-                                <li>
+                        <div class="parent">
+                            <v-scroll :ops="ops" class="lyac" v-if="currentLyric" ref="vs">
+                                <div class="lyacCher">
                                     <p v-for="(list,index) in currentLyric.lines" :class="{'current':currentLineNum === index}"  >
                                         {{list.txt}}
                                     </p>
-                                </li>
-                            </ul>
+                                </div>
+                            </v-scroll>
                         </div>
                     </div>
                 </div>
@@ -41,32 +42,62 @@
     import animations from 'create-keyframe-animation'
     import {mapState} from  'vuex'
     import {homePage} from "../../api/homePage";
-    import lyric from 'lyric-parser'
+    import Lyric from 'lyric-parser'
     import Bus from '../../Bus'
+    import scroll from 'vuescroll';
     let headModel = new homePage
     export default {
         name: "index",
+        components: {
+            "v-scroll":scroll
+        },
         data(){
             return{
+                ops:{
+                    vuescroll: {
+                        mode: 'native',
+                        speed: 300,
+                    },
+                    scrollPanel: {
+                        easing:'easeInOutQuad',
+                        speed:400
+                    },
+                    rail: {
+                        background:'#2C2E32',
+                        gutterOfSide:'10px',
+                        opacity:1,
+                        keepShow:false
+                    },
+                    bar: {
+                        minSize:0.2,
+                        opacity:1,
+                        onlyShowBarOnScroll:false,
+                        keepShow:true,
+                        background:'#16181C'
+                    }
+                },
                 cz:require('../../assets/images/cz.png'),
                 gp:require('../../assets/images/gp.png'),
                 msg:{},
                 cover:"",
                 height:'',
                 background:``,
-                lyric:[],
+                lyric:'',
                 currentLyric:{},
-                currentLineNum:0
+                currentLineNum:0,
             }
         },
         mounted(){
             this.height = document.documentElement.clientHeight + 'px'
-            Bus.$on('week',cont => {
-                this.currentLyric.week(cont)
-            })
+            this. _getLyric()
             Bus.$on('stop',cont => {
                 if(!cont){
                     this.currentLyric.togglePlay()
+                }
+            })
+            Bus.$on('setCurrTime',cont => {
+                if(this.currentLyric){
+                    this.currentLyric.seek(parseInt(cont) * 1000)
                 }
             })
         },
@@ -78,46 +109,58 @@
         computed: {
             ...mapState([
                 'playerSrc',
-                'playerState'
+                'playerState',
+                'song'
             ]),
         },
         watch:{
-            fullScreen(val){
-
+            playerState(val){
+             if(!val){
+                 if(this.currentLyric){
+                     this.currentLyric.stop()
+                 }
+             }
             },
-            playerSrc(val){
-                this._getSongDetail()
-                this._getLyric()
+            playerSrc(val,old){
+                if(val === old){
+                    return false
+                }
+                if(this.currentLyric){
+                    this.currentLyric.stop()
+                }
+                this.$nextTick(res => {
+                    this._getLyric()
+                })
             }
         },
         methods:{
             _getLyric(){
                 headModel.getLyric(this.playerSrc).then((res) => {
-                    this.currentLyric = new lyric (res.lrc.lyric,this.handelLyric)
+                    this.lyric = res.lrc.lyric
+                    this.currentLyric = new Lyric (this.lyric,obj => {
+                        this.currentLineNum = obj.lineNum
+                        console.log(this.currentLyric)
+                        let active = 150-(obj.lineNum*32)
+                        if (obj.lineNum > 5) {
+                            this.$nextTick(() => {
+                                this.$refs.vs.scrollTo({y: Math.abs(active)}, 400, 'easeInQuad');
+                            })
+                        }else{
+                            this.$nextTick(() => {
+                                this.$refs.vs.scrollTo({y: 0}, 500, 'easeInQuad');
+                            })
+                        }
+                    })
                     if(this.playerState){
                         this.currentLyric.play()
                     }
-                })
-            },
-            handelLyric({lineNum, txt}){
-                this.currentLineNum = lineNum
-                if (lineNum > 5) {
-                    let ul = this.$refs.lyricLine.getElementsByTagName('ul')[0]
-                    let active = 250-(lineNum*32)
-                    ul.style.top = `${active}px`
-                }
-            },
-            _getSongDetail(){
-                headModel.getSongDetailCont(this.playerSrc).then((res) => {
-                    this.msg = res.songs[0]
                 })
             },
             close(){
                 this.$emit('change',false)
             },
             _getPosAndScale() {
-                // 左下角图片的宽度
-                const targetWidth = 40
+                const targetWidth = 52
                 const width = document.documentElement.clientWidth
                 const scale = targetWidth / width
                 const x = -(window.innerWidth / 2)
@@ -175,8 +218,6 @@
         bottom: 0;
         top: 57px;
         z-index: 10;
-        background: -webkit-radial-gradient(closest-side, rgba(66,65,65,1) 0, rgba(0,0,0,1) 100%);
-        background: -moz-radial-gradient(closest-side, rgba(66,65,65,1) 0, rgba(0,0,0,1) 100%);
         background: radial-gradient(closest-side, rgba(66,65,65,1) 0, rgba(0,0,0,1) 100%);
         background-position: 50% 50%;
         background-origin: padding-box;
@@ -201,17 +242,16 @@
                 text-align: center;
                 position: relative;
                 .cz{
-                    transform-origin: right bottom;
-                    width: 150px;
+                    transform-origin: 0 0;
                     position: absolute;
-                    top: -52px;
-                    left: 85px;
-                    transition: .5s all;
+                    top: -35px;
+                    transition: 0.5s all;
                     &.a{
-                        transform: rotateZ(230deg);
+                        transform: rotateZ(25deg);
                     }
                     &.b{
-                        transform: rotateZ(200deg);
+                        transform: rotateZ(0deg);
+
                     }
                 }
                 .gp{
@@ -239,15 +279,13 @@
             }
             .ri{
                 flex: 1;
-                .lyac{
+                .parent{
                     position: relative;
-                    height:420px ;
+                    height:300px ;
                     width: 400px;
-                    overflow: scroll;
-                    ul{
-                        position: absolute;
-                        transition-duration: 600ms;
+                    .lyac{
                         p{
+                            color: #7A7D7F;
                             overflow: hidden;
                             text-overflow: ellipsis;
                             height: 16px;
@@ -255,15 +293,27 @@
                             -webkit-line-clamp: 1;
                             -webkit-box-orient: vertical;
                             display: -webkit-box;
-                            text-align: center;
+                            text-align: left;
                             margin-top: 0;
                             margin-bottom: 16px;
                             &.current{
-                                color: red;
+                                color: #fff;
                             }
                         }
                     }
-
+                }
+                .info{
+                    color: #fff;
+                    font-size: 20px;
+                    margin-top: 45px;
+                    margin-bottom: 30px;
+                    span{
+                        display: block;
+                        &:nth-child(2){
+                            margin-top: 10px;
+                            font-size: 14px;
+                        }
+                    }
                 }
             }
         }

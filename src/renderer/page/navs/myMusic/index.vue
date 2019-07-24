@@ -99,7 +99,7 @@
                 for(let i in data){
                     let k = data[i]
                     let msg = {
-                        id:`i`,
+                        id:Number(i),
                         name:k.name,
                         songId:k.id,
                         auth:getAuth(data[i].ar),

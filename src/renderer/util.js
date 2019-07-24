@@ -75,10 +75,15 @@ export function deleteData(item) {
     let objectStore = store.objectStore(music)
     objectStore.delete(item)
 }//删除单个音乐
-export function getAuth(data) {
+export function getAuth(item) {
     let arr = []
-    for(let i in data){
-        arr.push(data[i].name)
+    if(item.length !==0){
+        for(let i in item){
+            arr.push(item[i].name)
+        }
+    }else{
+        return arr
     }
-    return arr.join('/')
+    return arr.join(',')
 }
+

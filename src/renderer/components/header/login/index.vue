@@ -6,19 +6,19 @@
                 <span>手机登录</span>
                 <span @click="end"><i class="fa fa-times" aria-hidden="true"></i></span>
             </div>
-            <div class="form">
-                <el-form ref="form" :model="form" label-width="80px">
-                    <el-form-item label="手机号:">
-                        <el-input v-model="form.phone"></el-input>
-                    </el-form-item>
-                    <el-form-item label="密码:">
-                        <el-input v-model="form.password"></el-input>
-                    </el-form-item>
-                    <el-form-item style="margin-left: 45px">
-                        <el-button type="primary" @click="login">登录</el-button>
-                        <el-button type="primary" @click="end">取消</el-button>
-                    </el-form-item>
-                </el-form>
+            <div class="container">
+                <div class="form">
+                    <input type="text" class="phone"  placeholder="手机号" v-model="form.phone">
+                    <input type="password" class="phone"  placeholder="密码" v-model="form.password">
+                </div>
+                <div class="bt">
+                    <button @click="login" class="btn">
+                        登录
+                    </button>
+                    <button @click="end" class="btn">
+                        取消
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -82,19 +82,13 @@
             width: 400px;
             height: 300px;
             position: absolute;
-            background: #fff;
+            background-color: rgba(10, 10, 10, 0.77);
+            border: 2px ridge rgba(238, 238, 238, 0.13);
             margin: 0 auto;
             left: 0;
             right: 0;
             z-index: 999;
             top: 150px;
-            .el-input{
-                width: 90%;
-            }
-            .el-button--primary{
-                background-color: @cont;
-                border-color: @cont
-            }
             .head{
                 height: 45px;
                 font-size: 12px;
@@ -107,15 +101,61 @@
                     flex: 1;
                     &:nth-child(2){
                         position: absolute;
-                        position: absolute;
                         right: 20px;
                         font-size: 20px;
                         cursor: pointer;
                     }
                 }
             }
-            .form{
-                margin-top: 50px;
+            .container{
+                padding-top: 15px;
+                width: 80%;
+                margin: 0 auto;
+                .form{
+                    height: 150px;
+                    input{
+                        &::-webkit-input-placeholder {
+                            color: #fff;
+                        }
+                    }
+                    .phone{
+                        width: 93.4%;
+                        margin-bottom: 20px;
+                        padding: 10px;
+                        float: left;
+                        background-color: transparent;
+                        border: none;
+                        font-size: 15px;
+                        border-bottom: 1px solid rgba(238, 238, 238, 0.41);
+                        outline: none;
+                        color: #fff;
+                    }
+                }
+                .bt{
+                    position: relative;
+                    button{
+                        &:nth-child(1){
+                            position: absolute;
+                            left: 0;
+                        }
+                        &:nth-child(2){
+                            position: absolute;
+                            right: 0;
+                        }
+                    }
+                    .btn{
+                        width: 30%;
+                        padding: 5px 0;
+                        font-weight: 100;
+                        background-color: transparent;
+                        color: #fff;
+                        border: 1px solid rgba(238, 238, 238, 0.41);
+                        cursor: pointer;
+                        outline: none;
+                        font-size: 12px;
+                    }
+                }
+
             }
         }
     }

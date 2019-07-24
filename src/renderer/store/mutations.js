@@ -43,8 +43,9 @@ const mutations  = {
             vue.set(playlist[i],'path','/navs/myMusic')
         }
         router = router.concat(arr)
+        state.router = router
         try {
-            localStorage.setItem('router', JSON.stringify(router))
+            localStorage.setItem('router', JSON.stringify(state.router))
         }
         catch (e) {}
     },
@@ -62,9 +63,8 @@ const mutations  = {
                 ]
             }
         ]
-        state.userInfo = {}
-        state.id = ''
-        localStorage.clear()
+        localStorage.setItem('userInfo','null')
+        localStorage.setItem('id','null')
         try {
             localStorage.setItem('router', JSON.stringify(state.router))
         }

@@ -124,7 +124,6 @@
             },
             add(type){
                 Bus.$emit('remove')
-                Bus.$emit('week',0)
                 this.addSong()
                 if(this.playerIndexSet > this.list.length-1){
                     this.playIndex(0)
@@ -162,7 +161,9 @@
                 this.$refs.audio.volume = this.volume
             },
             percentChange(val){
+                console.log(val)
                 this.$refs.audio.currentTime = val * this.playerTime / 1000
+                Bus.$emit('setCurrTime',val * this.playerTime / 1000)
             },
             audioClick(){
                 Bus.$emit('stop',this.playerState)

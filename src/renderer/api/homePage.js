@@ -387,22 +387,33 @@ export class homePage{
             })
         })
     }
-    getSongDetailCont(ids){
+    getLyric(id){
         return new Promise((resolve, reject) => {
-            instance.get('/song/detail',{
+            instance.get('/lyric',{
                 params:{
-                    ids,
+                    id,
                 }
             }).then((res) => {
                 resolve(res)
             })
         })
     }
-    getLyric(id){
+    getFoll(uid){
         return new Promise((resolve, reject) => {
-            instance.get('/lyric',{
+            instance.get('/user/follows',{
                 params:{
-                    id,
+                    uid,
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getFolloweds(uid){
+        return new Promise((resolve, reject) => {
+            instance.get('/user/followeds',{
+                params:{
+                    uid,
                 }
             }).then((res) => {
                 resolve(res)

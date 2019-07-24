@@ -15,11 +15,11 @@
                     <span class="num">{{userInfo.profile.eventCount}}</span>
                     <span class="name">动态</span>
                 </p>
-                <p>
+                <p @click="foll(1,userInfo.profile.nickname)">
                     <span class="num">{{userInfo.profile.follows}}</span>
-                    <span class="name">关注</span>
+                    <span class="name" @click="">关注</span>
                 </p>
-                <p>
+                <p @click="foll(2,userInfo.profile.nickname)">
                     <span class="num">{{userInfo.profile.followeds}}</span>
                     <span class="name">粉丝</span>
                 </p>
@@ -91,9 +91,15 @@
                 this.loginOut()
             },
             qian(){
-                headerModel.dailySignin().then((res) => {
-
-
+                headerModel.dailySignin().then((res) => {})
+            },
+            foll(type,name){
+                this.$router.push({
+                    path:'/navs/flow',
+                    query:{
+                        id:type,
+                        name
+                    }
                 })
             }
         },
@@ -111,7 +117,7 @@
         height: 280px;
         position: absolute;
         background: #2d2d33;
-        top: 56px;
+        top: 41px;
         right: 67px;
         border-radius: 5px;
         .hed{

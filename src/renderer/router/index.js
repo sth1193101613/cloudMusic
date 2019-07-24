@@ -83,6 +83,11 @@ export default new Router({
           name:'more',
           component: resolve => require(['@/page/navs/moreMv'],resolve),
         },
+        {
+          path:'/navs/flow',
+          name:'more',
+          component: resolve => require(['@/page/navs/flow'],resolve),
+        }
       ]
     },
   ],
