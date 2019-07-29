@@ -5,22 +5,24 @@
         </h3>
         <div class="foll-list">
             <ul class="container">
-                <li v-for="(item,index) in list">
-                    <div>
-                        <img :src="item.avatarUrl" alt="">
-                    </div>
-                    <div>
-                        <p>{{item.nickname}}</p>
-                        <p>{{item.signature}}</p>
-                        <p>
+                <li v-for="(item,index) in list" class="cont-li">
+                 <div class="fl">
+                     <div class="img">
+                         <img :src="item.avatarUrl" alt="">
+                     </div>
+                     <div class="cont">
+                         <p class="nick">{{item.nickname}}</p>
+                         <p>{{item.signature}}</p>
+                         <p>
                             <span>
                                 歌单:{{item.follows}}
                             </span>
-                            <span>
+                             <span>
                                 粉丝:{{item.followeds}}
                             </span>
-                        </p>
-                    </div>
+                         </p>
+                     </div>
+                 </div>
                 </li>
             </ul>
         </div>
@@ -83,10 +85,41 @@
             padding-bottom: 10px;
         }
         .foll-list{
+            margin-top: 20px;
             .container{
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
+                .cont-li{
+                    display: inline-block;
+                    width: 370px;
+                    height: 95px;
+                    background: #202226;
+                    margin-bottom: 20px;
+                    &:nth-child(2n+1){
+                        margin-right: 20px;
+                    }
+                    .fl{
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        .img{
+                            margin: 0 20px;
+                            width: 65px;
+                            height: 65px;
+                            img{
+                                border-radius: 50% ;
+                            }
+                        }
+                        .cont{
+                            flex: 1;
+                            p{
+                                line-height: 2;
+                                font-size: 12px;
+                            }
+                            .nick{
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

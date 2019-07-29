@@ -17,6 +17,7 @@
                @timeupdate="updateTime"/>
         <div class="sett">
             <v-progress :max="100" :value="setVolume" @pbar-seek="seek" @pbar-drag="drag" :min="0"/>
+            <v-switchs @setSw="setKey"/>
             <v-playList/>
         </div>
     </div>
@@ -27,6 +28,7 @@
     import playerProgress from '../../components/playProgress'
     import progress from '../../components/lesing'
     import playList from '../../components/playlist'
+    import switchs from '../../components/switchs'
     import {getAllData} from '../../util'
     import Bus from '../../Bus'
     export default {
@@ -40,7 +42,8 @@
                 player:require('../../assets/images/play.png'),
                 volume:0.36,
                 list:[],
-                index:0
+                index:0,
+                key:1
             }
         },
         computed: {
@@ -94,11 +97,29 @@
                 getSongTime:'SONG_TIME',
                 getSong:'SONG_THIS'
             }),
+            setKey(val){
+                this.key = val
+            },
+            RandomNumBoth(Min,Max){
+                let Range = Max - Min;
+                let Rand = Math.random();
+                let num = Min + Math.round(Rand * Range); //四舍五入
+                return num;
+            },
             ended(e){
                 if(e.isTrusted){
-                    //如果为1 单曲 继续调用paly index 不变
-                    //如果为2 索引+1 // 继续播放
-                    this.add(1)
+                    console.log(this.key)
+                    if(this.key === 1){
+                        this.$refs.audio.play();
+                        Bus.$emit('index')
+                    }else if(this.key === 2){
+                        this.add(1)
+                    }else{
+
+                    }
+                    //1 单曲 继续调用paly index 不变
+                    //2 索引+1 // 继续播放
+                    //3 随机播放
                 }
             },
             getName(item){
@@ -161,7 +182,6 @@
                 this.$refs.audio.volume = this.volume
             },
             percentChange(val){
-                console.log(val)
                 this.$refs.audio.currentTime = val * this.playerTime / 1000
                 Bus.$emit('setCurrTime',val * this.playerTime / 1000)
             },
@@ -186,7 +206,8 @@
         components:{
             "v-playerProgress":playerProgress,
             "v-progress":progress,
-            "v-playList":playList
+            "v-playList":playList,
+            "v-switchs":switchs
         },
         mounted(){
             Bus.$on('getMusicFirst',cont => {

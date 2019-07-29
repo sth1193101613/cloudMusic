@@ -42,7 +42,7 @@
     import animations from 'create-keyframe-animation'
     import {mapState} from  'vuex'
     import {homePage} from "../../api/homePage";
-    import Lyric from 'lyric-parser'
+    import Lyric from '../../../../lyric'
     import Bus from '../../Bus'
     import scroll from 'vuescroll';
     let headModel = new homePage
@@ -100,6 +100,12 @@
                     this.currentLyric.seek(parseInt(cont) * 1000)
                 }
             })
+            Bus.$on('index',() => {
+                if(this.currentLyric){
+                    this.currentLyric.seek(0)
+                }
+
+            })
         },
         props:{
             fullScreen:{
@@ -139,7 +145,6 @@
                     this.lyric = res.lrc.lyric
                     this.currentLyric = new Lyric (this.lyric,obj => {
                         this.currentLineNum = obj.lineNum
-                        console.log(this.currentLyric)
                         let active = 150-(obj.lineNum*32)
                         if (obj.lineNum > 5) {
                             this.$nextTick(() => {
