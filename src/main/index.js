@@ -21,7 +21,7 @@ function createWindow () {
     frame: false
   })
   mainWindow.show()
-
+  mainWindow.webContents.openDevTools()
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {

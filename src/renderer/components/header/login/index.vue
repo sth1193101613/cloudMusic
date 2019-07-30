@@ -50,9 +50,9 @@
             login(){
                 this.getLoginId(this.form)
                 setTimeout(() => {
-                    console.log(this.id)
                     this.getPlayList(this.id)
                     this.getUserInfo(this.id)
+                    this.end()
                 },500)
             },
             end(){

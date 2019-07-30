@@ -165,11 +165,11 @@
                 this.$emit('change',false)
             },
             _getPosAndScale() {
-                const targetWidth = 52
-                const width = document.documentElement.clientWidth
-                const scale = targetWidth / width
-                const x = -(window.innerWidth / 2)
-                const y = window.innerHeight  / 2
+                let targetWidth = 52
+                let width = document.documentElement.clientWidth
+                let scale = targetWidth / width
+                let x = -(window.innerWidth / 2)
+                let y = window.innerHeight  / 2
                 return {x ,y , scale}
             },
             enter(el, done) {

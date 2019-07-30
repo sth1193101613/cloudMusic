@@ -13,7 +13,7 @@
                 </li>
             </ul>
         </div>
-        <div class="music" @click="switchMode">
+        <div class="music" @click="switchMode" v-if="song">
             <div class="img">
                 <div class="back">
                     <img :src="big" alt="">
