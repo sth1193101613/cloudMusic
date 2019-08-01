@@ -420,4 +420,15 @@ export class homePage{
             })
         })
     }
+    getCommoent(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/comment/music',{
+                params:{
+                    id,
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
 }

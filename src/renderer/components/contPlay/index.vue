@@ -45,11 +45,13 @@
     import Lyric from '../../../../lyric'
     import Bus from '../../Bus'
     import scroll from 'vuescroll';
+    import comment from '../comment'
     let headModel = new homePage
     export default {
         name: "index",
         components: {
-            "v-scroll":scroll
+            "v-scroll":scroll,
+            "v-comment":comment
         },
         data(){
             return{
@@ -211,7 +213,7 @@
                 this.$refs.cdWrapper.style.transition = ''
                 this.$refs.cdWrapper.style['transform'] = ''
             }
-        }
+        },
     }
 </script>
 
