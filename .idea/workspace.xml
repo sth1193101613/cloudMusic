@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba3e67b9-3dd0-471b-b742-b658566f9dd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/renderer/components/comment/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/api/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/api/homePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/comment/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/comment/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/components/contPlay/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/components/contPlay/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/NeteaseCloudMusicApi/node_modules/" />
@@ -19,88 +18,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/renderer/components/comment/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="90" column="18" lean-forward="true" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+            <state relative-caret-position="-299">
+              <caret line="71" column="25" lean-forward="true" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#3614#3809#0" />
-                <element signature="e#3860#4390#0" />
-                <element signature="e#4413#4770#0" />
-                <element signature="e#4791#4842#0" />
-                <element signature="e#4868#5292#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/contPlay/index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
-              <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-              <folding>
-                <element signature="n#div#0;n#transition#0;n#template#0;n#!!top" />
-                <element signature="e#2183#3330#0" />
-                <element signature="e#3349#3946#0" />
-                <element signature="e#3962#4041#0" />
-                <element signature="e#4061#4197#0" />
-                <element signature="e#4213#4740#0" />
-                <element signature="e#4758#7709#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/api/homePage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="422" column="15" selection-start-line="422" selection-start-column="4" selection-end-line="422" selection-end-column="15" />
-              <folding>
-                <element signature="n#!!block;n#getHot#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSearch#0;n#homePage#0" />
-                <element signature="n#!!block;n#getBanner#0;n#homePage#0" />
-                <element signature="n#!!block;n#getPersonalized#0;n#homePage#0" />
-                <element signature="n#!!block;n#getPrivatecontent#0;n#homePage#0" />
-                <element signature="n#!!block;n#getNewsong#0;n#homePage#0" />
-                <element signature="n#!!block;n#getMv#0;n#homePage#0" />
-                <element signature="n#!!block;n#getStation#0;n#homePage#0" />
-                <element signature="n#!!block;n#getCatList#0;n#homePage#0" />
-                <element signature="n#!!block;n#getCatListHot#0;n#homePage#0" />
-                <element signature="n#!!block;n#getplay#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSorganisation#0;n#homePage#0" />
-                <element signature="n#!!block;n#getcate#0;n#homePage#0" />
-                <element signature="n#!!block;n#getgift#0;n#homePage#0" />
-                <element signature="n#!!block;n#getTwo#0;n#homePage#0" />
-                <element signature="n#!!block;n#getGroup#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSinger#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSong#0;n#homePage#0" />
-                <element signature="n#!!block;n#getNewDie#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSongDetail#0;n#homePage#0" />
-                <element signature="n#!!block;n#commitPlayer#0;n#homePage#0" />
-                <element signature="n#!!block;n#commitHtoPlayer#0;n#homePage#0" />
-                <element signature="n#!!block;n#commentLike#0;n#homePage#0" />
-                <element signature="n#!!block;n#subscribers#0;n#homePage#0" />
-                <element signature="n#!!block;n#getUserDetail#0;n#homePage#0" />
-                <element signature="n#!!block;n#getUserPlayList#0;n#homePage#0" />
-                <element signature="n#!!block;n#getSearchList#0;n#homePage#0" />
-                <element signature="n#!!block;n#getVideoDetail#0;n#homePage#0" />
-                <element signature="n#!!block;n#getUrlMvs#0;n#homePage#0" />
-                <element signature="n#!!block;n#getAllvideo#0;n#homePage#0" />
-                <element signature="n#!!block;n#getMvAll#0;n#homePage#0" />
-                <element signature="n#!!block;n#getVideoGroup#0;n#homePage#0" />
-                <element signature="n#!!block;n#isLike#0;n#homePage#0" />
-                <element signature="n#!!block;n#dailySignin#0;n#homePage#0" />
-                <element signature="n#!!block;n#likelist#0;n#homePage#0" />
-                <element signature="n#!!block;n#event#0;n#homePage#0" />
-                <element signature="n#!!block;n#getLyric#0;n#homePage#0" />
-                <element signature="n#!!block;n#getFoll#0;n#homePage#0" />
-                <element signature="n#!!block;n#getFolloweds#0;n#homePage#0" />
-                <element signature="e#10865#11064#0" />
+                <element signature="e#3729#3924#0" />
+                <element signature="e#3975#4505#0" />
+                <element signature="e#4514#4715#0" />
+                <element signature="e#4906#4957#0" />
+                <element signature="e#4983#5407#0" />
               </folding>
             </state>
           </provider>
@@ -119,8 +47,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_triggerPercent</find>
-      <find>playerState</find>
       <find>state</find>
       <find>songItem</find>
       <find>isLike</find>
@@ -148,6 +74,8 @@
       <find>colshow</find>
       <find>userInfos</find>
       <find>loginout</find>
+      <find>page</find>
+      <find>total</find>
       <find>getHot</find>
     </findStrings>
   </component>
@@ -218,7 +146,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="179" />
     <option name="y" value="105" />
     <option name="width" value="1036" />
@@ -232,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,20 +191,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="comment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudMusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="contPlay" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -373,8 +293,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.build:dir" />
         <item itemvalue="npm.pack:main" />
@@ -446,16 +366,18 @@
       <workItem from="1564536125040" duration="596000" />
       <workItem from="1564621714250" duration="612000" />
       <workItem from="1564659409032" duration="5036000" />
+      <workItem from="1564709864927" duration="9231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="562300000" />
+    <option name="totallyTimeSpent" value="571531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1421776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20613107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -815,20 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NeteaseCloudMusicApi/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1403">
@@ -840,21 +748,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/comment/index.vue">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="70" column="20" lean-forward="true" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="322">
+          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NeteaseCloudMusicApi/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/api/homePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="422" column="15" selection-start-line="422" selection-start-column="4" selection-end-line="422" selection-end-column="15" />
+        <state relative-caret-position="441">
+          <caret line="422" column="4" selection-start-line="422" selection-start-column="4" selection-end-line="422" selection-end-column="4" />
           <folding>
             <element signature="n#!!block;n#getHot#0;n#homePage#0" />
             <element signature="n#!!block;n#getSearch#0;n#homePage#0" />
@@ -895,39 +806,38 @@
             <element signature="n#!!block;n#getLyric#0;n#homePage#0" />
             <element signature="n#!!block;n#getFoll#0;n#homePage#0" />
             <element signature="n#!!block;n#getFolloweds#0;n#homePage#0" />
-            <element signature="e#10865#11064#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/comment/index.vue">
+    <entry file="file://$PROJECT_DIR$/src/renderer/page/navs/myMusic/comment/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="90" column="18" lean-forward="true" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+        <state relative-caret-position="255">
+          <caret line="139" column="30" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="30" />
           <folding>
             <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#3614#3809#0" />
-            <element signature="e#3860#4390#0" />
-            <element signature="e#4413#4770#0" />
-            <element signature="e#4791#4842#0" />
-            <element signature="e#4868#5292#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/contPlay/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+        <state relative-caret-position="437">
+          <caret line="169" column="82" lean-forward="true" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/comment/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="71" column="25" lean-forward="true" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
           <folding>
-            <element signature="n#div#0;n#transition#0;n#template#0;n#!!top" />
-            <element signature="e#2183#3330#0" />
-            <element signature="e#3349#3946#0" />
-            <element signature="e#3962#4041#0" />
-            <element signature="e#4061#4197#0" />
-            <element signature="e#4213#4740#0" />
-            <element signature="e#4758#7709#0" />
+            <element signature="e#3729#3924#0" />
+            <element signature="e#3975#4505#0" />
+            <element signature="e#4514#4715#0" />
+            <element signature="e#4906#4957#0" />
+            <element signature="e#4983#5407#0" />
           </folding>
         </state>
       </provider>

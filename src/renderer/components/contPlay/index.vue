@@ -8,7 +8,7 @@
              ref="cdWrapper"
              v-show="fullScreen"
              @click="close">
-            <div class="adimg" :style="{height:height}">
+            <div class="adimg">
                 <div class="cover" :style="{backgroundImage:  'url(' + song.url + ')',backgroundSize:'100% 100%',height:height,filter: 'blur(10px)'}"></div>
                 <div class="conts">
                     <div class="le">
@@ -34,7 +34,9 @@
                     </div>
                 </div>
             </div>
+            <v-comment :hotList="hotList" :nweList="nweList" :total="total"></v-comment>
         </div>
+
     </transition>
 </template>
 
@@ -87,11 +89,16 @@
                 lyric:'',
                 currentLyric:{},
                 currentLineNum:0,
+                hotList:[],
+                nweList:[],
+                total:0,
+                limit:30,
             }
         },
         mounted(){
             this.height = document.documentElement.clientHeight + 'px'
             this. _getLyric()
+            this._getHot(this.playerSrc,this.limit,0)
             Bus.$on('stop',cont => {
                 if(!cont){
                     this.currentLyric.togglePlay()
@@ -106,7 +113,6 @@
                 if(this.currentLyric){
                     this.currentLyric.seek(0)
                 }
-
             })
         },
         props:{
@@ -142,6 +148,13 @@
             }
         },
         methods:{
+            _getHot(id,limit,offset){
+                headModel.getCommoent(id,limit,offset).then((res) => {
+                    this.hotList = res.hotComments
+                    this.nweList = res.comments
+                    this.total = res.total
+                })
+            },
             _getLyric(){
                 headModel.getLyric(this.playerSrc).then((res) => {
                     this.lyric = res.lrc.lyric

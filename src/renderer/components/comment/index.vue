@@ -1,9 +1,5 @@
 <template>
     <div class="commit">
-        <div class="back">
-            <textarea style="resize:none;" class="conts" cols="30" rows="4"></textarea>
-            <div>评论</div>
-        </div>
         <div v-if="total !== 0">
             <div v-if="hide">
                 <h5 class="top">精彩评论</h5>
@@ -62,36 +58,23 @@
                     @current-change="curr">
             </el-pagination>
         </div>
+        <div>
+
+        </div>
     </div>
 </template>
 
 <script>
-    import {homePage} from "../../api/homePage";
-    let headModel = new homePage
-    import {mapState} from 'vuex'
     export default {
         name: "index",
         data(){
             return{
-                hotList:[],
-                nweList:[],
                 limit:30,
-                total:0,
                 page:1,
                 hide:true,
-                liket:require('../../../../assets/images/like-t.png'),
-                likef:require('../../../../assets/images/like-f.png')
+                liket:require('../../assets/images/like-t.png'),
+                likef:require('../../assets/images/like-f.png')
             }
-        },
-        activated  (){
-            this.limit = 30
-            this.total = 0
-            this.getHot(this.playerSrc,this.limit,0)
-        },
-        computed:{
-          ...mapState([
-              'playerSrc'
-          ])
         },
         watch:{
             page(val){
@@ -117,11 +100,7 @@
                 headModel.commentLike(2,k,id,this.$route.query.id).then((res) => { })
             },
             curr(val){
-                if(val === 1){
-                    this.getHot(this.$route.query.id,this.limit,0)
-                }else{
-                    this.getHot(this.$route.query.id,this.limit,this.page*30)
-                }
+                this.$emit('setCurr',1)
                 this.page = val
                 let scrollDiv = this.$refs.scroll
                 scrollDiv.scrollIntoView()
@@ -139,34 +118,27 @@
                 let s = time.getSeconds();
                 return y+'年'+this.add0(m)+'月'+this.add0(d)+'日'+this.add0(h)+':'+this.add0(mm)+':'+this.add0(s);
             },
-            getHot(id,limit,offset){
-                headModel.getCommoent(id).then((res) => {
-                    this.hotList = res.hotComments
-                    this.nweList = res.comments
-                    this.total = res.total
-                })
-            }
         },
-
+        props:{
+            hotList:{
+                type:Array,
+                default:[]
+            },
+            nweList:{
+                type:Array,
+                default:[]
+            },
+            total:{
+                type:Number,
+                default:0
+            }
+        }
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
     .commit{
-        padding: 20px;
-        .back{
-            background: #1C1E23;
-            padding: 10px;
-            .conts{
-                border: 1px solid #000;
-                width: 100%;
-                background: #2B2C31;
-                color: #fff;
-                &:focus {
-                    outline: none;
-                }
-            }
-        }
+        padding: 20px 60px;
         .top{
             margin-top: 38px;
             color: #fff;
@@ -202,6 +174,7 @@
                     }
                     .content{
                         color: #fff;
+                        font-family: initial;
                     }
                 }
                 .sett{
