@@ -1,5 +1,5 @@
 {
-  "name": "cloundmusic",
+  "name": "cloudmusic",
   "version": "0.0.1",
   "author": "sth1193101613 <1193101613@qq.com>",
   "description": "An electron-vue project",
@@ -65,10 +65,9 @@
     "vue-router": "^3.0.1",
     "vue-slicksort": "^1.1.3",
     "vue-video-player": "^5.0.2",
+    "vuescroll": "^4.13.1",
     "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.0",
-    "lyric-parser": "^1.0.1",
-    "vuescroll": "^4.13.1"
+    "vuex-electron": "^1.0.0"
   },
   "devDependencies": {
     "ajv": "^6.5.0",

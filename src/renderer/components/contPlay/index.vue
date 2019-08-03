@@ -8,7 +8,7 @@
              ref="cdWrapper"
              v-show="fullScreen"
         >
-            <div class="adimg" :style="{height:height}">
+            <div class="adimg">
                 <div class="icons" @click="close"><img src="../../assets/images/big.png" alt=""></div>
                 <div class="cover" :style="{backgroundImage:  'url(' + song.url + ')',backgroundSize:'100% 100%',height:height,filter: 'blur(10px)'}"></div>
                 <div class="conts">
@@ -35,7 +35,9 @@
                     </div>
                 </div>
             </div>
+            <v-comment :hotList="hotList" :nweList="nweList" :total="total"></v-comment>
         </div>
+
     </transition>
 </template>
 
@@ -43,14 +45,16 @@
     import animations from 'create-keyframe-animation'
     import {mapState} from  'vuex'
     import {homePage} from "../../api/homePage";
-    import Lyric from 'lyric-parser'
+    import Lyric from '../../../../lyric'
     import Bus from '../../Bus'
     import scroll from 'vuescroll';
+    import comment from '../comment'
     let headModel = new homePage
     export default {
         name: "index",
         components: {
-            "v-scroll":scroll
+            "v-scroll":scroll,
+            "v-comment":comment
         },
         data(){
             return{
@@ -86,11 +90,16 @@
                 lyric:'',
                 currentLyric:{},
                 currentLineNum:0,
+                hotList:[],
+                nweList:[],
+                total:0,
+                limit:30,
             }
         },
         mounted(){
             this.height = document.documentElement.clientHeight + 'px'
             this. _getLyric()
+            this._getHot(this.playerSrc,this.limit,0)
             Bus.$on('stop',cont => {
                 if(!cont){
                     this.currentLyric.togglePlay()
@@ -99,6 +108,11 @@
             Bus.$on('setCurrTime',cont => {
                 if(this.currentLyric){
                     this.currentLyric.seek(parseInt(cont) * 1000)
+                }
+            })
+            Bus.$on('index',() => {
+                if(this.currentLyric){
+                    this.currentLyric.seek(0)
                 }
             })
         },
@@ -135,12 +149,18 @@
             }
         },
         methods:{
+            _getHot(id,limit,offset){
+                headModel.getCommoent(id,limit,offset).then((res) => {
+                    this.hotList = res.hotComments
+                    this.nweList = res.comments
+                    this.total = res.total
+                })
+            },
             _getLyric(){
                 headModel.getLyric(this.playerSrc).then((res) => {
                     this.lyric = res.lrc.lyric
                     this.currentLyric = new Lyric (this.lyric,obj => {
                         this.currentLineNum = obj.lineNum
-                        console.log(this.currentLyric)
                         let active = 150-(obj.lineNum*32)
                         if (obj.lineNum > 5) {
                             this.$nextTick(() => {
@@ -161,11 +181,11 @@
                 this.$emit('change',false)
             },
             _getPosAndScale() {
-                const targetWidth = 52
-                const width = document.documentElement.clientWidth
-                const scale = targetWidth / width
-                const x = -(window.innerWidth / 2)
-                const y = window.innerHeight  / 2
+                let targetWidth = 52
+                let width = document.documentElement.clientWidth
+                let scale = targetWidth / width
+                let x = -(window.innerWidth / 2)
+                let y = window.innerHeight  / 2
                 return {x ,y , scale}
             },
             enter(el, done) {
@@ -207,7 +227,7 @@
                 this.$refs.cdWrapper.style.transition = ''
                 this.$refs.cdWrapper.style['transform'] = ''
             }
-        }
+        },
     }
 </script>
 

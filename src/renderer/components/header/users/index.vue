@@ -89,6 +89,7 @@
             ]),
             loginout(){
                 this.loginOut()
+
             },
             qian(){
                 headerModel.dailySignin().then((res) => {})

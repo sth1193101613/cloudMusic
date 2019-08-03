@@ -63,9 +63,11 @@ const mutations  = {
                 ]
             }
         ]
-        localStorage.setItem('userInfo','null')
-        localStorage.setItem('id','null')
+        state.id = 'null'
+        state.userInfo = {}
         try {
+            localStorage.removeItem('userInfo')
+            localStorage.removeItem('id')
             localStorage.setItem('router', JSON.stringify(state.router))
         }
         catch (e) {}

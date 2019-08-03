@@ -70,12 +70,10 @@
                 <div @click="loginUp" v-if="id === 'null'">
                     未登录
                 </div>
-                <div v-if="id!=='null'" class="avt">
+                <div v-else class="avt">
                     <p @click="user">
-                           <span class="avatarUrl"><img :src="userInfos.profile.avatarUrl" alt=""></span>
-                        <span class="nickname">
-                        {{userInfos.profile.nickname}}
-                    </span>
+                        <span class="avatarUrl"><img :src="userInfo.profile.avatarUrl" alt=""></span>
+                        <span class="nickname">{{userInfo.profile.nickname}}</span>
                         <i class="fa fa-sort-desc sort" aria-hidden="true"></i>
                     </p>
                     <v-user v-if="colshow === 1 && clas"></v-user>
@@ -104,7 +102,7 @@
     import user from './users'
     import color from './color'
     import {ipcRenderer } from 'electron'
-    import {mapMutations,mapActions} from 'vuex'
+    import {mapMutations,mapActions,mapState} from 'vuex'
     import { addMusic,getAuth } from "../../util";
     export default {
         name: "index",
@@ -122,18 +120,19 @@
             }
         },
         computed: {
-            userInfos() {
-                return this.$store.state.userInfo;
-            },
-            id() {
-                return this.$store.state.id;
-            }
+            ...mapState([
+                'userInfo',
+                'id'
+            ]),
         },
         watch:{
             value(val){
                 if(val === ''){
                     this.dialog = true
                 }
+            },
+            id(val){
+                console.log(val)
             }
         },
         methods:{

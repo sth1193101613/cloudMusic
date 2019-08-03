@@ -142,6 +142,7 @@
                 line-height: 2.5;
                 border-right: 1px solid #232529;
                 padding: 0 15px;
+                color: #828385;
                 span{
                     width: 15px;
                     display: inline-block;
@@ -183,6 +184,7 @@
                     cursor: pointer;
                     b{
                         margin: 0 5px;
+                        font-weight:normal
                     }
                 }
                 span{
