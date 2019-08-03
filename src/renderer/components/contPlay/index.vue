@@ -7,8 +7,9 @@
         <div class="playCont"
              ref="cdWrapper"
              v-show="fullScreen"
-             @click="close">
+        >
             <div class="adimg" :style="{height:height}">
+                <div class="icons" @click="close"><img src="../../assets/images/big.png" alt=""></div>
                 <div class="cover" :style="{backgroundImage:  'url(' + song.url + ')',backgroundSize:'100% 100%',height:height,filter: 'blur(10px)'}"></div>
                 <div class="conts">
                     <div class="le">
@@ -226,6 +227,15 @@
         overflow: scroll;
         .adimg{
             position: relative;
+            .icons{
+                position: absolute;
+                right: 30px;
+                width: 20px;
+                height: 20px;
+                background: #3b3b3b;
+                top: 45px;
+                padding: 5px 10px;
+            }
             .cover{
                 opacity: .1;
                 position: absolute;
