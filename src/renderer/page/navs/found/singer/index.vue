@@ -13,7 +13,7 @@
         </div>
         <ul class="sing" ref="singer">
             <li v-for="(list,index) in item" :style="{padding:list.padding}">
-                <img :src="list.img1v1Url" alt="">
+                <img v-lazy="list.img1v1Url" alt="">
                 <p class="name">{{list.name}}</p>
             </li>
         </ul>
@@ -70,14 +70,6 @@
         created() {
             this.getSinger()
         },
-        mounted(){
-            Bus.$on('scrollBottom',(e) => {
-                if(e){
-
-                }
-            })
-        }
-
     }
 </script>
 

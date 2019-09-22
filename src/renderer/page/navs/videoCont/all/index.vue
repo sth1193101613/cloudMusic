@@ -3,7 +3,7 @@
         <div class="mvs-deta">
             <p class="title">MV介绍</p>
             <p class="publish"><span>发布时间{{detail.publishTime}}</span><span>播放次数{{detail.playCount}}</span></p>
-            <p class="desc">简介：{{detail.desc}}</p>
+            <p class="desc">简介：{{detail.desc ? detail.desc : detail.title}}</p>
         </div>
         <div class="related">
             <p class="title">相关推荐</p>
@@ -95,14 +95,8 @@
                     p{
                         line-height: 1.7;
                     }
-                    .titlename{
+                    .titlename,.exp{
                         color: #fff;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 1;
-                        overflow: hidden;
-                    }
-                    .exp{
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 1;

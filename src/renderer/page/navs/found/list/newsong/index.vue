@@ -7,9 +7,9 @@
         </ul>
         <ul class="songboj">
             <li v-for="(list,index) in song" class="song-list">
-                <span class="hed">{{index<9?`0${index+1}`:index+1}}</span>
+                <span class="hed">{{index < 9 ? `0${index + 1}`:index + 1}}</span>
                 <div class="flex2 p">
-                    <img :src="list.album.picUrl" alt="">
+                    <img v-lazy="list.album.picUrl" alt="">
                     <span class="name">{{list.name}}</span>
                     <span class="sq">SQ</span>
                 </div>
@@ -19,7 +19,7 @@
                     </span>
                 </div>
                 <span class="flex1 p">{{list.name}}</span>
-                <span class="hed">{{forma(list.bMusic.playTime)}}</span>
+                <span class="hed" v-if="list.bMusic">{{forma(list.bMusic.playTime)}}</span>
             </li>
         </ul>
     </div>

@@ -8,7 +8,7 @@
                     <span @click="$router.go(+1)"><i class="fa fa-2x fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="search">
-                    <input type="text" placeholder="搜索音乐,歌手,歌词" @focus.prevent="show" @input="search" v-model="value"/>
+                    <input type="text" placeholder="搜索音乐,歌手,歌词" @focus.prevent="show" @input="search" v-model="value" @keyup.enter="push(value)"/>
                     <i class="fa fa-1x fa-search searchIcon" aria-hidden="true"></i>
                     <div class="dialog" v-if="dialog">
                         <div class="flex" :class="[{active:value}]">
@@ -76,7 +76,7 @@
                         <span class="nickname">{{userInfo.profile.nickname}}</span>
                         <i class="fa fa-sort-desc sort" aria-hidden="true"></i>
                     </p>
-                    <v-user v-if="colshow === 1 && clas"></v-user>
+                    <v-user @closeUser="closeUser" v-if="colshow === 1 && clas"></v-user>
                 </div>
                 <div class="iconsa">
                     <div class="icons">
@@ -103,7 +103,7 @@
     import color from './color'
     import {ipcRenderer } from 'electron'
     import {mapMutations,mapActions,mapState} from 'vuex'
-    import { addMusic,getAuth } from "../../util";
+    import { getAuth } from "../../util";
     export default {
         name: "index",
         data(){
@@ -143,10 +143,13 @@
                 getSongTime:'SONG_TIME',
                 getSong:'SONG_THIS'
             }),
+            closeUser(cal){
+                this.clas = cal
+            },
             brightenKeyword(val, keyword) {
-                const Reg = new RegExp(keyword, 'i');
+                const Reg = new RegExp(keyword, 'i')
                 if (val) {
-                    return val.replace(Reg, `<span style="color: #409EFF;">${keyword}</span>`);
+                    return val.replace(Reg, `<span style="color: #409EFF;">${keyword}</span>`)
                 }
             },
             push(item,type){
@@ -169,7 +172,6 @@
                     this.value = item.briefDesc
                 }
                 if(type === 'type'){
-                    console.log(item)
                     this.songItem = {
                         name:item.name,
                         url:item.album.artist.img1v1Url,
@@ -178,8 +180,15 @@
                     this.getSong(this.songItem)
                     this.getSongUrl(item.id)
                     this.getSongTime(item.duration)
+                } else {
+                    this.$router.push({
+                        path:'/navs/searchCont',
+                        query:{
+                            id:item.id,
+                            name: this.value
+                        }
+                    })
                 }
-
                 this.dialog = false
             },
             min(){

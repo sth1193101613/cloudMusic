@@ -22,6 +22,8 @@
 <script type="text/ecmascript-6">
     import {homePage} from "../../../../api/homePage";
     const headerModel  = new homePage
+    import {mapMutations,mapActions,mapState} from 'vuex'
+    import { getAuth } from "../../../../util";
     export default {
         name: "index",
         props:{
@@ -39,12 +41,29 @@
             }
         },
         methods: {
+            ...mapActions([
+                'getSongUrl'
+            ]),
+            ...mapMutations({
+                getSongTime:'SONG_TIME',
+                getSong:'SONG_THIS'
+            }),
             format(time){
                 let  min = Math.floor((time/1000/60) << 0)
                 let  sec = Math.floor((time/1000) % 60)
                 return `${min}:${sec}`
             },
-            getMusic(item){},
+            getMusic(item){
+                console.log(item)
+                this.songItem = {
+                    name:item.name,
+                    url:item.album.artist.img1v1Url,
+                    art:(getAuth(item.artists))
+                }
+                this.getSong(this.songItem)
+                this.getSongUrl(item.id)
+                this.getSongTime(item.duration)
+            },
             _getSearch() {
                 headerModel.getSearchList(this.name,1,this.limit).then((res) => {
                     this.songList = res.result.songs

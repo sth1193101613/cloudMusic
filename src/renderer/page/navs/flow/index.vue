@@ -89,7 +89,7 @@
             .container{
                 .cont-li{
                     display: inline-block;
-                    width: 370px;
+                    width: calc((100% / 2) - 20px);
                     height: 95px;
                     background: #202226;
                     margin-bottom: 20px;

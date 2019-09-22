@@ -1,4 +1,5 @@
 import axios from 'axios'
+import state from '../store'
 import qs from 'qs'
 let instance = axios.create({
   baseURL: "http://localhost:3000",
@@ -11,9 +12,11 @@ instance.interceptors.request.use((config) => {
   }
   return config;
 }, (error) => {
+
   return Promise.reject(error);
 })
 instance.interceptors.response.use((res) => {
+
   if(res.data.code === 200){
     return res.data
   }

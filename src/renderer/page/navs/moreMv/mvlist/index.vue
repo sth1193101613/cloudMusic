@@ -6,7 +6,7 @@
         </p>
         <ul class="mv-item">
             <li v-for="(item,index) in list" class="lists" @click="push(item)">
-                <img :src="item.cover" alt="">
+                <img v-lazy="item.cover" alt="">
                 <p class="name">{{item.name}}</p>
                 <p>{{item.artistName}}</p>
             </li>
@@ -32,6 +32,7 @@
                 this.$router.push({
                     path:'/navs/videoCont',
                     query:{
+                        state:1,
                         id:item.id
                     }
                 })
@@ -76,7 +77,6 @@
             padding-top: 10px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             padding-bottom: 20px;
             .lists{
                 cursor: pointer;

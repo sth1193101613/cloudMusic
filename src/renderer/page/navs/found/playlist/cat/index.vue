@@ -59,19 +59,7 @@
     .cats{
         position: relative;
         height: 80px;
-        .cat{
-            background: #2D2F33;
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 12px;
-            text-align: center;
-            border-radius: 2px;
-            position: absolute;
-            top: 20px;
-            i{
-                margin-left: 5px;
-            }
-        }
+
         .hot{
             position: absolute;
             top: 60px;

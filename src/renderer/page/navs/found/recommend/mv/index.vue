@@ -42,7 +42,8 @@
                 this.$router.push({
                     path:'/navs/videoCont',
                     query:{
-                        id:item.id
+                        id:item.id,
+                        state:1
                     }
                 })
             },
