@@ -6,14 +6,15 @@
             @after-leave="afterLeave">
         <div class="playCont"
              ref="cdWrapper"
-             v-show="fullScreen"
-             @click="close">
+             v-show="fullScreen">
             <div class="adimg">
+                <div class="icons" @click="close"><img src="../../assets/images/big.png" alt=""></div>
                 <div class="cover" :style="{backgroundImage:  'url(' + song.url + ')',backgroundSize:'100% 100%',height:height,filter: 'blur(10px)'}"></div>
                 <div class="conts">
                     <div class="le">
                         <img :src="cz" alt="" class="cz" :class="[playerState? 'a':'b']">
-                        <div class="gp" :class="[playerState? 'a':'b']" :style="{backgroundImage:  'url(' + gp + ')',backgroundSize:'100%'}">
+                        <div class="gp"
+                             :style="[{backgroundImage:  'url(' + gp + ')',backgroundSize:'100%',transform: 'rotate('+rotate+'deg)'}]">
                             <img :src="song.url" alt="">
                         </div>
                     </div>
@@ -34,15 +35,29 @@
                     </div>
                 </div>
             </div>
-            <v-comment :hotList="hotList" :nweList="nweList" :total="total"></v-comment>
-        </div>
+            <div  class="commonCont">
+                <v-comment style="flex: 1;" :hotList="hotList" :nweList="nweList" :total="total"/>
 
+                <ul class="simi">
+                    <h3 class="simit">相似歌曲</h3>
+                    <li v-for="(list,index) in simi" class="simiList" @click="getId(list)">
+                        <div class="simsimg">
+                            <img :src="list.album.picUrl" alt="">
+                        </div>
+                        <div class="simscont">
+                            <p class="contname">{{list.name}}</p>
+                            <p class="albname">{{list.album.artists[0].name}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </transition>
 </template>
 
 <script>
     import animations from 'create-keyframe-animation'
-    import {mapState} from  'vuex'
+    import {mapState,mapActions,mapMutations} from  'vuex'
     import {homePage} from "../../api/homePage";
     import Lyric from '../../../../lyric'
     import Bus from '../../Bus'
@@ -93,11 +108,16 @@
                 nweList:[],
                 total:0,
                 limit:30,
+                simi:[],
+                songItem:{},
+                rotate: 0,
+                timer:null
             }
         },
         mounted(){
             this.height = document.documentElement.clientHeight + 'px'
             this. _getLyric()
+            this._getSimiSong()
             this._getHot(this.playerSrc,this.limit,0)
             Bus.$on('stop',cont => {
                 if(!cont){
@@ -126,14 +146,17 @@
                 'playerState',
                 'song'
             ]),
+
         },
         watch:{
             playerState(val){
-             if(!val){
-                 if(this.currentLyric){
-                     this.currentLyric.stop()
-                 }
-             }
+                val ? this.setRotate() : clearInterval(this.timer)
+                if(!val){
+                    if(this.currentLyric){
+
+                        this.currentLyric.stop()
+                    }
+                }
             },
             playerSrc(val,old){
                 if(val === old){
@@ -145,9 +168,42 @@
                 this.$nextTick(res => {
                     this._getLyric()
                 })
+                this.rotate = 0
+                clearInterval(this.timer)
+                this._getSimiSong()
+                this._getHot(this.playerSrc,this.limit,0)
             }
         },
         methods:{
+            ...mapActions([
+                'getSongUrl'
+            ]),
+            ...mapMutations({
+                getSongTime:'SONG_TIME',
+                getSong:'SONG_THIS'
+            }),
+            setRotate(){
+                this.timer = null
+                clearInterval(this.timer)
+                this.timer = setInterval(() => {
+                    this.rotate === 360? this.rotate = 0 : this.rotate ++
+                },30)
+            },
+            getId(item){
+                this.songItem ={
+                    name:item.name,
+                    url:item.album.blurPicUrl,
+                    art:item.artists[0].name
+                }
+                this.getSong(this.songItem)
+                this.getSongUrl(item.id)
+                this.getSongTime(item.bMusic.playTime)
+            },
+            _getSimiSong(){
+                headModel.getSimiSong(this.playerSrc).then(res => {
+                    this.simi = res.songs
+                })
+            },
             _getHot(id,limit,offset){
                 headModel.getCommoent(id,limit,offset).then((res) => {
                     this.hotList = res.hotComments
@@ -237,15 +293,76 @@
         right: 0;
         bottom: 0;
         top: 57px;
-        z-index: 10;
-        background: radial-gradient(closest-side, rgba(66,65,65,1) 0, rgba(0,0,0,1) 100%);
+        z-index: 2;
+        background: #000;
         background-position: 50% 50%;
         background-origin: padding-box;
         background-clip: border-box;
         height: 100%;
         overflow: scroll;
+        .commonCont{
+            padding: 20px 60px 100px;
+            display: flex;
+            max-width: 1024px;
+            margin: 0 auto;
+            .simi{
+                margin-left: 50px;
+                width: 200px;
+                margin-top: 30px;
+                .simit{
+                    color: #fff;
+                    border-bottom: 1px solid #292929;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                }
+                .simiList{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    .simsimg{
+                        width: 50px;
+                        height: 50px;
+                        img{
+                            display: block;
+                            max-width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .simscont{
+                        margin-left: 15px;
+                        p{
+                            font-size: 13px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            line-height: 2;
+                        }
+                        .contname{
+                            color: #fff;
+                        }
+                        .albname{
+                            color: #cecece;
+
+                        }
+                    }
+                }
+            }
+        }
         .adimg{
+            background: radial-gradient(closest-side, #424141 0, #000000 100%);
+            z-index: -1;
             position: relative;
+            .icons{
+                position: absolute;
+                right: 30px;
+                width: 20px;
+                height: 20px;
+                background: #3b3b3b;
+                top: 45px;
+                padding: 5px 10px;
+            }
             .cover{
                 opacity: .1;
                 position: absolute;
@@ -281,7 +398,6 @@
                     width: 330px;
                     height: 330px;
                     left: 100px;
-                    animation-fill-mode: forwards;
                     img{
                         width: 220px;
                         height: 220px;
@@ -293,7 +409,6 @@
                     }
                     &.b{
                         animation-play-state:paused;
-                        -webkit-animation-play-state:paused;
                     }
                 }
             }
@@ -337,14 +452,13 @@
                 }
             }
         }
-        @keyframes startRotate{
-            from{
-                transform: rotate(0deg);
-            }
-            to{
-                transform: rotate(360deg);
-            }
+
+
+        @keyframes startRotate {
+            from { transform: rotate(0) }
+            to { transform: rotate(360deg) }
         }
+
         &::-webkit-scrollbar{
             width: 10px;
             background: #16181C;

@@ -290,7 +290,7 @@ export class homePage{
             })
         })
     }
-    getVideoDetail(mvid){
+    getMvDetail(mvid){
         return new Promise((resolve, reject) => {
             instance.get('/mv/detail',{
                 params:{
@@ -335,13 +335,7 @@ export class homePage{
             })
         })
     }
-    getVideoGroup(){
-        return new Promise((resolve, reject) => {
-            instance.get('/top/mv').then((res) => {
-                resolve(res)
-            })
-        })
-    }
+
     isLike(id,like){
         return new Promise((resolve, reject) => {
             instance.get('/like',{
@@ -431,4 +425,93 @@ export class homePage{
             })
         })
     }
+    getSimiSong(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/simi/song',{
+                params:{
+                    id,
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getViedoGroup(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/video/group',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getVideoGroupList(){
+        return new Promise((resolve, reject) => {
+            instance.get('/video/group/list').then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getVideoUrl(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/video/url',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getVideoDetail(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/video/detail',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getVideoComment(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/comment/video',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getMvComment(id){
+        return new Promise((resolve, reject) => {
+            instance.get('/comment/mv',{
+                params:{
+                    id
+                }
+            }).then((res) => {
+                resolve(res)
+            })
+        })
+    }
+    getEvent (lasttime, pagesize) {
+        return new Promise(resolve => {
+            instance.get('/event', {
+                params: {
+                    lasttime,
+                    pagesize
+                }
+            }).then(res => {
+                resolve(res)
+            })
+        })
+    }
 }
+
+
+
+

@@ -8,8 +8,8 @@ const state = {
             "title":"推荐",
             item:[
                 {"icon":"fa-music",path:"/navs/found","name":"发现音乐",id:1,subscribed:false},
-                {"icon":"fa-podcast",path:"/navs/fm","name":"私人音乐",id:2,subscribed:false},
-                {"icon":"fa-videoer-camera",path:"/navs/moreMv","name":"视频",id:3,subscribed:false},
+                {"icon":"fa-heart",path:"/navs/fm","name":"朋友",id:2,subscribed:false},
+                {"icon":"fa-clipboard",path:"/navs/moreMv","name":"视频",id:3,subscribed:false},
             ]
         }
     ],//菜单渲染

@@ -147,7 +147,7 @@
                 background: #fff;
                 position: absolute;
                 right: -10px;
-                top: -3px;
+                top: -4px;
                 &:before{
                     content: "";
                     position: absolute;

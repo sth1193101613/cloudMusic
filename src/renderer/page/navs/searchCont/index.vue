@@ -1,3 +1,4 @@
+
 <template>
     <div class="search-tab" style="padding: 0">
         <ul class="tab-menu">
@@ -12,7 +13,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-
     import song from './songs'
     import singer from './singer'
     import vidoer from './vidoer'

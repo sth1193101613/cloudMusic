@@ -143,7 +143,7 @@
                     this.$refs.audio.play();
                 }, 50);
             },
-            add(type){
+            add(){
                 Bus.$emit('remove')
                 this.addSong()
                 if(this.playerIndexSet > this.list.length-1){

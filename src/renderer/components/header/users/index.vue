@@ -17,7 +17,7 @@
                 </p>
                 <p @click="foll(1,userInfo.profile.nickname)">
                     <span class="num">{{userInfo.profile.follows}}</span>
-                    <span class="name" @click="">关注</span>
+                    <span class="name">关注</span>
                 </p>
                 <p @click="foll(2,userInfo.profile.nickname)">
                     <span class="num">{{userInfo.profile.followeds}}</span>
@@ -95,6 +95,7 @@
                 headerModel.dailySignin().then((res) => {})
             },
             foll(type,name){
+                this.$emit('closeUser',false)
                 this.$router.push({
                     path:'/navs/flow',
                     query:{

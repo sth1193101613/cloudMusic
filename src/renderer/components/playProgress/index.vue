@@ -120,7 +120,7 @@
                     height: 5px;
                     .progress-btn{
                         position: relative;
-                        top: 0px;
+                        top: 1px;
                         left: 5px;
                         box-sizing: border-box;
                         width: 12px;

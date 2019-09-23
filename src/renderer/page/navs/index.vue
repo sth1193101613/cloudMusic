@@ -25,9 +25,9 @@
                 <p class="artname">{{song.art}}</p>
             </div>
         </div>
-        <div @scroll="scroll" class="scroll">
+        <div class="scroll">
             <keep-alive>
-                <router-view class="count" ref="scroll" :key="$route.fullPath"></router-view>
+                <router-view class="count" ref="scroll" :key="$route.fullPath" :style="{height:height+ 'px'}"></router-view>
             </keep-alive>
         </div>
         <v-player></v-player>
@@ -76,13 +76,8 @@
                 this.GroupId = id
             },
             clientHeight(){
-                this.height = document.documentElement.clientHeight
+                this.height = document.documentElement.clientHeight - (50 + 57 + 50)
             },
-            scroll(e){
-                if(e.srcElement.scrollTop+e.srcElement.offsetHeight>e.srcElement.scrollHeight-100){
-                    Bus.$emit('scrollBottom',true)
-                }
-            }
         },
         mounted(){
             this.clientHeight()

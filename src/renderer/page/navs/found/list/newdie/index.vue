@@ -3,7 +3,7 @@
         <ul class="albums-ul">
             <li v-for="(alm,index) in albums" class="albums-item">
               <div class="cont">
-                  <img :src="alm.picUrl" alt="">
+                  <img v-lazy="alm.picUrl" alt="">
                   <a href="#" class="back"></a>
               </div>
                 <p class="comp">{{alm.company}}</p>

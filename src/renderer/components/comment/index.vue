@@ -51,6 +51,7 @@
                 </ul>
             </div>
             <el-pagination
+                    style="text-align: center"
                     background
                     layout="prev, pager, next"
                     :total="total"
@@ -138,7 +139,6 @@
 
 <style lang="less" rel="stylesheet/less">
     .commit{
-        padding: 20px 60px;
         .top{
             margin-top: 38px;
             color: #fff;
