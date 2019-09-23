@@ -11,11 +11,14 @@ instance.interceptors.request.use((config) => {
   }
   return config;
 }, (error) => {
-  return Promise.reject(error);
+
+  return Promise.reject(error)
 })
 instance.interceptors.response.use((res) => {
   if(res.data.code === 200){
     return res.data
   }
+}, (error) => {
+  return Promise.reject(error)
 })
 export default instance

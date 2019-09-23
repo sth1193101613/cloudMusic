@@ -144,7 +144,7 @@
                 getSong:'SONG_THIS'
             }),
             brightenKeyword(val, keyword) {
-                const Reg = new RegExp(keyword, 'i');
+                let Reg = new RegExp(keyword, 'i');
                 if (val) {
                     return val.replace(Reg, `<span style="color: #409EFF;">${keyword}</span>`);
                 }

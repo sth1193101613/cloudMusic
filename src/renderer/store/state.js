@@ -23,7 +23,7 @@ const state = {
 }
 
 let playerTime = localStorage.getItem('playerTime')
-if(localStorage.getItem('playerTime')){
+if(localStorage.getItem('playerTime')) {
     state.playerTime = localStorage.getItem('playerTime')
 }else{
     localStorage.setItem('playerTime',playerTime)
@@ -56,7 +56,6 @@ if (localStorage.getItem('userInfo')){
 } else {
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
 }
-
 
 let id = localStorage.getItem('id')
 if (localStorage.getItem('id')) {
